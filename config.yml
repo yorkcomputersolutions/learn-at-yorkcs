@@ -1,0 +1,80 @@
+baseURL: https://learn.yorkcs.com/
+languageCode: en-us
+title: Learn @ York Computer Solutions LLC
+theme: "PaperMod"
+
+enableInlineShortcodes: true
+enableRobotsTXT: true
+googleAnalytics: UA-86666822-6
+
+buildDrafts: false
+buildFuture: false
+buildExpired: false
+
+relativeURLS: true
+
+outputs:
+  home:
+    - HTML
+    - RSS
+    - JSON
+
+paginate: 10
+paginatePath: blog
+
+minify:
+  disableXML: true
+  minifyOutput: true
+
+params:
+  env: production # to enable google analytics, opengraph, twitter-cards and schema.
+  description: ""
+  author: York Computer Solutions LLC
+  # author: ["Me", "You"] # multiple authors
+  ShowPostNavLinks: true
+  defaultTheme: auto
+  disableThemeToggle: false
+  ShowShareButtons: true
+  ShowReadingTime:
+    true
+    # disableSpecial1stPost: true
+  displayFullLangName: true
+  comments: true
+  images: ["/index/logo-one-color-512.webp"]
+
+  profileMode:
+    enabled: true
+    title: Learn @ York Computer Solutions LLC # optional default will be site title
+    subtitle: "Providing free to the end user IT tutorials, in addition to premium IT courses."
+    homeInfo: "Please get in touch to access downloads from old website at *learn@yorkcs.com*."
+    imageUrl: "/index/logo-one-color-512.webp" # optional
+    imageTitle: "York Computer Solutions' profile picture" # optional
+    imageWidth: 320 # custom size
+    imageHeight: 69 # custom size
+
+    buttons:
+      - { name: Tutorials, url: "/posts" }
+
+taxonomies:
+  category: categories
+  series: series
+  tag: tags
+
+menu:
+  main:
+    # - identifier: resume
+    #   name: resume
+    #   url: <URL> here
+    #   weight: 6
+    - identifier: blog
+      name: Blog
+      url: /posts
+      weight: 7
+    - indentifier: series
+      name: Series
+      url: /series/
+      weight: 20
+    - identifier: categories
+      name: Categories
+      url: /categories/
+      weight: 10
