@@ -89,31 +89,41 @@ Having to run these five commands may be a little daunting, but don&#8217;t worr
 
 Now that your terminal is open, type in:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="generic" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">sudo apt-get update</pre><figure class="wp-block-image">
+_sudo apt-get update_
+
+<figure class="wp-block-image">
 
 <img loading="lazy" width="982" height="644" src="https://learn.yorkcs.com/wp-content/uploads/2019/07/terminal-apt-update.jpg" alt="" class="wp-image-3027" /> </figure> 
 
 Now that we have a refreshed list of packages, next we can update our existing packages to the new versions that we&#8217;ve retrieved. We can update our packages by typing:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="generic" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">sudo apt-get upgrade</pre><figure class="wp-block-image">
+_sudo apt-get upgrade_
+
+<figure class="wp-block-image">
 
 <img loading="lazy" width="982" height="644" src="https://learn.yorkcs.com/wp-content/uploads/2019/07/terminal-apt-upgrade.jpg" alt="" class="wp-image-3028" /> </figure> 
 
 Occasionally, we will also want to update the Linux kernel. This is actually a very important step to do. Kernel updates provide fixes to loopholes, exploits, better hardware compatibility, increased speed, and other new features. It&#8217;s generally recommended that you use your terminal to upgrade your Linux kernel instead of manually downloading the latest and installing. If you try to install the absolute latest kernel, there&#8217;s a good chance your graphics drivers, and many of your other applications will break. This is why it&#8217;s good to upgrade to the kernel your distribution recommends via the command:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="generic" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">sudo apt-get dist-upgrade</pre><figure class="wp-block-image">
+_sudo apt-get dist-upgrade_
+
+<figure class="wp-block-image">
 
 <img loading="lazy" width="982" height="644" src="https://learn.yorkcs.com/wp-content/uploads/2019/07/terminal-apt-dist-upgrade.jpg" alt="" class="wp-image-3029" /> </figure> 
 
 After upgrading our packages, we will want to get rid of packages that are no longer needed by the newest releases of the software we have installed. We can run the following command to do so:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="generic" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">sudo apt-get autoremove</pre><figure class="wp-block-image">
+_sudo apt-get autoremove_
+
+<figure class="wp-block-image">
 
 <img loading="lazy" width="982" height="644" src="https://learn.yorkcs.com/wp-content/uploads/2019/07/terminal-apt-autoremove.jpg" alt="" class="wp-image-3032" /> </figure> 
 
 After you&#8217;ve been running the _sudo apt-get update_ command a bunch of times, you might want to clear out the old temporary package files. These files can build up as you install and upgrade packages. We can clean out the old package files with the command:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="generic" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">sudo apt-get clean</pre><figure class="wp-block-image">
+_sudo apt-get clean_
+
+<figure class="wp-block-image">
 
 <img loading="lazy" width="982" height="644" src="https://learn.yorkcs.com/wp-content/uploads/2019/07/terminal-apt-clean-2.jpg" alt="" class="wp-image-3034" /> </figure> 
 

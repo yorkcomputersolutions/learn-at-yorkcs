@@ -70,7 +70,8 @@ tags:
 ---
 Now that we’re done with the classes for our game object’s, let’s create one more class for our menu buttons. &nbsp;Add a new class named _MenuButton.cs_. &nbsp;In that class, add the usual two using statements. &nbsp;This class does not need to extend anything. Next, add the following fields and properties:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="csharp" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">private Game1 game;
+{{<highlight cs>}}
+private Game1 game;
 private Vector2 position;
 private Texture2D texDefault;
 private Texture2D texOnDown;
@@ -81,11 +82,13 @@ public Rectangle boundingBox;
 public bool isActive { get; set; }
 public bool lastIsDown = false;
 private bool _isDown = false;
-private bool _isHovered = false;</pre>
+private bool _isHovered = false;
+{{</highlight>}}
 
 Then we will add two methods for setting whether the button is pushed down or not, and whether the mouse is hovering over the button or not. &nbsp;In addition we will be adding a third method to update the texture of the button:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="csharp" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">public void SetDown(bool isDown)
+{{<highlight cs>}}
+public void SetDown(bool isDown)
 {
 	if (!_isDown && isDown)
 	{
@@ -123,11 +126,13 @@ private void ChangeTexture()
         	currentTexture = texDefault;
     	}
 	}
-}</pre>
+}
+{{</highlight>}}
 
 After that, let’s add our constructor:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="csharp" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">public MenuButton(Game1 game, Vector2 position, Texture2D texDefault, Texture2D texOnDown, Texture2D texOnHover)
+{{<highlight cs>}}
+public MenuButton(Game1 game, Vector2 position, Texture2D texDefault, Texture2D texOnDown, Texture2D texOnHover)
 {
 	this.game = game;
 	this.position = position;
@@ -136,67 +141,90 @@ After that, let’s add our constructor:
 	this.texOnHover = texOnHover;
 	currentTexture = this.texDefault;
 	boundingBox = new Rectangle((int)position.X, (int)position.Y, this.texDefault.Width, this.texDefault.Height);
-}</pre>
+}
+{{</highlight>}}
 
 Finally, we can conclude _MenuButton.cs_ with the _Draw_ method:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="csharp" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">public void Draw(SpriteBatch spriteBatch)
+{{<highlight cs>}}
+public void Draw(SpriteBatch spriteBatch)
 {
 	if (isActive)
 	{
     		spriteBatch.Draw(currentTexture, position, Color.White);
 	}
-}</pre>
+}
+{{</highlight>}}
 
 At this point, we can hop back over to _Game1.cs_. &nbsp;In _Game1.cs_, right under where we set the current game state, add the following:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="csharp" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">private KeyboardState keyState = Keyboard.GetState();</pre>
+{{<highlight cs>}}
+private KeyboardState keyState = Keyboard.GetState();
+{{</highlight>}}
 
 The above line is used for the movement logic. &nbsp;After this line, we will want to define two menu buttons for the play button and the restart button:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="csharp" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">private MenuButton playButton;
-private MenuButton restartButton;</pre>
+{{<highlight cs>}}
+private MenuButton playButton;
+private MenuButton restartButton;
+{{</highlight>}}
 
 Then, we will add several lists for keeping track of explosions, enemies, lasers, and the like:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="csharp" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">private List&lt;Explosion> explosions = new List&lt;Explosion>();
-private List&lt;Enemy> enemies = new List&lt;Enemy>();
-private List&lt;EnemyLaser> enemyLasers = new List&lt;EnemyLaser>();
-private List&lt;PlayerLaser> playerLasers = new List&lt;PlayerLaser>();
+{{<highlight cs>}}
+private List<Explosion> explosions = new List<Explosion>();
+private List<Enemy> enemies = new List<Enemy>();
+private List<EnemyLaser> enemyLasers = new List<EnemyLaser>();
+private List<PlayerLaser> playerLasers = new List<PlayerLaser>();
 private Player player = null;
-private ScrollingBackground scrollingBackground;</pre>
+private ScrollingBackground scrollingBackground;
+{{</highlight>}}
 
 Next, let’s add two lines for the restart timer, which will be used when the player is destroyed:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="csharp" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">private int restartDelay = 60 * 2;
-private int restartTick = 0;</pre>
+{{<highlight cs>}}
+private int restartDelay = 60 * 2;
+private int restartTick = 0;
+{{</highlight>}}
 
 After that, we need to add two more lines for the enemy spawner timer:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="csharp" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">private int spawnEnemyDelay = 60;
-private int spawnEnemyTick = 0;</pre>
+{{<highlight cs>}}
+private int spawnEnemyDelay = 60;
+private int spawnEnemyTick = 0;
+{{</highlight>}}
 
 Then, let’s write two more lines for the player shoot timer:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="csharp" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">private int playerShootDelay = 15;
-private int playerShootTick = 0;</pre>
+{{<highlight cs>}}
+private int playerShootDelay = 15;
+private int playerShootTick = 0;
+{{</highlight>}}
 
 In the Initialize method of _Game.cs_, we can set the mouse to be visible when you move it over the game window:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="csharp" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">IsMouseVisible = true;</pre>
+{{<highlight cs>}}
+IsMouseVisible = true;
+{{</highlight>}}
 
 We can also set the width and height of the game window:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="csharp" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">graphics.PreferredBackBufferWidth = 480;
-graphics.PreferredBackBufferHeight = 640;</pre>
+{{<highlight cs>}}
+graphics.PreferredBackBufferWidth = 480;
+graphics.PreferredBackBufferHeight = 640;
+{{</highlight>}}
 
 Finally, we have to apply the changes in order for these properties to take effect.
 
-<pre class="EnlighterJSRAW" data-enlighter-language="csharp" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">graphics.ApplyChanges();</pre>
+{{<highlight cs>}}
+graphics.ApplyChanges();
+{{</highlight>}}
 
 Let’s take another look at the _LoadContent_ method. &nbsp;At the bottom after we load our SpriteFont, add the following few lines to instantiate our scrolling background, create our menu buttons, and change the game scene to the main menu:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="csharp" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">scrollingBackground = new ScrollingBackground(texBgs);
+{{<highlight cs>}}
+scrollingBackground = new ScrollingBackground(texBgs);
+{{</highlight>}}
 
 
 playButton = new MenuButton(this, new Vector2(graphics.PreferredBackBufferWidth * 0.5f - (int)(texBtnPlay.Width * 0.5), graphics.PreferredBackBufferHeight * 0.5f), texBtnPlay, texBtnPlayDown, texBtnPlayHover);
@@ -207,13 +235,16 @@ changeGameState(GameState.MainMenu);</pre>
 
 Let’s take another look at the _Update_ method. &nbsp;Right after “TODO: Add your update logic here,” but before the switch statement, add:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="csharp" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">keyState = Keyboard.GetState();
+{{<highlight cs>}}
+keyState = Keyboard.GetState();
 
-scrollingBackground.Update(gameTime);</pre>
+scrollingBackground.Update(gameTime);
+{{</highlight>}}
 
 Next, let’s fill in the _UpdateMainMenu_ method. &nbsp;Pretty much, all we’re doing in this method is to update the menu button state depending on the mouse state and position. &nbsp;If the mouse moves over the player button, it will play the hover sound and display the hover texture. If the mouse button is pressed while the mouse is over the play button, the button down sound will play and the corresponding texture will be show. &nbsp;Let’s add the following to _UpdateMainMenu_:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="csharp" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">if (playButton.isActive)
+{{<highlight cs>}}
+if (playButton.isActive)
 {
 	MouseState mouseState = Mouse.GetState();
 
@@ -246,11 +277,13 @@ Next, let’s fill in the _UpdateMainMenu_ method. &nbsp;Pretty much, all we’r
 else
 {
 	playButton.isActive = true;
-}</pre>
+}
+{{</highlight>}}
 
 I’ll give a brief rundown what we’ll be doing in the _UpdateGameplay_ method. &nbsp;If the player doesn’t exist yet (when the game starts), we create an instance of it and assign it to the player field. &nbsp;At the same time we will be updating the restart timer. After that we update the player’s movement (via the keyboard checks). &nbsp;Then we restrict the player position to the bounds of the screen. We also want to update all of the game object lists, as well as check for collisions. &nbsp;Let’s start by the initial check testing whether the player is null or not. Add the following to the _UpdateGameplay_ method:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="csharp" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">if (player == null) {
+{{<highlight cs>}}
+if (player == null) {
 	player = new Player(texPlayer, new Vector2(graphics.PreferredBackBufferWidth * 0.5f, graphics.PreferredBackBufferHeight * 0.5f));
 }
 else {
@@ -258,7 +291,7 @@ else {
 
 if (player.isDead())
 {
-	if (restartTick &lt; restartDelay)
+	if (restartTick < restartDelay)
 	{
     	restartTick++;
 	}
@@ -288,7 +321,7 @@ else
 	}
 	if (keyState.IsKeyDown(Keys.Space))
 	{
-    	if (playerShootTick &lt; playerShootDelay)
+    	if (playerShootTick < playerShootDelay)
     	{
         	playerShootTick++;
     	}
@@ -306,25 +339,27 @@ player.Update(gameTime);
 
 player.position.X = MathHelper.Clamp(player.position.X, 0, graphics.PreferredBackBufferWidth - player.body.boundingBox.Width);
 player.position.Y = MathHelper.Clamp(player.position.Y, 0, graphics.PreferredBackBufferHeight - player.body.boundingBox.Height);
-}</pre>
+}
+{{</highlight>}}
 
 After this check, we will be updating entity positions:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="csharp" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">/**
+{{<highlight cs>}}
+/**
 * UPDATE ENTITY POSITIONS
 **/
-for (int i = 0; i &lt; playerLasers.Count; i++)
+for (int i = 0; i < playerLasers.Count; i++)
 {
 	playerLasers[i].Update(gameTime);
 
-	if (playerLasers[i].position.Y &lt; 0)
+	if (playerLasers[i].position.Y < 0)
 	{
     	playerLasers.Remove(playerLasers[i]);
     	continue;
 	}
 }
 
-for (int i = 0; i &lt; enemyLasers.Count; i++)
+for (int i = 0; i < enemyLasers.Count; i++)
 {
 	enemyLasers[i].Update(gameTime);
 
@@ -350,7 +385,7 @@ for (int i = 0; i &lt; enemyLasers.Count; i++)
            	 
 }
 
-for (int i = 0; i &lt; enemies.Count; i++)
+for (int i = 0; i < enemies.Count; i++)
 {
 	enemies[i].Update(gameTime);
 
@@ -383,7 +418,7 @@ for (int i = 0; i &lt; enemies.Count; i++)
         	{
             	ChaserShip enemy = (ChaserShip)enemies[i];
 
-            	if (Vector2.Distance(enemies[i].position, player.position + player.destOrigin) &lt; 320)
+            	if (Vector2.Distance(enemies[i].position, player.position + player.destOrigin) < 320)
             	{
                 		enemy.SetState(ChaserShip.States.CHASE);
             	}
@@ -396,7 +431,7 @@ for (int i = 0; i &lt; enemies.Count; i++)
                 	float speed = 3;
                 	enemy.body.velocity = direction * speed;
 
-                	if (enemy.position.X + (enemy.destOrigin.X) &lt; player.position.X + (player.destOrigin.X))
+                	if (enemy.position.X + (enemy.destOrigin.X) < player.position.X + (player.destOrigin.X))
                 	{
                     	enemy.angle = enemy.angle - 5;
                 	}
@@ -415,7 +450,7 @@ for (int i = 0; i &lt; enemies.Count; i++)
 	}
 }
 
-for (int i = 0; i &lt; explosions.Count; i++)
+for (int i = 0; i < explosions.Count; i++)
 {
 	explosions[i].Update(gameTime);
 
@@ -423,14 +458,16 @@ for (int i = 0; i &lt; explosions.Count; i++)
 	{
     	explosions.Remove(explosions[i]);
 	}
-}</pre>
+}
+{{</highlight>}}
 
 We also want to add a collision check testing if each player laser has collided with an enemy:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="csharp" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">for (int i = 0; i &lt; playerLasers.Count; i++)
+{{<highlight cs>}}
+for (int i = 0; i < playerLasers.Count; i++)
 {
     bool shouldDestroyLaser = false;
-    for (int j = 0; j &lt; enemies.Count; j++)
+    for (int j = 0; j < enemies.Count; j++)
     {
         if (playerLasers[i].body.boundingBox.Intersects(enemies[j].body.boundingBox))
         {
@@ -454,12 +491,14 @@ We also want to add a collision check testing if each player laser has collided 
     {
         playerLasers.Remove(playerLasers[i]);
     }
-}</pre>
+}
+{{</highlight>}}
 
 Finally, we want to add some logic for the enemy spawn timer. &nbsp;We will be selecting a random enemy to spawn, then we add the instance to the enemies list. &nbsp;Add the following code to conclude our _UpdateGameplay_ method:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="csharp" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">// Enemy spawning
-if (spawnEnemyTick &lt; spawnEnemyDelay)
+{{<highlight cs>}}
+// Enemy spawning
+if (spawnEnemyTick < spawnEnemyDelay)
 {
 	spawnEnemyTick++;
 }
@@ -467,7 +506,7 @@ else
 {
 	Enemy enemy = null;
            	 
-	if (randInt(0, 10) &lt;= 3)
+	if (randInt(0, 10) <= 3)
 	{
     	Vector2 spawnPos = new Vector2(randFloat(0, graphics.PreferredBackBufferWidth), -128);
     	enemy = new GunShip(texEnemies[0], spawnPos, new Vector2(0, randFloat(1, 3)));
@@ -486,11 +525,13 @@ else
 	enemies.Add(enemy);
 
 	spawnEnemyTick = 0;
-}</pre>
+}
+{{</highlight>}}
 
 Now, we can move on to the _UpdateGameOver_ method! &nbsp;This method will be very similar to the _UpdateMainMenu_ method, but we’ll be dealing with the restart button instead of the play button. &nbsp;In the _UpdateGameOver_ method, add:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="csharp" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">if (restartButton.isActive)
+{{<highlight cs>}}
+if (restartButton.isActive)
 {
 	MouseState mouseState = Mouse.GetState();
 
@@ -523,19 +564,23 @@ Now, we can move on to the _UpdateGameOver_ method! &nbsp;This method will be ve
 else
 {
 	restartButton.isActive = true;
-}</pre>
+}
+{{</highlight>}}
 
 Next, in the _resetGameplay_ method, we will be setting the player to not be dead, then reset the player position. &nbsp;In the _resetGameplay_ method, add the following:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="csharp" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">if (player != null)
+{{<highlight cs>}}
+if (player != null)
 {
 	player.setDead(false);
 	player.position = new Vector2((int)(graphics.PreferredBackBufferWidth * 0.5), (int)(graphics.PreferredBackBufferHeight * 0.5));
-}</pre>
+}
+{{</highlight>}}
 
 Then, in the _changeGameState_ method, we want to clear all of the lists of game objects, call _resetGameplay_, then change the state. &nbsp;Add the following to _changeGameState_:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="csharp" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">playButton.isActive = false;
+{{<highlight cs>}}
+playButton.isActive = false;
 restartButton.isActive = false;
 explosions.Clear();
 enemies.Clear();
@@ -543,37 +588,43 @@ playerLasers.Clear();
 enemyLasers.Clear();
 resetGameplay();
 
-_gameState = gameState;</pre>
+_gameState = gameState;
+{{</highlight>}}
 
 We have to make one quick addition to the _Draw_ method, which is to add the draw call for the scrolling background. &nbsp;Between the _spriteBatch.Begin_ call and the switch statement, let’s add this line:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="csharp" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">scrollingBackground.Draw(spriteBatch);</pre>
+{{<highlight cs>}}
+scrollingBackground.Draw(spriteBatch);
+{{</highlight>}}
 
 Now we can move on to the draw methods for our game states. &nbsp;Let’s start with the main menu. In the _DrawMainMenu_ method, add the following:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="csharp" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">string title = "SPACE SHOOTER";
+{{<highlight cs>}}
+string title = "SPACE SHOOTER";
 spriteBatch.DrawString(fontArial, title, new Vector2(graphics.PreferredBackBufferWidth * 0.5f - (fontArial.MeasureString(title).X * 0.5f), graphics.PreferredBackBufferHeight * 0.2f), Color.White);
 
-playButton.Draw(spriteBatch);</pre>
+playButton.Draw(spriteBatch);
+{{</highlight>}}
 
 After that, in the _DrawGameplay_ method, add the following to draw each object in our lists of game objects:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="csharp" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">for (int i = 0; i &lt; enemies.Count; i++)
+{{<highlight cs>}}
+for (int i = 0; i < enemies.Count; i++)
 {
 	enemies[i].Draw(spriteBatch);
 }
 
-for (int i = 0; i &lt; playerLasers.Count; i++)
+for (int i = 0; i < playerLasers.Count; i++)
 {
 	playerLasers[i].Draw(spriteBatch);
 }
 
-for (int i = 0; i &lt; enemyLasers.Count; i++)
+for (int i = 0; i < enemyLasers.Count; i++)
 {
 	enemyLasers[i].Draw(spriteBatch);
 }
 
-for (int i = 0; i &lt; explosions.Count; i++)
+for (int i = 0; i < explosions.Count; i++)
 {
 	explosions[i].Draw(spriteBatch);
 }
@@ -581,14 +632,17 @@ for (int i = 0; i &lt; explosions.Count; i++)
 if (player != null)
 {
 	player.Draw(spriteBatch);
-}</pre>
+}
+{{</highlight>}}
 
 Finally, in the _DrawGameOver_ method, add the following to draw the elements on the game over game state:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="csharp" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">string title = "GAME OVER";
+{{<highlight cs>}}
+string title = "GAME OVER";
 spriteBatch.DrawString(fontArial, title, new Vector2(graphics.PreferredBackBufferWidth * 0.5f - (fontArial.MeasureString(title).X * 0.5f), graphics.PreferredBackBufferHeight * 0.2f), Color.White);
 
-restartButton.Draw(spriteBatch);</pre>
+restartButton.Draw(spriteBatch);
+{{</highlight>}}
 
 And that concludes this course! &nbsp;If you have any questions, comments, or general feedback, I’d love to hear it. &nbsp;You can email me at <jared.york@yorkcs.com>, or tweet me at [@jaredyork_][1].  
 

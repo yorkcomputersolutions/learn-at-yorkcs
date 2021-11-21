@@ -72,18 +72,21 @@ tags:
 ---
 The last two classes we’ll add will be devoted to the scrolling background system. &nbsp;Create a new class, and name it _ScrollingBackground.cs_. &nbsp;This class **does not** __need to inherit anything. &nbsp;It will still need the two usual using statements. &nbsp;We will want to add two fields containing background textures and layers:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="csharp" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">private List&lt;Texture2D> textures = new List&lt;Texture2D>();
-private List&lt;ScrollingBackgroundLayer> layers = new List&lt;ScrollingBackgroundLayer>();</pre>
+{{<highlight cs>}}
+private List<Texture2D> textures = new List<Texture2D>();
+private List<ScrollingBackgroundLayer> layers = new List<ScrollingBackgroundLayer>();
+{{</highlight>}}
 
 The step is to add the constructor. &nbsp;We will be creating a vertical “stack” of three backgrounds, but we’ll be creating two more layers of backgrounds on top. &nbsp;This will allow us to have a buffer of backgrounds that will display as the layers before move off screen. This is how we can scroll the backgrounds. &nbsp;Let’s add the constructor:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="csharp" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">public ScrollingBackground(List&lt;Texture2D> textures)
+{{<highlight cs>}}
+public ScrollingBackground(List<Texture2D> textures)
 {
 	this.textures = textures;
 
-	for (int i = -1; i &lt; 2; i++) // position indexes
+	for (int i = -1; i < 2; i++) // position indexes
 	{
-    	for (int j = 0; j &lt; 3; j++) { // 3 layers
+    	for (int j = 0; j < 3; j++) { // 3 layers
         	Texture2D texture = textures[Game1.randInt(0, textures.Count - 1)];
         	Vector2 position = new Vector2(0, texture.Height * i);
         	Vector2 velocity = new Vector2(0, (j + 1) * 0.2f);
@@ -91,23 +94,27 @@ The step is to add the constructor. &nbsp;We will be creating a vertical “stac
         	layers.Add(layer);
     	}
 	}
-}</pre>
+}
+{{</highlight>}}
 
 It’s time to add the more complicated part. &nbsp;Let’s first define our _Update_ method:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="csharp" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">public void Update(GameTime gameTime) {
+{{<highlight cs>}}
+public void Update(GameTime gameTime) {
 
 
-}</pre>
+}
+{{</highlight>}}
 
 In the _Update_ method, the first thing we’ll want to do is sort each background by depth. &nbsp;We will then put the layer in the list of it’s corresponding depth. Add the following to start our _Update_ method:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="csharp" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">List&lt;ScrollingBackgroundLayer> layersDepth0 = new List&lt;ScrollingBackgroundLayer>();
-List&lt;ScrollingBackgroundLayer> layersDepth1 = new List&lt;ScrollingBackgroundLayer>();
-List&lt;ScrollingBackgroundLayer> layersDepth2 = new List&lt;ScrollingBackgroundLayer>();
-List&lt;ScrollingBackgroundLayer> layersToReset = new List&lt;ScrollingBackgroundLayer>();
+{{<highlight cs>}}
+List<ScrollingBackgroundLayer> layersDepth0 = new List<ScrollingBackgroundLayer>();
+List<ScrollingBackgroundLayer> layersDepth1 = new List<ScrollingBackgroundLayer>();
+List<ScrollingBackgroundLayer> layersDepth2 = new List<ScrollingBackgroundLayer>();
+List<ScrollingBackgroundLayer> layersToReset = new List<ScrollingBackgroundLayer>();
        	 
-for (int i = 0; i &lt; layers.Count; i++)
+for (int i = 0; i < layers.Count; i++)
 {
 	layers[i].Update(gameTime);
 
@@ -131,16 +138,18 @@ for (int i = 0; i &lt; layers.Count; i++)
             	break;
         	}
 	}
-}</pre>
+}
+{{</highlight>}}
 
 Next, we will have to iterate through each depth list and check if the first background is more than Y coordinate zero. &nbsp;We don’t want to run out of backgrounds so we will reset the position of each layer in the corresponding depth. Let’s add some more code to the _Update_ function:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="csharp" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">bool resetLayersDepth0 = false;
+{{<highlight cs>}}
+bool resetLayersDepth0 = false;
 bool resetLayersDepth1 = false;
 bool resetLayersDepth2 = false;
 
 // Loop through layers in depth 0
-for (int i = 0; i &lt; layersDepth0.Count; i++)
+for (int i = 0; i < layersDepth0.Count; i++)
 {
 	if (layersDepth0[i].positionIndex == -1)
 	{
@@ -152,7 +161,7 @@ for (int i = 0; i &lt; layersDepth0.Count; i++)
 }
 
 // Loop through layers in depth 1
-for (int i = 0; i &lt; layersDepth1.Count; i++)
+for (int i = 0; i < layersDepth1.Count; i++)
 {
 	if (layersDepth1[i].positionIndex == -1)
 	{
@@ -164,7 +173,7 @@ for (int i = 0; i &lt; layersDepth1.Count; i++)
 }
 
 // Loop through layers in depth 2
-for (int i = 0; i &lt; layersDepth2.Count; i++)
+for (int i = 0; i < layersDepth2.Count; i++)
 {
 	if (layersDepth2[i].positionIndex == -1)
 	{
@@ -177,7 +186,7 @@ for (int i = 0; i &lt; layersDepth2.Count; i++)
 
 if (resetLayersDepth0)
 {
-	for (int i = 0; i &lt; layersDepth0.Count; i++)
+	for (int i = 0; i < layersDepth0.Count; i++)
 	{
     		layersDepth0[i].position = layersDepth0[i].initialPosition;
 	}
@@ -185,7 +194,7 @@ if (resetLayersDepth0)
 
 if (resetLayersDepth1)
 {
-	for (int i = 0; i &lt; layersDepth1.Count; i++)
+	for (int i = 0; i < layersDepth1.Count; i++)
 	{
     		layersDepth1[i].position = layersDepth1[i].initialPosition;
 	}
@@ -193,34 +202,40 @@ if (resetLayersDepth1)
 
 if (resetLayersDepth2)
 {
-	for (int i = 0; i &lt; layersDepth2.Count; i++)
+	for (int i = 0; i < layersDepth2.Count; i++)
 	{
     		layersDepth2[i].position = layersDepth2[i].initialPosition;
 	}
-}</pre>
+}
+{{</highlight>}}
 
 Last, we will add the _Draw_ function, which will call the _Draw_ method of each layer:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="csharp" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">public void Draw(SpriteBatch spriteBatch)
+{{<highlight cs>}}
+public void Draw(SpriteBatch spriteBatch)
 {
-	for (int i = 0; i &lt; layers.Count; i++)
+	for (int i = 0; i < layers.Count; i++)
 	{
     		layers[i].Draw(spriteBatch);
 	}
-}</pre>
+}
+{{</highlight>}}
 
 The last class we need to add will represent a scrolling background layer. &nbsp;Create a new class and call it _ScrollingBackgroundLayer.cs_. &nbsp;This class will need to extend _Entity_. &nbsp;Make sure to add the two usual using statements. We will also have to add several fields:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="csharp" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">private ScrollingBackground scrollingBackground;
+{{<highlight cs>}}
+private ScrollingBackground scrollingBackground;
 private Texture2D texture;
 public Texture2D getTexture() { return texture; }
 public int depth = 0;
 public int positionIndex = 0;
-public Vector2 initialPosition;</pre>
+public Vector2 initialPosition;
+{{</highlight>}}
 
 Let’s add the following constructor:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="csharp" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">public ScrollingBackgroundLayer(ScrollingBackground scrollingBackground, Texture2D texture, int depth, int positionIndex, Vector2 position, Vector2 velocity) : base()
+{{<highlight cs>}}
+public ScrollingBackgroundLayer(ScrollingBackground scrollingBackground, Texture2D texture, int depth, int positionIndex, Vector2 position, Vector2 velocity) : base()
 {
 	this.scrollingBackground = scrollingBackground;
 	this.texture = texture;
@@ -229,21 +244,26 @@ Let’s add the following constructor:
 	this.position = position;
 	initialPosition = this.position;
 	body.velocity = velocity;
-}</pre>
+}
+{{</highlight>}}
 
 Then we will need to add the usual _Update_ method:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="csharp" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">public new void Update(GameTime gameTime)
+{{<highlight cs>}}
+public new void Update(GameTime gameTime)
 {
 	base.Update(gameTime);
-}</pre>
+}
+{{</highlight>}}
 
 Finally, we’ll add the _Draw_ method, which will draw the background layer when called:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="csharp" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">public void Draw(SpriteBatch spriteBatch)
+{{<highlight cs>}}
+public void Draw(SpriteBatch spriteBatch)
 {
 	spriteBatch.Draw(texture, position, Color.White);
-}</pre>
+}
+{{</highlight>}}
 
 Let&#8217;s move on to [part six][1] where we finish up our game.
 

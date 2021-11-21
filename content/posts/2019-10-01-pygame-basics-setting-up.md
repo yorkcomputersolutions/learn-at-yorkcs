@@ -47,10 +47,11 @@ This command should install everything we need to get started with PyGame. If yo
 
 Next, create a folder for your project. Find the location where you want to store your project, and make a folder there. Name the folder anything you like. Enter the folder, then create a new file. I&#8217;m going to name mine _game.py_, though you can name yours whatever you wish. Make sure the file extension is _.py_ though. The _.py_ file extension indicates a Python file. This is important when we go to run the script. For the purposes of this series, I&#8217;ll refer to this main file as _game.py_. Open our _game.py_ script with your favorite text/code editor. Personally, I love Visual Studio Code for easy debugging and code completion. If you&#8217;re using another editor, I&#8217;ll explain how to run your project via the command line. Once you&#8217;ve opened the _game.py_ file, add the following:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="python" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">import pygame
+{{<highlight py3>}}
+import pygame
 
 pygame.init()
-</pre>
+{{</highlight>}}
 
 ## Running the Game
 

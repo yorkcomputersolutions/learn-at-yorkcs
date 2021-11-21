@@ -60,13 +60,13 @@ rank_math_schema_Article:
 rank_math_analytic_object_id:
   - 40
 categories:
-  - Web Design
+  - Website Design
 tags:
   - beginner
   - html
   - html5
   - nibble
-  - web design
+  - website design
   - webdesign
   - webpage
 
@@ -79,10 +79,12 @@ Before we begin writing our own HTML page, create a folder wherever you wish to 
 
 Take a second and open our _index.html_ file with a text/code editor of your choice. Anything will work, even a program such as Notepad or Text Edit. Inside our _index.html_ file, we need a way to tell the browser that this is supposed to be interpreted as an HTML document. Easy enough! We just have to add the following:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="html" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">&lt;!DOCTYPE html>
-&lt;html>
+{{<highlight html>}}
+<!DOCTYPE html>
+<html>
 
-&lt;/html></pre>
+</html>
+{{</highlight>}}
 
 If we take a look at our _index.html_ file in the browser, we will see a blank screen.<figure class="wp-block-image size-large">
 
@@ -92,12 +94,14 @@ Before we continue, it&#8217;s important to point out that HTML is primarily com
 
 Next, we need a way to specify some metadata for our web page. This is pretty trivial as well, just add a set of _<head>_ tags between the _<html>_ tags. It&#8217;s good practice to indent child elements. This makes our markup easier to read. Our document should now look like the following:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="html" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">&lt;!DOCTYPE html>
-&lt;html>
-    &lt;head>
+{{<highlight html>}}
+<!DOCTYPE html>
+<html>
+    <head>
         
-    &lt;/head>
-&lt;/html></pre>
+    </head>
+</html>
+{{</highlight>}}
 
 You may notice when you look at the tabs in your browser, you see the titles for various websites that are in the tabs.<figure class="wp-block-image size-large">
 
@@ -105,56 +109,78 @@ You may notice when you look at the tabs in your browser, you see the titles for
 
 We can define a title for our page via the _<title>_ element. We can add this between the _<head>_ tags:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="html" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">&lt;title>My Website&lt;/title></pre><figure class="wp-block-image size-large">
+{{<highlight html>}}
+<title>My Website</title>
+{{</highlight>}}
+
+<figure class="wp-block-image size-large">
 
 <img loading="lazy" width="490" height="205" src="https://learn.yorkcs.com/wp-content/uploads/2019/12/nibble_html_step2.png" alt="" class="wp-image-12168" /> <figcaption>Now we have our renamed tab!</figcaption></figure> 
 
 In order to add content to be displayed on our web page, we will need to add a pair of _<body>_ tags. Add an opening and closing tag after the closing tag of the _<head>_ element. We should now have the following:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="html" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">&lt;!DOCTYPE html>
-&lt;html>
-    &lt;head>
-        &lt;title>My Website&lt;/title>
-    &lt;/head>
+{{<highlight html>}}
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>My Website</title>
+    </head>
 
-    &lt;body>
+    <body>
         
-    &lt;/body>
-&lt;/html></pre>
+    </body>
+</html>
+{{</highlight>}}
 
 Let&#8217;s try adding a heading to our page! Between the _<body>_ tags, add the following line:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="html" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">&lt;h1>Hello World!&lt;/h1></pre><figure class="wp-block-image size-large">
+{{<highlight html>}}
+<h1>Hello World!</h1>
+{{</highlight>}}
+
+<figure class="wp-block-image size-large">
 
 <img src="https://learn.yorkcs.com/wp-content/uploads/2019/12/nibble_html_step3-1024x616.png" alt="" class="wp-image-12169" /> </figure> 
 
 The _<h1>_ tag is the largest sized heading as specified in the specification. There are also smaller tags such as _<h2>_, _<h3>_, _<h4>_&#8230; all the way up to _<h6>_. Generally it&#8217;s good practice to only have one _<h1>_ heading per page. Under the line above, we can add some text. Please feel free to type anything you like. I&#8217;m just going to add some lorem ipsum filler text, which you can use for your own projects and can find [here][1]. We can add this text via the _<p>_ paragraph element.
 
-<pre class="EnlighterJSRAW" data-enlighter-language="html" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">&lt;p>
+{{<highlight html>}}
+<p>
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum eu scelerisque enim. Mauris maximus tempus leo, a rutrum mi dignissim nec. Nunc nec quam elementum libero rhoncus rutrum. Donec pulvinar enim id massa condimentum sollicitudin. Aenean nibh risus, luctus sed turpis id, bibendum interdum turpis. Fusce molestie lorem vitae dui hendrerit, ut lacinia ex aliquet. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-&lt;/p></pre><figure class="wp-block-image size-large">
+</p>
+{{</highlight>}}
+
+<figure class="wp-block-image size-large">
 
 <img src="https://learn.yorkcs.com/wp-content/uploads/2019/12/nibble_html_step4-1024x671.png" alt="" class="wp-image-12170" /> </figure> 
 
 You will also find it useful to add lists to your pages at some point. There are two tags that allow us to add lists: _<ul>_ and _<ol>_. The _<ul>_ elements represents an unordered list. Pretty much, this means that by default, the list will have a bullet point next to each item. Let&#8217;s try adding one:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="html" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">&lt;ul>
-    &lt;li>Item 1&lt;/li>
-    &lt;li>Item 2&lt;/li>
-    &lt;li>Item 3&lt;/li>
-    &lt;li>Item 4&lt;/li>
-&lt;/ul></pre><figure class="wp-block-image size-large">
+{{<highlight html>}}
+<ul>
+    <li>Item 1</li>
+    <li>Item 2</li>
+    <li>Item 3</li>
+    <li>Item 4</li>
+</ul>
+{{</highlight>}}
+
+<figure class="wp-block-image size-large">
 
 <img src="https://learn.yorkcs.com/wp-content/uploads/2019/12/nibble_html_step5-1024x663.png" alt="" class="wp-image-12171" /> </figure> 
 
 The other type of list is the ordered list, defined by the _<ol>_ tag. By default, these types of lists will add a number next to each item in sequence. Let&#8217;s try making one!
 
-<pre class="EnlighterJSRAW" data-enlighter-language="html" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">&lt;ol>
-    &lt;li>Item 1&lt;/li>
-    &lt;li>Item 2&lt;/li>
-    &lt;li>Item 3&lt;/li>
-    &lt;li>Item 4&lt;/li>
-&lt;/ol></pre><figure class="wp-block-image size-large">
+{{<highlight html>}}
+<ol>
+    <li>Item 1</li>
+    <li>Item 2</li>
+    <li>Item 3</li>
+    <li>Item 4</li>
+</ol>
+{{</highlight>}}
+
+<figure class="wp-block-image size-large">
 
 <img src="https://learn.yorkcs.com/wp-content/uploads/2019/12/nibble_html_step6-1-1024x665.png" alt="" class="wp-image-12176" /> </figure> 
 
@@ -162,13 +188,19 @@ The way each item is labeled in both lists can be changed via CSS.
 
 The last element I&#8217;ll cover in this bite-sized guide is the anchor tag. The anchor tag allows you to add links to your page. Anchor tags can be specified via the _<a>_ tag. Let&#8217;s try adding one. After our ordered list, add the following line:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="html" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">&lt;a>Click Me!&lt;/a></pre><figure class="wp-block-image size-large">
+{{<highlight html>}}
+<a>Click Me!</a>
+{{</highlight>}}
+
+<figure class="wp-block-image size-large">
 
 <img src="https://learn.yorkcs.com/wp-content/uploads/2019/12/nibble_html_step7-1024x697.png" alt="" class="wp-image-12177" /> </figure> 
 
 Now, by default this link won&#8217;t go anywhere because we haven&#8217;t specified the destination. We can add a destination by appending what&#8217;s known as an _attribute_ in HTML. Attributes are pretty much key value pairs that we can add to the opening tag of our _<a>_ tag. Let&#8217;s add a destination to our anchor tag via the _href_ attribute.
 
-<pre class="EnlighterJSRAW" data-enlighter-language="html" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">&lt;a href="https://learn.yorkcs.com">Click Me!&lt;/a></pre>
+{{<highlight html>}}
+<a href="https://learn.yorkcs.com">Click Me!</a>
+{{</highlight>}}
 
 If we open our _index.html_ file in the browser, we should now see something similar to the following:<figure class="wp-block-image size-large">
 

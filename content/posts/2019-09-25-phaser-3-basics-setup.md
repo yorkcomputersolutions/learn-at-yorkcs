@@ -47,17 +47,19 @@ Once our files are created and are in the proper places, we can open our _index.
 
 In the _index.html_ file, add the following boilerplate code:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="html" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">&lt;!DOCTYPE html>
-    &lt;head>
-        &lt;meta charset="utf-8">
-        &lt;meta lang="en-us">
-        &lt;title>My Awesome Game&lt;/title>
-    &lt;/head>
+{{<highlight html>}}
+<!DOCTYPE html>
+    <head>
+        <meta charset="utf-8">
+        <meta lang="en-us">
+        <title>My Awesome Game</title>
+    </head>
 
-    &lt;body>
+    <body>
         
-    &lt;/body>
-&lt;/html></pre>
+    </body>
+</html>
+{{</highlight>}}
 
 What you would add to the _index.html_ file next depends on how you want to add the Phaser script. See below for the different options.
 
@@ -67,7 +69,9 @@ What you would add to the _index.html_ file next depends on how you want to add 
 
 Perhaps the fastest way to get started with Phaser is fetching the framework from a content delivery network (CDN). Photon Storm currently has [Phaser][3] hosted on the [jsDeliver][4] CDN. All you have to is add the following line to the body of your _index.html_ document.
 
-<pre class="EnlighterJSRAW" data-enlighter-language="html" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">&lt;script src="//cdn.jsdelivr.net/npm/phaser@3.20.1/dist/phaser.js">&lt;/script></pre>
+{{<highlight html>}}
+<script src="//cdn.jsdelivr.net/npm/phaser@3.20.1/dist/phaser.js"></script></pre>
+{{</highlight>}}
 
 As of the time of updating this article (November of 2019), Phaser 3 version 3.20.1 is out. Of course to receive the latest version, you need the latest link. You can find the CDN link to the latest Phaser 3 version [here][5].
 
@@ -79,7 +83,9 @@ Phaser 3 games can also be made using a convenient project template built by Pho
 
 To download Phaser for local use, navigate to the Phaser 3 [GitHub repository][6]. Click the &#8220;dist&#8221; folder. We can pick one of two files to download: phaser.js, or phaser.min.js. The difference is that phaser.js contains a uncompressed version of the Phaser framework. This is useful for contributing to the project, and for checking implementation details. The file phaser.min.js is compressed and is meant for distributing your game. Either file will work for our purposes. To download a file, simply click on it and click “Download” or “Raw.” After that, right click the page with the code and click “Save Page As.” Save the file into the _js_ folder inside the project directory we made. Then, in our _index.html_ file, add the following line between the _<body>_ tags in order to link our script:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="html" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">&lt;script src="js/&lt;FILE NAME OF SCRIPT YOU DOWNLOADED>.js">&lt;/script></pre>
+{{<highlight html>}}
+<script src="js/<FILE NAME OF SCRIPT YOU DOWNLOADED>.js"></script>
+{{</highlight>}}
 
 Obviously, you will need to replace the file name with the name of the script you downloaded, including the _.js_ file extension.
 

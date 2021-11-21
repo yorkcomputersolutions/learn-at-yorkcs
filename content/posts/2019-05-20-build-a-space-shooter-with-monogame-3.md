@@ -68,20 +68,25 @@ tags:
 ---
 Now, we know every game worth it’s money has a game state system of some sort. &nbsp;I mean this as in, most games have a main menu, a play state, and a game over state. &nbsp;Something like that. We will have to build this sort of system. For this, we will be utilizing the _enum_ type in C#. &nbsp;Just after where we initialize the field _arialHeading_, add the following to define an enum named _GameState_:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="csharp" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">enum GameState
+{{<highlight cs>}}
+enum GameState
 {
 	MainMenu,
 	Gameplay,
 	GameOver
-}</pre>
+}
+{{</highlight>}}
 
 We will also want to initialize a property to keep track of the current game state:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="csharp" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">private GameState _gameState;</pre>
+{{<highlight cs>}}
+private GameState _gameState;
+{{</highlight>}}
 
 The next step to setup our game state system is to add some logic to the _Update_ method of _Game1.cs_. &nbsp;After the comment, “TODO: Add your update logic here,” add the following:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="csharp" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">switch (_gameState) {
+{{<highlight cs>}}
+switch (_gameState) {
 	case GameState.MainMenu:
     	{
         	UpdateMainMenu(gameTime);
@@ -99,11 +104,13 @@ The next step to setup our game state system is to add some logic to the _Update
         	UpdateGameOver(gameTime);
         	break;
     	}
-}</pre>
+}
+{{</highlight>}}
 
 The switch statement allows us to check which game state is currently set a little more compactly than an if statement. &nbsp;Let’s define the methods that we specified for each case in our switch statement. Add the following methods after the _Update_ method but before the _Draw_ method:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="csharp" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">private void UpdateMainMenu(GameTime gameTime) {
+{{<highlight cs>}}
+private void UpdateMainMenu(GameTime gameTime) {
 
 
 }
@@ -115,11 +122,13 @@ private void UpdateGameplay(GameTime gameTime) {
 private void UpdateGameOver(GameTime gameTime) {
 
 
-}</pre>
+}
+{{</highlight>}}
 
 We will also want to add two additional methods for resetting gameplay and changing the game scene:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="csharp" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">private void resetGameplay()
+{{<highlight cs>}}
+private void resetGameplay()
 {
 
 }
@@ -127,11 +136,13 @@ We will also want to add two additional methods for resetting gameplay and chang
 private void changeGameState(GameState gameState)
 {
 	
-}</pre>
+}
+{{</highlight>}}
 
 In the Draw method of _Game1.cs_, add the following code after the comment, “TODO: Add your drawing code here”:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="csharp" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, SamplerState.PointWrap);
+{{<highlight cs>}}
+spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, SamplerState.PointWrap);
 
 switch (_gameState)
 {
@@ -154,20 +165,25 @@ switch (_gameState)
     	}
 }
 
-spriteBatch.End();</pre>
+spriteBatch.End();
+{{</highlight>}}
 
 It’s important to point out that in order to draw anything in MonoGame, you need to have all of your draw calls between the calls: _spriteBatch.Begin_ and _spriteBatch.End_. &nbsp;It’s also worth mentioning that the last parameter of our _spriteBatch.Begin_ call tells the game we don’t want to smooth images, in order to preserve our crisp pixel art. &nbsp;While we’re at it, change the following line at the top of the _Draw_ method:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="csharp" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">GraphicsDevice.Clear(Color.CornflowerBlue);</pre>
+{{<highlight cs>}}
+GraphicsDevice.Clear(Color.CornflowerBlue);
+{{</highlight>}}
 
 To  
 
-
-<pre class="EnlighterJSRAW" data-enlighter-language="csharp" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">GraphicsDevice.Clear(Color.Black);</pre>
+{{<highlight cs>}}
+GraphicsDevice.Clear(Color.Black);
+{{</highlight>}}
 
 As we did with the update methods for our game states, we will add draw methods for each of our game states. &nbsp;Add the following methods after the _Draw_ method:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="csharp" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">private void DrawMainMenu(SpriteBatch spriteBatch) {
+{{<highlight cs>}}
+private void DrawMainMenu(SpriteBatch spriteBatch) {
 
 
 }
@@ -181,11 +197,13 @@ private void DrawGameOver(SpriteBatch spriteBatch) {
 
 
 }
-</pre>
+{{</highlight>}}
+
 
 Finally, we will need to add a few methods we will be using in our game class as well as others:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="csharp" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">public static int randInt(int minNumber, int maxNumber)
+{{<highlight cs>}}
+public static int randInt(int minNumber, int maxNumber)
 {
 	return new Random().Next(minNumber, maxNumber);
 }
@@ -193,7 +211,9 @@ Finally, we will need to add a few methods we will be using in our game class as
 public static float randFloat(float minNumber, float maxNumber)
 {
 	return (float)new Random().NextDouble() * (maxNumber - minNumber) + minNumber;
-}</pre>
+}
+{{</highlight>}}
+
 
 The next thing we will do is define our other classes. &nbsp;We will start by creating a new class named _AnimatedSprite.cs_. &nbsp;We can add a new class by going to the Solution Explorer, right click our project directory, move the mouse over the add option, then click “New Item…”  
 <figure class="wp-block-image">
@@ -205,12 +225,15 @@ A new prompt will appear allowing us to choose the file template we want, as wel
 
 We will start by opening _AnimatedSprite.cs_. &nbsp;The following two using statements will be required in this class, so add them to the other using statements at the top of the file:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="csharp" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;</pre>
+{{<highlight cs>}}
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+{{</highlight>}}
 
 Next, we will need to add some fields and properties that all animated sprites will have in common. &nbsp;What are they? We will need to store the width and height of each frame, the duration of each frame, the amount of frames, the current frame, and the different fields for the timer. &nbsp;We will also have to keep track if an animation can repeat, and if that animation can’t repeat, we need to know if the animation has finished playing.
 
-<pre class="EnlighterJSRAW" data-enlighter-language="csharp" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">private Texture2D texture;
+{{<highlight cs>}}
+private Texture2D texture;
 public int frameWidth { get; set; }
 public int frameHeight { get; set; }
 public int duration { get; set; }
@@ -227,11 +250,13 @@ private bool _finished = false;
 public bool isFinished()
 {
 	return _finished;
-}</pre>
+}
+{{</highlight>}}
 
 The next step is to add the constructor. &nbsp;We will be taking in a texture, the frame width, the frame height, and the duration of the animation. &nbsp;We can figure out the rest inside the class once it’s instantiated. Add the following code to create our constructor:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="csharp" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">public AnimatedSprite(Texture2D texture, int frameWidth, int frameHeight, int duration)
+{{<highlight cs>}}
+public AnimatedSprite(Texture2D texture, int frameWidth, int frameHeight, int duration)
 {
 	this.texture = texture;
 	this.frameWidth = frameWidth;
@@ -239,7 +264,8 @@ The next step is to add the constructor. &nbsp;We will be taking in a texture, t
 	this.duration = duration;
 	amountFrames = this.texture.Width / this.frameWidth;
 	sourceRect = new Rectangle(currentFrame * this.frameWidth, 0, this.frameWidth, this.frameHeight);
-}</pre>
+}
+{{</highlight>}}
 
 Finally we will need to add an _Update_ method to our _AnimatedSprite_ class. &nbsp;The instructions we’re trying to execute each frame looks kind of like the following:  
 
@@ -272,15 +298,16 @@ ELSE
 
 Let’s add the following to write our _Update_ method and above with real C#:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="csharp" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">public void Update(GameTime gameTime)
+{{<highlight cs>}}
+public void Update(GameTime gameTime)
 {
-	if (updateTick &lt; duration)
+	if (updateTick < duration)
 	{
     	updateTick++;
 	}
 	else
 	{
-    	if (currentFrame &lt; amountFrames - 1)
+    	if (currentFrame < amountFrames - 1)
     	{
         	currentFrame++;
     	}
@@ -299,7 +326,8 @@ Let’s add the following to write our _Update_ method and above with real C#:
     	sourceRect = new Rectangle(currentFrame * this.frameWidth, 0, this.frameWidth, this.frameHeight);
     	updateTick = 0;
 	}
-}</pre>
+}
+{{</highlight>}}
 
 We are now finished writing the _AnimatedSprite_ class! 
 

@@ -60,7 +60,7 @@ rank_math_schema_Article:
 rank_math_analytic_object_id:
   - 41
 categories:
-  - Web Design
+  - Website Design
 tags:
   - css
   - css3
@@ -75,25 +75,29 @@ We will also need to find an image that we want to manipulate with our image fil
 
 In your _index.html_ file, add the following to create the basic markup for our web page:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="html" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">&lt;!DOCTYPE html>
-&lt;html>
-  &lt;head>
-    &lt;title>Image Filters&lt;/title>
+{{<highlight html>}}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Image Filters</title>
 
-    &lt;style>
+    <style>
       /* Add CSS styles here */
 
-    &lt;/style>
-  &lt;/head>
+    </style>
+  </head>
 
-  &lt;body>
+  <body>
 
-  &lt;/body>
-&lt;/html></pre>
+  </body>
+</html>
+{{</highlight>}}
 
 Between the _<body>_ tags, add the following markup for adding our image:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="html" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">&lt;img id="photo" src="&lt;the URL of the image>"></pre>
+{{<highlight html>}}
+<img id="photo" src="<the URL of the image>">
+{{</highlight>}}
 
 Of course, you will need to add the URL of the image between the quotes of the _src_ attribute. <figure class="wp-block-image">
 
@@ -101,14 +105,18 @@ Of course, you will need to add the URL of the image between the quotes of the _
 
 Next, between the _<style>_ tags in the _<head>_ element, add the following style rule:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="css" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">#photo {
+{{<highlight css>}}
+#photo {
   width: 512px;
   height: auto;
-}</pre>
+}
+{{</highlight>}}
 
 Let&#8217;s start by experimenting with the _blur_ filter. Before I get ahead of myself, I should explain that filters can be utilized via the _filter_ property. Now, to add a blur to our image, we can use this _filter_ property and set it to _blur(5px);_ Add the following line to our style rule:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="css" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">filter: blur(5px);</pre>
+{{<highlight css>}}
+filter: blur(5px);
+{{</highlight>}}
 
 We should now see the following result:<figure class="wp-block-image">
 
@@ -116,31 +124,49 @@ We should now see the following result:<figure class="wp-block-image">
 
 Another commonly used filter is the _brightness_ filter. You can set a percentage below 100%, for darkening an image, or you can set a value above 100% to brighten a picture. Below, I brighten the photo using the line:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="css" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">filter: brightness(200%);</pre><figure class="wp-block-image">
+{{<highlight css>}}
+filter: brightness(200%);
+{{</highlight>}}
+
+<figure class="wp-block-image">
 
 <img src="https://learn.yorkcs.com/wp-content/uploads/2019/06/tut-filters-brightness-1024x576.png" alt="" class="wp-image-2197" /> </figure> 
 
 What if we wanted to adjust the contrast of an image? This is pretty trivial too! You can change the line with our _filter_ property to the following:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="css" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">filter: constrast(200%);</pre><figure class="wp-block-image">
+{{<highlight css>}}
+filter: constrast(200%);
+{{</highlight>}}
+
+<figure class="wp-block-image">
 
 <img src="https://learn.yorkcs.com/wp-content/uploads/2019/06/tut-filters-contrast-1024x576.png" alt="" class="wp-image-2198" /> </figure> 
 
 Another filter that we can use on our websites is the _saturate_ filter. This filter, well&#8230; simply saturates the image. Pretty nifty! We can change the line with our _filter_ property to the following:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="css" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">filter: saturate(200%);</pre><figure class="wp-block-image">
+{{<highlight css>}}
+filter: saturate(200%);
+{{</highlight>}}
+
+<figure class="wp-block-image">
 
 <img src="https://learn.yorkcs.com/wp-content/uploads/2019/06/tut-filters-saturate-1024x576.png" alt="" class="wp-image-2202" /> </figure> 
 
 You might find the need to color your image with a sepia tone. No problem! We can accomplish this by using the _sepia_ function as follows:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="css" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">filter: sepia(200%);</pre><figure class="wp-block-image">
+{{<highlight css>}}
+filter: sepia(200%);
+{{</highlight>}}
+
+<figure class="wp-block-image">
 
 <img src="https://learn.yorkcs.com/wp-content/uploads/2019/06/tut-filters-sepia-1024x576.png" alt="" class="wp-image-2201" /> </figure> 
 
 Before we wrap up, I want to mention that you can also combine filters like so:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="css" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">filter: brightness(180%) contrast(110%) saturate(160%);</pre>
+{{<highlight css>}}
+filter: brightness(180%) contrast(110%) saturate(160%);
+{{</highlight>}}
 
 At we can achieve the following result:<figure class="wp-block-image">
 

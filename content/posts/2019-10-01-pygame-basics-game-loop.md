@@ -30,31 +30,43 @@ In this tutorial, we will be creating the game loop of our [PyGame][1] game. By 
 
 To create our game loop, we need a clock to set the FPS, or frames-per-second of our game. Under the last line of our game window code, add the following line:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="generic" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">clock = pygame.time.Clock()</pre>
+{{<highlight py3>}}
+clock = pygame.time.Clock()
+{{</highlight>}}
 
 We will also need a variable to determine whether or not the game is running. Under the line where we instantiate a clock, add the following variable declaration:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="python" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">running = True</pre>
+{{<highlight py3>}}
+running = True
+{{</highlight>}}
 
 Now we need to add the actual game loop. Our PyGame game loop will be made up of a while loop. Let&#8217;s start by adding a while loop checking if _running_ is true.
 
-<pre class="EnlighterJSRAW" data-enlighter-language="python" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">while running:</pre>
+{{<highlight py3>}}
+while running:
+{{</highlight>}}
 
 Inside our while loop, we need to check if any internal game events have been triggered. For example, if we click the close button, we want our game window to close. To add this mechanic, append the following bit inside our while loop.
 
-<pre class="EnlighterJSRAW" data-enlighter-language="python" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">for event in pygame.event.get():
+{{<highlight py3>}}
+for event in pygame.event.get():
     if event.type == pygame.QUIT:
-        running = False</pre>
+        running = False
+{{</highlight>}}
 
 After the for loop, but still inside the while loop, we need to render anything that needs to be drawn, as well as ensure the game FPS is set at 60. Add the following two lines after the for loop.
 
-<pre class="EnlighterJSRAW" data-enlighter-language="python" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">pygame.display.update()
-clock.tick(60)</pre>
+{{<highlight py3>}}
+pygame.display.update()
+clock.tick(60)
+{{</highlight>}}
 
 Additionally, we will also want the game to quit properly if the game loop breaks. Add these two lines after the while loop.
 
-<pre class="EnlighterJSRAW" data-enlighter-language="python" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">pygame.quit()
-quit()</pre>
+{{<highlight py3>}}
+pygame.quit()
+quit()
+{{</highlight>}}
 
 When we run the game at this point, we should see that our game window no longer disappears. We are now ready to add some content to our game!
 

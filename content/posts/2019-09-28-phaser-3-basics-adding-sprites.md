@@ -29,7 +29,9 @@ this.add.sprite(<x>, <y>, <key>);
 
 In the example above, the key is the image key you defined in the _preload_ method. Feel free to write the following code and change the image key to the one you defined.
 
-<pre class="EnlighterJSRAW" data-enlighter-language="js" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">this.add.sprite(128, 128, "myimage");</pre>
+{{<highlight js>}}
+this.add.sprite(128, 128, "myimage");
+{{</highlight>}}
 
 If we run our game in the browser, we should see something like the following with the image of your choice.<figure class="wp-block-image">
 

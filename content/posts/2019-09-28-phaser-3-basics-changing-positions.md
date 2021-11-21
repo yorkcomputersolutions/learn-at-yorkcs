@@ -32,11 +32,15 @@ In this guide, we will be taking a look at how to manipulate the position of ima
 
 If you haven&#8217;t assigned the return value of the _add.sprite_ method yet, this will be necessary. For example, change this:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="js" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">this.add.sprite(128, 128, "myimage");</pre>
+{{<highlight js>}}
+this.add.sprite(128, 128, "myimage");
+{{</highlight>}}
 
 To:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="js" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">this.myImage = this.add.sprite(128, 128, "myimage");</pre>
+{{<highlight js>}}
+this.myImage = this.add.sprite(128, 128, "myimage");
+{{</highlight>}}
 
 At this point, we can change the position of our image or sprite. There are a few ways of accomplishing this. There are a few methods to set position. Alternatively, you can directly set the x and y positions of a sprite or image.
 
@@ -44,35 +48,49 @@ At this point, we can change the position of our image or sprite. There are a fe
 
 One way to set the position of a sprite or image is using the _setPosition_ method. Normally, it&#8217;s common to enter the new x and y position as arguments like so:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="js" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">this.myImage.setPosition(128, 256);</pre>
+{{<highlight js>}}
+this.myImage.setPosition(128, 256);
+{{</highlight>}}
 
 You can also set the position of a sprite or image on specific axes.
 
 To set the x position of a sprite or image via a method, you can write:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="js" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">this.myImage.setX(320);</pre>
+{{<highlight js>}}
+this.myImage.setX(320);
+{{</highlight>}}
 
 To add, if you want to set the y position of a sprite or image via methods, you can add:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="js" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">this.myImage.setY(240);</pre>
+{{<highlight js>}}
+this.myImage.setY(240);
+{{</highlight>}}
 
 ## Setting Positions Directly
 
 You can also set the x and y positions of a sprite or image without methods by directly setting the properties. I probably wouldn&#8217;t recommend changing positions this way (though I occasionally do), but you can type:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="js" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">this.myImage.x = 280;</pre>
+{{<highlight js>}}
+this.myImage.x = 280;
+{{</highlight>}}
 
 Of course, since you&#8217;re setting properties, you can increment the values as well like so:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="js" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">this.myImage.x += 32;</pre>
+{{<highlight js>}}
+this.myImage.x += 32;
+{{</highlight>}}
 
 The same concept applies to setting the y position directly. For example, you could write:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="js" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">this.myImage.y = 48;</pre>
+{{<highlight js>}}
+this.myImage.y = 48;
+{{</highlight>}}
 
 To increment the y position, you can also simply write:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="js" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">this.myImage.y += 32;</pre>
+{{<highlight js>}}
+this.myImage.y += 32;
+{{</highlight>}}
 
 Hopefully this guide helped you out. You may want to consider taking a look at the other tutorials in this [series][4], if you liked this tutorial. If you would like to receive news of our future tutorials and courses, you can subscribe to our newsletter [here][5]. If you found this guide valuable, sharing this guide on your favorite social media would be highly appreciated as well. Stay tuned for more parts in this series.
 

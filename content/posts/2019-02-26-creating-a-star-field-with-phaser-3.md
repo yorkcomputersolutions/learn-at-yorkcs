@@ -87,24 +87,27 @@ The last step we have to do is grabbing the latest Phaser script from [GitHub][1
 
 Let&#8217;s start by adding to our index.html file. Add the following code to create the HTML document and link our scripts:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="html" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">&lt;!DOCTYPE html>
-&lt;html>
-    &lt;head>
-        &lt;meta charset="utf-8">
-        &lt;meta lang="en-us">
-        &lt;title>TutorialStarfield&lt;/title>
-    &lt;/head>
+{{<highlight html>}}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta lang="en-us">
+        <title>TutorialStarfield</title>
+    </head>
 
-    &lt;body>
-        &lt;script src="js/phaser.js">&lt;/script>
-        &lt;script src="js/SceneMain.js">&lt;/script>
-        &lt;script src="js/game.js">&lt;/script>
-    &lt;/body>
-&lt;/html></pre>
+    <body>
+        <script src="js/phaser.js"></script>
+        <script src="js/SceneMain.js"></script>
+        <script src="js/game.js"></script>
+    </body>
+</html>
+{{</highlight>}}
 
 We are now finished with index.html. Moving on to game.js, add the following the file:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="js" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">var config = {
+{{<highlight js>}}
+var config = {
     type: Phaser.WEBGL,
     width: 640,
     height: 640,
@@ -121,13 +124,15 @@ We are now finished with index.html. Moving on to game.js, add the following the
     pixelArt: true,
     roundPixels: true
 };
-var game = new Phaser.Game(config);</pre>
+var game = new Phaser.Game(config);
+{{</highlight>}}
 
 The above code defines the configuration properties needed for creating the Phaser game. Feel free to play around with these.
 
 Jumping to our SceneMain.js file, we can create the class for our scene, SceneMain. It&#8217;s good to point out that classes in JavaScript aren&#8217;t true classes. Classes are objects, but with some syntactic sugar sprinkled on top to make organizing object-oriented code easier. We will want our class to extend Phaser.Scene since we are going to be building on-top of the default Phaser.Scene object. Add the following to SceneMain.js:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="js" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">class SceneMain extends Phaser.Scene {
+{{<highlight js>}}
+class SceneMain extends Phaser.Scene {
     constructor() {
         super({ key: "SceneMain" });
     }
@@ -139,65 +144,82 @@ Jumping to our SceneMain.js file, we can create the class for our scene, SceneMa
     update() {
 
     }
-}</pre>
+}
+{{</highlight>}}
 
 The create function will be triggered as soon as the scene is started. We will want to add some properties, as well as generate the points for our stars there. In the create function, add the following properties:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="js" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">this.points = [];
+{{<highlight js>}}
+this.points = [];
 this.stars = this.add.group();
 
-this.maxDepth = 32;</pre>
+this.maxDepth = 32;
+{{</highlight>}}
 
 Our star field will work by having an array of points, and a group for the graphics objects (the circles drawn). Each point will have three properties: x, y, and z. Positions x and y will determine where on the screen a star graphics object will be created, and z is used calculating how close a star is to the &#8220;observer&#8221;. The property maxDepth will be used for determining the maximum distance a star can be from the &#8220;observer&#8221;. Next, we will need to create a for loop which will create the point objects and add them to the points array:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="js" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">for (var i = 0; i &lt; 512; i++) {
+{{<highlight js>}}
+for (var i = 0; i < 512; i++) {
     this.points.push({
         x: Phaser.Math.Between(-25, 25),
         y: Phaser.Math.Between(-25, 25),
         z: Phaser.Math.Between(1, this.maxDepth)
     });
-}</pre>
+}
+{{</highlight>}}
 
 The last thing we need to do to make our star field work, is add some code to the update function of SceneMain. We will be clearing the stars each update, iterate through our points to calculate the new star positions, as well as create the star graphics objects at those positions. We will first start by adding some code to clear the stars group and also create a for loop to iterate through our points:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="js" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">this.stars.clear(true, true);
+{{<highlight js>}}
+this.stars.clear(true, true);
 
-for (var i = 0; i &lt; this.points.length; i++) {
+for (var i = 0; i < this.points.length; i++) {
     var point = this.points[i];
     
-}</pre>
+}
+{{</highlight>}}
 
 In addition to calculating the new position of each point, we will also be resetting the position once it gets close enough to the &#8220;observer&#8221;. This will save us from having to destroy and create new points. Add the following code inside the for loop to subtract from the z position of each point (which results in the star moving closer to the &#8220;observer&#8221; as z nears zero):
 
-<pre class="EnlighterJSRAW" data-enlighter-language="js" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">point.z -= 0.2;</pre>
+{{<highlight js>}}
+point.z -= 0.2;
+{{</highlight>}}
 
 After that, we will also need to add the reset logic I mentioned above:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="js" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">if (point.z &lt;= 0) {
+{{<highlight js>}}
+if (point.z <= 0) {
     point.x = Phaser.Math.Between(-25, 25);
     point.y = Phaser.Math.Between(-25, 25);
     point.z = this.maxDepth;
-}</pre>
+}
+{{</highlight>}}
 
 Now that we&#8217;ve added the reset logic, we can calculate the new position of the current point. Add the following:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="js" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">var px = point.x * (128 / point.z) + (this.game.config.width * 0.5);
-var py = point.y * (128 / point.z) + (this.game.config.height * 0.5);</pre>
+{{<highlight js>}}
+var px = point.x * (128 / point.z) + (this.game.config.width * 0.5);
+var py = point.y * (128 / point.z) + (this.game.config.height * 0.5);
+{{</highlight>}}
 
 The last thing we have to do is create the physical circle that will be drawn to represent a star. We will be creating an instance of Phaser&#8217;s circle object. This instance will act pretty much as a template to provide to an instance of Phaser&#8217;s graphics object to draw. After the previous code, add the following to create a circle at the position of the point:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="js" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">var circle = new Phaser.Geom.Circle(
+{{<highlight js>}}
+var circle = new Phaser.Geom.Circle(
     px,
     py,
     (1 - point.z / 32) * 2
-);</pre>
+);
+{{</highlight>}}
 
 The cool thing about the last parameter we added when creating our circle, is that it will grow in size as it nears the &#8220;observer&#8221;. Now, we can create the graphics object, and add it to the stars group. Add the following:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="js" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">var graphics = this.add.graphics({ fillStyle: { color: 0xffffff } });
+{{<highlight js>}}
+var graphics = this.add.graphics({ fillStyle: { color: 0xffffff } });
 graphics.setAlpha((1 - point.z / 32));
 graphics.fillCircleShape(circle);
-this.stars.add(graphics);</pre>
+this.stars.add(graphics);
+{{</highlight>}}
 
 By setting the alpha, we can make stars in the distance much more faint, and have them become brighter as they near the &#8220;observer&#8221;.
 

@@ -18,11 +18,11 @@ rank_math_internal_links_processed:
 rank_math_analytic_object_id:
   - 8
 categories:
-  - Web Design
+  - Website Design
 tags:
   - frontend
   - pricing table
-  - web design
+  - website design
   - web development
 
 ---
@@ -36,14 +36,15 @@ To start, let&#8217;s create a folder and a file inside named _index.html_. Feel
 
 Open up your _index.html_ file, and add the following HTML boilerplate code:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="html" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">&lt;!DOCTYPE html>
-&lt;html>
-    &lt;head>
-         &lt;meta charset="utf-8">
-         &lt;title>Pricing Table Example&lt;/title>
+{{<highlight html>}}
+<!DOCTYPE html>
+<html>
+    <head>
+         <meta charset="utf-8">
+         <title>Pricing Table Example</title>
          
-         &lt;link href="https://fonts.googleapis.com/css?family=Raleway|Rubik&display=swap" rel="stylesheet">
-         &lt;style>
+         <link href="https://fonts.googleapis.com/css?family=Raleway|Rubik&display=swap" rel="stylesheet">
+         <style>
              
              html, body {
                  margin: 0;
@@ -60,15 +61,16 @@ Open up your _index.html_ file, and add the following HTML boilerplate code:
                  margin: 0 auto;
              }
 
-         &lt;/style>
-    &lt;/head>
+         </style>
+    </head>
 
-    &lt;body>
-        &lt;div class="wrapper">
+    <body>
+        <div class="wrapper">
 
-        &lt;/div>
-    &lt;/body>
-&lt;/html></pre>
+        </div>
+    </body>
+</html>
+{{</highlight>}}
 
 Navigating to our newly created _index.html_ file in the browser, we should see:<figure class="wp-block-image">
 
@@ -80,66 +82,78 @@ If you&#8217;re not sure what&#8217;s going on with the boilerplate code, I woul
 
 Many times when there is a pricing table on a website, there are a few plans to choose from. We will be using flexbox, part of CSS, to display the boxes of our pricing table. Flexbox is very flexible and allows us to align items how we like. The first thing we need to add to our wrapper is a _<div>_ element with a class named _pricing-table-flex_. Add the following inside your wrapper _<div>_:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="html" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">&lt;div class="pricing-table-flex">
+{{<highlight html>}}
+<div class="pricing-table-flex">
 
-&lt;/div></pre>
+</div>
+{{</highlight>}}
 
 Next, we will be defining some style rules to specify that we want our _<div>_ element to use flexbox. Add the following under our _.wrapper_ style rule between the _<head>_ tags.
 
-<pre class="EnlighterJSRAW" data-enlighter-language="css" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">.pricing-table-flex {
+{{<highlight css>}}
+.pricing-table-flex {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
-}</pre>
+}
+{{</highlight>}}
 
 ## Flexbox Children
 
 Then, we will need to define _<div>_ elements for each of the plans we will add to our pricing table. Inside the div with class _pricing-table-flex_, add the following divs:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="html" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">&lt;div class="pricing-plan">
+{{<highlight html>}}
+<div class="pricing-plan">
 
-&lt;/div>
+</div>
 
-&lt;div class="pricing-plan">
+<div class="pricing-plan">
 
-&lt;/div>
+</div>
 
-&lt;div class="pricing-plan">
+<div class="pricing-plan">
 
-&lt;/div></pre>
+</div>
+{{</highlight>}}
 
 We will want to make each of our plan boxes white. In addition, we only want our boxes to take up a maximum width of 30% of the parent _<div>_. After the _.pricing-table-flex_ rule, add:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="css" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">.pricing-plan {
+{{<highlight css>}}
+.pricing-plan {
     background: #ffffff;
     width: 100%;
     max-width: 30%;
-}</pre>
+}
+{{</highlight>}}
 
 Inside each of these plan divs we will need to add a div to apply padding to our boxes. Additionally, we will need to also add an unordered list, and finally a button to each of our boxes. Add this code to each of the divs we added above:
 
 ## Adding Padding
 
-<pre class="EnlighterJSRAW" data-enlighter-language="html" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">&lt;div class="pricing-plan-padding">
+{{<highlight html>}}
+<div class="pricing-plan-padding">
 
-&lt;/div>
+</div>
 
-&lt;ul class="pricing-plan-features">
+<ul class="pricing-plan-features">
 
-&lt;/ul>
+</ul>
 
-&lt;div class="pricing-plan-padding">
+<div class="pricing-plan-padding">
 
-&lt;/div></pre>
+</div>
+{{</highlight>}}
 
 We will step through the code that will go inside each of these elements, one at a time. First, inside the first div with class, _pricing-plan-padding_, add the following code:
 
 ## Adding Plan Information
 
-<pre class="EnlighterJSRAW" data-enlighter-language="html" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">&lt;h2 class="pricing-plan-heading">Basic&lt;/h2>
-&lt;p class="pricing-plan-price">$5/mo&lt;/p>
-&lt;p class="pricing-plan-info">Learn more about this plan.&lt;/p></pre>
+{{<highlight css>}}
+<h2 class="pricing-plan-heading">Basic</h2>
+<p class="pricing-plan-price">$5/mo</p>
+<p class="pricing-plan-info">Learn more about this plan.</p>
+{{</highlight>}}
 
 By default HTML is rendered from top to bottom. This is why we define a heading with the name of our plan first. Then, we add the price of our plan. After that we add a small description for our plan. Make sure you added the above code to each of the boxes we&#8217;ve created. I named my payment plans: Basic, Pro, and Platinum. Then I assigned prices to each. So far we should be seeing:<figure class="wp-block-image">
 
@@ -147,27 +161,39 @@ By default HTML is rendered from top to bottom. This is why we define a heading 
 
 Let&#8217;s add style rules for the _<h2>_ element and both paragraph elements. Starting with the heading, add the following rule to our styles:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="css" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">.pricing-plan-heading {
+{{<highlight css>}}
+.pricing-plan-heading {
     font-family: "Rubik", sans-serif;
     font-size: 2em;
-}</pre><figure class="wp-block-image">
+}
+{{</highlight>}}
+
+<figure class="wp-block-image">
 
 <img src="https://learn.yorkcs.com/wp-content/uploads/2019/10/pricing-table-step-3-1-700x324.png" alt="" class="wp-image-8987" /> </figure> 
 
 Next, we will want to define the font, as well as adjust the font size of the price of each plan.
 
-<pre class="EnlighterJSRAW" data-enlighter-language="css" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">.pricing-plan-price {
+{{<highlight css>}}
+.pricing-plan-price {
     font-family: "Rubik", sans-serif;
     font-size: 1.5em;
-}</pre><figure class="wp-block-image">
+}
+{{</highlight>}}
+
+<figure class="wp-block-image">
 
 <img src="https://learn.yorkcs.com/wp-content/uploads/2019/10/pricing-table-step-4-700x318.png" alt="" class="wp-image-8988" /> </figure> 
 
 For the summary of each plan, we can add a style affecting the class, _.pricing-plan-info_.
 
-<pre class="EnlighterJSRAW" data-enlighter-language="css" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">.pricing-plan-info {
+{{<highlight css>}}
+.pricing-plan-info {
     font-family: "Raleway", sans-serif;
-}</pre><figure class="wp-block-image">
+}
+{{</highlight>}}
+
+<figure class="wp-block-image">
 
 <img src="https://learn.yorkcs.com/wp-content/uploads/2019/10/pricing-table-step-5-700x341.png" alt="" class="wp-image-8989" /> </figure> 
 
@@ -175,18 +201,22 @@ For the summary of each plan, we can add a style affecting the class, _.pricing-
 
 For each plan, we will also want to include a small list of features. This is where the unordered lists we&#8217;ve added come into play. Add this block of HTML inside each _<ul>_ element:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="generic" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">&lt;li>Plan feature #1&lt;/li>
-&lt;li>Plan feature #2&lt;/li>
-&lt;li>Plan feature #3&lt;/li>
-&lt;li>Plan feature #4&lt;/li>
-&lt;li>Plan feature #5&lt;/li></pre>
+{{<highlight html>}}
+<li>Plan feature #1</li>
+<li>Plan feature #2</li>
+<li>Plan feature #3</li>
+<li>Plan feature #4</li>
+<li>Plan feature #5</li>
+{{</highlight>}}
 
 Now we will need to add styles for the elements we added above. After our _.pricing-plan_ style rule, add the following CSS to set the padding for each of our box plans.
 
-<pre class="EnlighterJSRAW" data-enlighter-language="css" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">.pricing-plan-padding {
+{{<highlight html>}}
+.pricing-plan-padding {
     padding: 32px;
     text-align: center;
-}</pre>
+}
+{{</highlight>}}
 
 At this point, we should see something like this.<figure class="wp-block-image">
 
@@ -194,7 +224,8 @@ At this point, we should see something like this.<figure class="wp-block-image">
 
 For the feature list of each box, we can add the following to our style rules:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="css" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">.pricing-plan-features {
+{{<highlight css>}}
+.pricing-plan-features {
     margin: 0;
     padding: 0;
     list-style-type: none;
@@ -207,14 +238,17 @@ For the feature list of each box, we can add the following to our style rules:
 
 .pricing-plan-features li:nth-child(2n) {
     background: #edf4fc;
-}</pre>
+}
+{{</highlight>}}
 
 In the above code block, first we are defining some styles for the _<ul>_ element representing our feature list. By default, unordered lists display bullet points next to each item. We can remove that via the _list-style-type: none;_ line. We also set the font we wish to use with our feature list. In the second style rule, we are setting the padding of the feature list. The line we wrote includes the shorthand property for defining the padding in each direction for the element. For example, to represent the padding we added above, you could write:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="generic" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">padding-top: 8px;
+{{<highlight css>}}
+padding-top: 8px;
 padding-right: 16px;
 padding-bottom: 8px;
-padding-left: 16px;</pre>
+padding-left: 16px;
+{{</highlight>}}
 
 But we can add a line that trivially handles these values for us without adding directions. The arguments we are providing the _padding_ style is as follows:
 
@@ -231,21 +265,29 @@ We can also shade every other item of our feature list. We accomplished this by 
 
 Next, we will add the button to each of our plan boxes. Inside the last div with class _.pricing-plan-padding_ in each box, add:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="html" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">&lt;a class="btn-plan" href="#">Choose Plan&lt;/a></pre><figure class="wp-block-image">
+{{<highlight html>}}
+<a class="btn-plan" href="#">Choose Plan</a>
+{{</highlight>}}
 
-<img loading="lazy" width="700" height="344" src="https://learn.yorkcs.com/wp-content/uploads/2019/10/pricing-table-step-8-700x344.png" alt="" class="wp-image-8997" srcset="https://learn.yorkcs.com/wp-content/uploads/2019/10/pricing-table-step-8-700x344.png 700w, https://learn.yorkcs.com/wp-content/uploads/2019/10/pricing-table-step-8-600x295.png 600w, https://learn.yorkcs.com/wp-content/uploads/2019/10/pricing-table-step-8-300x148.png 300w, https://learn.yorkcs.com/wp-content/uploads/2019/10/pricing-table-step-8-1024x504.png 1024w, https://learn.yorkcs.com/wp-content/uploads/2019/10/pricing-table-step-8-768x378.png 768w, https://learn.yorkcs.com/wp-content/uploads/2019/10/pricing-table-step-8-1536x756.png 1536w, https://learn.yorkcs.com/wp-content/uploads/2019/10/pricing-table-step-8-1080x531.png 1080w, https://learn.yorkcs.com/wp-content/uploads/2019/10/pricing-table-step-8-1280x630.png 1280w, https://learn.yorkcs.com/wp-content/uploads/2019/10/pricing-table-step-8-980x482.png 980w, https://learn.yorkcs.com/wp-content/uploads/2019/10/pricing-table-step-8-480x236.png 480w, https://learn.yorkcs.com/wp-content/uploads/2019/10/pricing-table-step-8-122x60.png 122w, https://learn.yorkcs.com/wp-content/uploads/2019/10/pricing-table-step-8-183x90.png 183w, https://learn.yorkcs.com/wp-content/uploads/2019/10/pricing-table-step-8-250x123.png 250w, https://learn.yorkcs.com/wp-content/uploads/2019/10/pricing-table-step-8-120x59.png 120w, https://learn.yorkcs.com/wp-content/uploads/2019/10/pricing-table-step-8.png 1600w" sizes="(max-width: 700px) 100vw, 700px" /> </figure> 
+<figure class="wp-block-image">
+
+<img loading="lazy" width="700" height="344" src="https://learn.yorkcs.com/wp-content/uploads/2019/10/pricing-table-step-8-700x344.png" /> </figure> 
 
 Perfect! We now have our &#8220;Choose Plan&#8221; buttons, now we just need to make them look fantastic.
 
 Under our last style rule, add the following:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="css" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">.btn-plan {
+{{<highlight css>}}
+.btn-plan {
     color: #ffffff;
     background: #3B70B3;
     padding: 12px 16px 12px 16px;
     text-decoration: none;
     font-family: "Rubik", sans-serif;
-}</pre><figure class="wp-block-image">
+}
+{{</highlight>}}
+
+<figure class="wp-block-image">
 
 <img src="https://learn.yorkcs.com/wp-content/uploads/2019/10/pricing-table-step-9-700x339.png" alt="" class="wp-image-8999" /> </figure> 
 
@@ -259,7 +301,8 @@ Let&#8217;s take a look at what we have with the Reponsive Design Mode of Firefo
 
 Oof! It doesn&#8217;t look great, does it? We can fix this up on mobile devices with the use of CSS media queries! Media queries are the bread and butter of mobile optimization on the web. This is the last CSS we have to add between our _<style>_ tags:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="css" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">@media screen and (max-width: 640px) {
+{{<highlight css>}}
+@media screen and (max-width: 640px) {
     .pricing-table-flex {
         flex-direction: column;
     }
@@ -269,7 +312,8 @@ Oof! It doesn&#8217;t look great, does it? We can fix this up on mobile devices 
         margin: 0 auto;
         margin-bottom: 32px;
     }
-}</pre>
+}
+{{</highlight>}}
 
 Media queries allow us to define styles that are applied when a condition is true. Above, we are applying some styles only to the screen (not to be printed, etc.), and activate when the screen size is less than 640 pixels.
 

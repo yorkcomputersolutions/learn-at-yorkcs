@@ -30,22 +30,28 @@ In this guide, we will be covering how to load custom fonts, specifically TrueTy
 
 If you have an external CSS file, you can add the following code there. If you have a pair of _<style>_ tags in the head of your _index.html_ file, you can also add this code there. Here is the styling code to add:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="css" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">@font-face {
-    font-family: &lt;your font name here>;
+{{<highlight css>}}
+@font-face {
+    font-family: <your font name here>;
     src: url('media/thefont.ttf');
     font-weight: 400;
     font-weight: normal;
-}</pre>
+}
+{{</highlight>}}
 
 Before you define your game scripts in the body, add the following div to &#8220;load&#8221; the font for use with Phaser.
 
-<pre class="EnlighterJSRAW" data-enlighter-language="generic" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">&lt;div style="font-family:&lt;name of font you defined>; position: absolute; left:-1000px; visibility:hidden;">.&lt;/div></pre>
+{{<highlight html>}}
+<div style="font-family:<name of font you defined>; position: absolute; left:-1000px; visibility:hidden;">.</div>
+{{</highlight>}}
 
 To use our custom font within our game, let&#8217;s try adding the following text object to the create method of our scene.
 
-<pre class="EnlighterJSRAW" data-enlighter-language="css" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">this.add.text(128, 128, 'This is a test.', {
-    fontFamily: '&lt;the font you defined>'
-});</pre>
+{{<highlight js>}}
+this.add.text(128, 128, 'This is a test.', {
+    fontFamily: '<the font you defined>'
+});
+{{</highlight>}}
 
 At this point, you should see the test text we wrote printed on the game screen in the custom font. With the right custom fonts, so much can be added to the character and atmosphere of the game.
 

@@ -84,7 +84,8 @@ using System;
 We will need the audio part of MonoGame in order to load and play our sounds. &nbsp;We also specify that we want to use “System.Collections.Generic”. We will need this to create lists to hold objects in our game. &nbsp;We will be using “System” for randomly generating numbers. Before we get too ahead of ourselves, let’s define the fields we’ll use for referencing our images (textures). &nbsp;Add the following under the _SpriteBatch_ definition, “SpriteBatch spriteBatch;”:  
 
 
-<pre class="EnlighterJSRAW" data-enlighter-language="csharp" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">private List&lt;Texture2D> texBgs = new List&lt;Texture2D>();
+{{<highlight cs>}}
+private List<Texture2D> texBgs = new List<Texture2D>();
 private Texture2D texBtnPlay;
 private Texture2D texBtnPlayDown;
 private Texture2D texBtnPlayHover;
@@ -94,15 +95,16 @@ private Texture2D texBtnRestartHover;
 private Texture2D texPlayer;
 private Texture2D texPlayerLaser;
 private Texture2D texEnemyLaser;
-private List&lt;Texture2D> texEnemies = new List&lt;Texture2D>();
+private List<Texture2D> texEnemies = new List<Texture2D>();
 private Texture2D texExplosion;
 
 public SoundEffect sndBtnDown;
 public SoundEffect sndBtnOver;
-public List&lt;SoundEffect> sndExplode = new List&lt;SoundEffect>();
+public List<SoundEffect> sndExplode = new List<SoundEffect>();
 public SoundEffect sndLaser;
 
-private SpriteFont fontArial;</pre>
+private SpriteFont fontArial;
+{{</highlight>}}
 
 From this point on, I will be calling the images we’ve added to our pipeline as textures. &nbsp;When we reference textures in our code, they will be the correct type, “Texture2D”. This is very important. &nbsp;Notice how all of the texture fields are _private_. &nbsp;We won’t be accessing these fields from within other classes, so we don’t have to bother making them public.  
 
@@ -117,48 +119,55 @@ Not too bad, right? &nbsp;We will be loading our sound effects and SpriteFonts (
 
 // TODO: use this.Content to load your game content here
 
-<pre class="EnlighterJSRAW" data-enlighter-language="csharp" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">// Load textures
+{{<highlight cs>}}
+// Load textures
 
-for (int i = 0; i &lt; 2; i++)
+for (int i = 0; i < 2; i++)
 {
-	texBgs.Add(Content.Load&lt;Texture2D>("sprBg" + i));
+	texBgs.Add(Content.Load<Texture2D>("sprBg" + i));
 }
 
-texBtnPlay = Content.Load&lt;Texture2D>("sprBtnPlay");
-texBtnPlayDown = Content.Load&lt;Texture2D>("sprBtnPlayDown");
-texBtnPlayHover = Content.Load&lt;Texture2D>("sprBtnPlayHover");
+texBtnPlay = Content.Load<Texture2D>("sprBtnPlay");
+texBtnPlayDown = Content.Load<Texture2D>("sprBtnPlayDown");
+texBtnPlayHover = Content.Load<Texture2D>("sprBtnPlayHover");
 
-texBtnRestart = Content.Load&lt;Texture2D>("sprBtnRestart");
-texBtnRestartDown = Content.Load&lt;Texture2D>("sprBtnRestartDown");
-texBtnRestartHover = Content.Load&lt;Texture2D>("sprBtnRestartHover");
+texBtnRestart = Content.Load<Texture2D>("sprBtnRestart");
+texBtnRestartDown = Content.Load<Texture2D>("sprBtnRestartDown");
+texBtnRestartHover = Content.Load<Texture2D>("sprBtnRestartHover");
 
-texPlayer = Content.Load&lt;Texture2D>("sprPlayer");
-texPlayerLaser = Content.Load&lt;Texture2D>("sprLaserPlayer");
-texEnemyLaser = Content.Load&lt;Texture2D>("sprLaserEnemy0");
+texPlayer = Content.Load<Texture2D>("sprPlayer");
+texPlayerLaser = Content.Load<Texture2D>("sprLaserPlayer");
+texEnemyLaser = Content.Load<Texture2D>("sprLaserEnemy0");
 
-for (int i = 0; i &lt; 3; i++)
+for (int i = 0; i < 3; i++)
 {
-	texEnemies.Add(Content.Load&lt;Texture2D>("sprEnemy" + i));
+	texEnemies.Add(Content.Load<Texture2D>("sprEnemy" + i));
 }
 
-texExplosion = Content.Load&lt;Texture2D>("sprExplosion");</pre>
+texExplosion = Content.Load<Texture2D>("sprExplosion");
+{{</highlight>}}
 
 As I mentioned before, we can load our sounds in the same way. &nbsp;Add the following:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="csharp" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">// Load sounds
-sndBtnDown = Content.Load&lt;SoundEffect>("sndBtnDown");
-sndBtnOver = Content.Load&lt;SoundEffect>("sndBtnOver");
-for (int i = 0; i &lt; 2; i++)
+{{<highlight cs>}}
+// Load sounds
+sndBtnDown = Content.Load<SoundEffect>("sndBtnDown");
+sndBtnOver = Content.Load<SoundEffect>("sndBtnOver");
+for (int i = 0; i < 2; i++)
 {
-	sndExplode.Add(Content.Load&lt;SoundEffect>("sndExplode" + i));
+	sndExplode.Add(Content.Load<SoundEffect>("sndExplode" + i));
 }
-sndLaser = Content.Load&lt;SoundEffect>("sndLaser");</pre>
+sndLaser = Content.Load<SoundEffect>("sndLaser");
+{{</highlight>}}
 
 Plus, we can load our single sprite font similarly:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="csharp" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">// Load sprite fonts
+{{<highlight cs>}}
+// Load sprite fonts
 
-fontArial = Content.Load&lt;SpriteFont>("arialHeading");</pre>
+fontArial = Content.Load<SpriteFont>("arialHeading");
+{{</highlight>}}
+
 
 If we run the game now, we’ll see an error claiming ‘arialHeading’ does not exist. &nbsp;This is where sprite fonts come into play. Let’s open up the content pipeline for our project, and click the “New Item” button in the toolbar. &nbsp;  
 <figure class="wp-block-image">

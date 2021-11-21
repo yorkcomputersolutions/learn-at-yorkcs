@@ -59,12 +59,12 @@ rank_math_schema_Article:
 rank_math_analytic_object_id:
   - 61
 categories:
-  - Web Design
+  - Website Design
 tags:
   - fullscreen
   - html
   - landing page
-  - web design
+  - website design
   - webdesign
 
 ---
@@ -76,48 +76,54 @@ To start, let&#8217;s head over to [Unsplash][1] so we can pick out a picture we
 
 Next, create a folder we can base our project in. Inside that folder, create two more folders: _images_, and _css_. Move the image you downloaded into the images folder. Let&#8217;s also add a new file to our project directory and name it _index.js_. Finally, in our _css_ folder, create a new file and name it _styles.css_. Let&#8217;s now start adding to our index.html file. Open our newly created index.html file with your text editor or code editor of choice. If you don&#8217;t have a dedicated code editor, you can even use Notepad or Text Edit, anything will work. Once you opened our HTML file, add the following:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="html" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">&lt;!DOCTYPE html>
-&lt;html>
-  &lt;head>
-    &lt;meta charset="utf-8">
-    &lt;meta lang="en-us">
-    &lt;meta name="viewport" content="width=device-width, initial-scale=1">
+{{<highlight js>}}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta lang="en-us">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    &lt;title>Fullscreen Landing Example&lt;/title>
+    <title>Fullscreen Landing Example</title>
 
-    &lt;link href="https://fonts.googleapis.com/css?family=Lato|Open+Sans" rel="stylesheet"> 
-    &lt;link rel="stylesheet" type="text/css" href="css/styles.css">
-  &lt;/head>
+    <link href="https://fonts.googleapis.com/css?family=Lato|Open+Sans" rel="stylesheet"> 
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+  </head>
 
-  &lt;body>
-    &lt;div class="landing-outer-wrapper">
-      &lt;div class="landing-inner-wrapper">
-        &lt;div class="landing-centered">
-          &lt;h1>My New Website&lt;/h1>
-          &lt;h4>Hello world!&lt;/h4>
-        &lt;/div>
-      &lt;/div>
-    &lt;/div>
-  &lt;/body>
-&lt;/html></pre>
+  <body>
+    <div class="landing-outer-wrapper">
+      <div class="landing-inner-wrapper">
+        <div class="landing-centered">
+          <h1>My New Website</h1>
+          <h4>Hello world!</h4>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+{{</highlight>}}
 
 If you don&#8217;t recognize what much of the above code does, I would recommend checking out my _HTML Beginner Blocks_ course available [here][3]. Essentially, we are specifying that our file is an HTML document, we added a _<meta>_ tag for making our website mobile friendly. We also link in the two Google Web Fonts we&#8217;ll be using: Lato, and Open Sans. Those are two modern looking fonts. Then we&#8217;re also linking in our _styles.css_ file. Finally, we add in the HTML elements we need to make our full screen landing page work. Now, we can hop over and add the CSS to our _styles.css_ file.
 
 First, let&#8217;s add a few lines of code to help standardize the appearance of our web page across most browsers:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="css" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">html, body {
+{{<highlight css>}}
+html, body {
   margin: 0;
   padding: 0;
-}</pre>
+}
+{{</highlight>}}
 
 We will be using a specific method for horizontally and vertically aligning the _<div>_ element. Let&#8217;s start by adding the following style to class _landing-outer-wrapper_:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="css" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">.landing-outer-wrapper {
+{{<highlight css>}}
+.landing-outer-wrapper {
   display: table;
   position: absolute;
   width: 100%;
   height: 100vh;
-}</pre>
+}
+{{</highlight>}}
 
 Basically, we&#8217;re going to make the browser display our outer wrapper similar to a table. Child elements of the outer wrapper (the inner wrapper), will be affected by this. We also want our outer wrapper to stretch across the screen, hence the 100% width, and we want it to be as tall as the user&#8217;s screen, hence the 100vh height. The unit _vh_ is the viewport height, and 1% vh represents 1% of the height of the screen.<figure class="wp-block-image">
 
@@ -125,15 +131,17 @@ Basically, we&#8217;re going to make the browser display our outer wrapper simil
 
 So far, if we open our index.html file in your browser of choice, you will notice the page looks pretty empty. The picture isn&#8217;t appearing in the background yet. No worries! Let&#8217;s add the following within our _.landing-outer-wrapper_ rule, after the _height_ property:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="css" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">background-image: url();
+{{<highlight css>}}
+background-image: url();
 background-size: cover;
 background-repeat: no-repeat;
-</pre>
+{{</highlight>}}
 
 Now, we haven&#8217;t actually added the URL (path) to our image yet. It&#8217;s important to point out we need to write the path to our image relative to the location of our CSS file. Since the _styles.css_ file is within the _css_ folder we made, we have to make the path go back a directory to the root of our project directory, then refer to the _images_ folder and our image. Obviously, if we wanted to refer to the URL of an image located online, we can simply add the URL inside the two parenthesis. However, since we saved our photo locally in the _images_ directory, we will have provide a relative path. Here is the path I added to the _url_ functional notation:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="css" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">background-image: url(../images/samuel-zeller-19361-unsplash.jpg);
-</pre>
+{{<highlight css>}}
+background-image: url(../images/samuel-zeller-19361-unsplash.jpg);
+{{</highlight>}}
 
 Notice how I&#8217;ve included &#8220;../&#8221; before the path to the images folder, this allows us to go back a directory. We also added two other properties: _background-size_, and _background-repeat_. We want our background image to cover the div, but we don&#8217;t want it to repeat if the height of the image is shorter than the page when scaled.
 
@@ -143,18 +151,22 @@ Now if we refresh our browser, we should now see our photo fully covering our pa
 
 The next step is to specify we want elements with the class _landing-inner-wrapper_ to be displayed similar to a table cell. In this style rule we will also set the vertical alignment of the inner wrapper to be in the middle. Add the following code to create our style rule:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="css" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">.landing-inner-wrapper {
+{{<highlight css>}}
+.landing-inner-wrapper {
   display: table-cell;
   vertical-align: middle;
-}</pre>
+}
+{{</highlight>}}
 
 Inside this inner wrapper div we also added a div which contains our two headings and is centered. Let&#8217;s add some more code to our CSS file:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="css" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">.landing-centered {
+{{<highlight css>}}
+.landing-centered {
   margin: 0 auto;
   width: 960px;
   height: 300px;
-}</pre>
+}
+{{</highlight>}}
 
 We have to specify the width and height of the div we&#8217;re centering, in this case a div with the class _landing-centered_. We&#8217;re now finished with the meat and potatoes of centering the _landing-centered_ div.<figure class="wp-block-image">
 
@@ -162,7 +174,8 @@ We have to specify the width and height of the div we&#8217;re centering, in thi
 
 Now we just need to modernize the appearance of our text! Add the following style rules to center align our headings, color them white, and add a slight text shadow:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="css" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">.landing-centered h1, .landing-centered h4 {
+{{<highlight css>}}
+.landing-centered h1, .landing-centered h4 {
   color: white;
   text-align: center;
   text-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3);
@@ -177,13 +190,17 @@ Now we just need to modernize the appearance of our text! Add the following styl
 .landing-centered h4 {
   font-family: 'Open Sans', sans-serif;
   font-size: 2em;
-}</pre><figure class="wp-block-image">
+}
+{{</highlight>}}
+
+<figure class="wp-block-image">
 
 <img src="https://learn.yorkcs.com/wp-content/uploads/2019/04/fullscreenlanding-almost-finished-1024x576.png" alt="" class="wp-image-1121" /> </figure> 
 
 The last thing we&#8217;ll probably want to do is make our page mobile responsive. To do this, we will utilize CSS media queries. Pretty much, as the width of the window decreases below 960 pixels, we will want to decrease the font size and make adjustments to the width for some of our divs. Add the following code for our media query used for changing styles if the screen width is below 960 pixels:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="css" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">@media (max-width: 960px) {
+{{<highlight css>}}
+@media (max-width: 960px) {
   .landing-centered {
     width: 100%;
     height: 160px;
@@ -192,11 +209,13 @@ The last thing we&#8217;ll probably want to do is make our page mobile responsiv
   .landing-centered h1 {
     font-size: 4.5em;
   }
-}</pre>
+}
+{{</highlight>}}
 
 Finally, we will want to add one last media query if the screen width is less than 640 pixels. Basically we&#8217;re performing the same instructions as the code above, but we&#8217;re making the font smaller, and also readjust the width of the _landing-centered_ div. Add this block of code to the bottom of our _styles.css_ file:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="css" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">@media (max-width: 640px) {
+{{<highlight css>}}
+@media (max-width: 640px) {
   .landing-centered {
     width: 100%;
     height: 160px;
@@ -209,7 +228,8 @@ Finally, we will want to add one last media query if the screen width is less th
   .landing-centered h4 {
     font-size: 1.25em;
   }
-}</pre>
+}
+{{</highlight>}}
 
 Our final result should look like our first preview! And with that, this concludes my first web design tutorial. If you have any questions, comments, or feedback, I&#8217;d love to hear it. You can either fill out the [contact form][4], email me at [jared.york@yorkcs.com][5], or tweet at me [@jaredyork_][6].
 

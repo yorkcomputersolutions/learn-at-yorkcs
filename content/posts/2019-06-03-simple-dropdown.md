@@ -73,7 +73,7 @@ rank_math_schema_Article:
 rank_math_analytic_object_id:
   - 43
 categories:
-  - Web Design
+  - Website Design
 tags:
   - css
   - webdesign
@@ -83,59 +83,73 @@ Hello everyone! Let&#8217;s dive right into creating our own very simple dropdow
 
 To create this dropdown menu, create an HTML file somewhere and name it however you like. Inside this HTML file, let&#8217;s add some basic code:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="html" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">&lt;!DOCTYPE html>
-&lt;html>
-    &lt;head>
-        &lt;meta charset="utf-8">
-        &lt;title>Simple Dropdown&lt;/title>
-    &lt;/head>
+{{<highlight html>}}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Simple Dropdown</title>
+    </head>
 
-    &lt;body>
+    <body>
 
-    &lt;/body>
-&lt;/html></pre>
+    </body>
+</html>
+{{</highlight>}}
 
 Next, we will need to define the markup for our dropdown menu. In order to toggle the menu, we will use a neat trick that we can perform with checkboxes. We can make a checkbox invisible, and use the label to trigger the dropdown. Since labels allow you to specify the ID of the checkbox you want toggled when you click the label, this will work fantastically. Let&#8217;s add the following two lines between the _<body>_ tags:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="html" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">&lt;input id="input-dropdown" type="checkbox">
-        &lt;label for="input-dropdown">Click me!&lt;/label></pre>
+{{<highlight html>}}
+<input id="input-dropdown" type="checkbox">
+        <label for="input-dropdown">Click me!</label>
+{{</highlight>}}
 
 The first line adds a checkbox, and the second line is the label which triggers the checkbox when clicked. Next we will need to add the element which will expand and retract when clicked. In our case, this will be a _<ul>_ element (unordered list.)
 
-<pre class="EnlighterJSRAW" data-enlighter-language="html" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">&lt;ul id="dropdown">
-            &lt;li>Item 1&lt;/li>
-            &lt;li>Item 2&lt;/li>
-            &lt;li>Item 3&lt;/li>
-            &lt;li>Item 4&lt;/li>
-            &lt;li>Item 5&lt;/li>
-        &lt;/ul></pre>
+{{<highlight html>}}
+<ul id="dropdown">
+            <li>Item 1</li>
+            <li>Item 2</li>
+            <li>Item 3</li>
+            <li>Item 4</li>
+            <li>Item 5</li>
+        </ul><
+{{</highlight>}}
 
 Do note that you can put any element in the _<li>_ tags such as an _<a>_ tag for specifying a link.
 
 Finally, we will need to add the styles to make our dropdown menu work. Between the _<head>_ tags, we will need to add a set of style tags:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="html" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">&lt;style>
+{{<highlight html>}}
+<style>
 
-        &lt;/style></pre>
+        </style>
+{{</highlight>}}
 
 Inside these style tags, we will first need to add a style rule to make the checkbox invisible. We can reference the checkbox via a pound sign and the ID we specified in our HTML. Add the following style rule:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="css" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">#input-dropdown {
+{{<highlight css>}}
+#input-dropdown {
                 display: none;
-            }</pre>
+            }
+{{</highlight>}}
 
 Next, we want our content (the dropdown) to be collapsed by default. To accomplish this, we will set the _max-height_ property to __. This allows our content to be any size, while still providing the ability to be collapsed. We will also need to set the property, _overflow_, to _hidden_. This allows us to hide content in our dropdown when the _max-height_ is set to __. Let&#8217;s add the style rule for our dropdown:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="css" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">.dropdown {
+{{<highlight css>}}
+.dropdown {
                 max-height: 0;
                 overflow: hidden;
-            }</pre>
+            }
+{{</highlight>}}
 
 Last, we need to add one last style rule for expanding our dropdown. To do this, we can simply set _max-height_ to _100%_. We will also utilize the _general sibling combinator_. This selector allows us to select the dropdown following our checkbox and label. You can read more about the general sibling combinator from the [MDN web docs][1]. Let&#8217;s add our last style rule:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="css" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">#input-dropdown:checked ~ #dropdown {
+{{<highlight css>}}
+#input-dropdown:checked ~ #dropdown {
                 max-height: 100%;
-            }</pre>
+            }
+{{</highlight>}}
 
 If we take a look at our page, we should now see our dropdown!<figure class="wp-block-video"><video controls src="https://learn.yorkcs.com/wp-content/uploads/2019/06/simpledropdown-1.mp4"></video></figure> 
 

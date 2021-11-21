@@ -84,7 +84,9 @@ We can also see the files and folders in the directory we&#8217;re currently in.
 
 If we want to move around the file system, the _cd_ command is what we&#8217;re looking for. Let&#8217;s say we want to move into the _Documents_ folder, which we can access since we&#8217;re in our home directory. We can move into the Documents folder by running the command:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="generic" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">cd Documents</pre><figure class="wp-block-image">
+_cd Documents_
+
+<figure class="wp-block-image">
 
 <img loading="lazy" width="908" height="652" src="https://learn.yorkcs.com/wp-content/uploads/2019/07/terminal-cd-documents.png" alt="" class="wp-image-3097" /> </figure> 
 
@@ -92,25 +94,27 @@ You may notice that our current path (highlighted by the blue text on our curren
 
 But what if we want to go back to our previous directory? Well, there&#8217;s a couple ways we can do this. If we want to move up a level (move back to the parent directory), we can type:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="generic" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">cd ../</pre>
+_cd ../_
 
 If we run this, you will notice our path changed from _~/Documents_ back to _~_. Let&#8217;s go back to our Documents folder. It&#8217;s your turn to try it!
 
 Once you&#8217;re back in the Documents folder, how can we move back to our home directory without moving up a level? The answer is we can enter an absolute path. Let&#8217;s try typing the following, just be sure to change _jared_ to the username of your user account.
 
-<pre class="EnlighterJSRAW" data-enlighter-language="generic" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">cd /home/jared</pre>
+_cd /home/jared_
 
 Once you have, you should now see the blue tilde again.
 
 Perhaps you might want a shortcut to navigate to your home directory. There is one. Let&#8217;s go back into our documents folder with _cd Documents_. Remember the tilde? Let&#8217;s try entering that into our _cd_ command!
 
-<pre class="EnlighterJSRAW" data-enlighter-language="generic" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">cd ~</pre>
+_cd ~_
 
 If we run this, you should now be back in your home directory! Pretty cool, huh?
 
 Let&#8217;s put these commands into practice by visiting the root directory. This directory is the root of all the files in the Linux file system. We know that we&#8217;re in our home directory currently, as represented by the tilde. Something neat that we can do is chain multiple _../_ strings together to move up more than one level. In our case, we will need to move up two levels to get to the root directory. This is because, if we only move up one level, we will only be in our _/home_ directory (not to be confused with our user account&#8217;s home directory as represented by the name of your user account.) Let&#8217;s try running the following command:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="generic" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">cd ../../</pre><figure class="wp-block-image">
+_cd ../../_
+
+<figure class="wp-block-image">
 
 <img loading="lazy" width="908" height="652" src="https://learn.yorkcs.com/wp-content/uploads/2019/07/terminal-cd-to-root.png" alt="" class="wp-image-3100" /> </figure> 
 

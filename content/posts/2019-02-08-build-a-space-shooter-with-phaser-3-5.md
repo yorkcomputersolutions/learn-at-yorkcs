@@ -75,25 +75,32 @@ In the last part of this course, &#8220;Build a Space Shooter with Phaser 3&#822
 
 We will start by adding the scrolling background. The scrolling background will have multiple, scrolling at different speeds. First, let&#8217;s go to our `Entities.js` file. At bottom of the file, we can add a new class, `ScrollingBackground`. It does not need to extend anything.
 
-<pre class="EnlighterJSRAW" data-enlighter-language="js" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">class ScrollingBackground {
+{{<highlight js>}}
+class ScrollingBackground {
   constructor(scene, key, velocityY) {
     
   }
-}</pre>
+}
+{{</highlight>}}
 
 Our constructor will be taking in the scene we instantiate a scrolling background, and the image key of our star background. We will first set the scene of the instance to our parameter we&#8217;ve taken in. We will also store our keys into an instance of a scrolling background.
 
-<pre class="EnlighterJSRAW" data-enlighter-language="js" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">this.scene = scene;
+{{<highlight js>}}
+this.scene = scene;
 this.key = key;
-this.velocityY = velocityY;</pre>
+this.velocityY = velocityY;
+{{</highlight>}}
 
 We will be implementing a function called `createLayers`. Before we do however, we need to create a group inside our constructor.
 
-<pre class="EnlighterJSRAW" data-enlighter-language="js" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">this.layers = this.scene.add.group();</pre>
+{{<highlight js>}}
+this.layers = this.scene.add.group();
+{{</highlight>}}
 
 Inside our new `createLayers` function, let&#8217;s add the following code to create sprites out of the image key we&#8217;re given.
 
-<pre class="EnlighterJSRAW" data-enlighter-language="js" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">for (var i = 0; i &lt; 2; i++) {
+{{<highlight js>}}
+for (var i = 0; i < 2; i++) {
       // creating two backgrounds will allow a continuous scroll
       var layer = this.scene.add.sprite(0, 0, this.key);
       layer.y = (layer.displayHeight * i);
@@ -105,36 +112,45 @@ Inside our new `createLayers` function, let&#8217;s add the following code to cr
       layer.body.velocity.y = this.velocityY;
 
       this.layers.add(layer);
-    }</pre>
+    }
+{{</highlight>}}
 
 The above code iterates through each key we take in. For each key, we create two sprites with the key at each iteration of the first `for` loop. We then add the sprite to our `layers` group. We then apply a downwards velocity in which each layer is slower the farther back they are based on the value of `i`.
 
 We can then call `createLayers` at the bottom of our constructor.
 
-<pre class="EnlighterJSRAW" data-enlighter-language="js" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">this.createLayers();</pre>
+{{<highlight js>}}
+this.createLayers();
+{{</highlight>}}
 
 Now we can head over to `SceneMain.js` and initialize the scrolling background. Insert the following code before we instantiate the player and add it after we define `this.sfx`.
 
-<pre class="EnlighterJSRAW" data-enlighter-language="js" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">this.backgrounds = [];
-for (var i = 0; i &lt; 5; i++) { // create five scrolling backgrounds
+{{<highlight js>}}
+this.backgrounds = [];
+for (var i = 0; i < 5; i++) { // create five scrolling backgrounds
   var bg = new ScrollingBackground(this, "sprBg0", i * 10);
   this.backgrounds.push(bg);
-}</pre>
+}
+{{</highlight>}}
 
 Try running the game, you should see a the stars behind the player. All four backgrounds should be drawn now. We can now head back to `Entities.js` and add an `update` function with the following code inside:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="js" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">if (this.layers.getChildren()[0].y > 0) {
-      for (var i = 0; i &lt; this.layers.getChildren().length; i++) {
+{{<highlight js>}}
+if (this.layers.getChildren()[0].y > 0) {
+      for (var i = 0; i < this.layers.getChildren().length; i++) {
         var layer = this.layers.getChildren()[i];
         layer.y = (-layer.displayHeight) + (layer.displayHeight * i);
       }
-    }</pre>
+    }
+{{</highlight>}}
 
 The above code allows the background layers to wrap back around to the bottom. If we didn&#8217;t have this code, the backgrounds will just move off-screen and there will remain the black background. We can go back to `SceneMain.js` and call the `update` function of our scrolling background instance. In the `update` function of `SceneMain`, add the following code:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="js" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">for (var i = 0; i &lt; this.backgrounds.length; i++) {
+{{<highlight js>}}
+for (var i = 0; i < this.backgrounds.length; i++) {
       this.backgrounds[i].update();
-    }</pre>
+    }
+{{</highlight>}}
 
 That concludes adding our background to the game! If we run the game we should see multiple background layers scrolling down at different speeds.
 
@@ -142,29 +158,37 @@ We can finish up by adding our main menu and game over screen.
 
 Navigate to `SceneMainMenu` and remove the line that starts `SceneMain`. Before we continue however, we should a sound effect object for SceneMainMenu. Add the following to the very top of the `create` function:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="js" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">this.sfx = {
+{{<highlight js>}}
+this.sfx = {
   btnOver: this.sound.add("sndBtnOver"),
   btnDown: this.sound.add("sndBtnDown")
-};</pre>
+};
+{{</highlight>}}
 
 We can then add the play button to the `create` function by adding a sprite.
 
-<pre class="EnlighterJSRAW" data-enlighter-language="js" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">this.btnPlay = this.add.sprite(
+{{<highlight js>}}
+this.btnPlay = this.add.sprite(
   this.game.config.width * 0.5,
   this.game.config.height * 0.5,
   "sprBtnPlay"
-);</pre>
+);
+{{</highlight>}}
 
 In order to start `SceneMain`, we will need to first set our sprite as interactive. Add the following directly below where we defined `this.btnPlay`:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="js" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">this.btnPlay.setInteractive();</pre>
+{{<highlight js>}}
+this.btnPlay.setInteractive();
+{{</highlight>}}
 
 Since we set our sprite as being interactive, we can now add pointer events such as over, out, down, and up. We can execute code when each of these events are triggered by the mouse or tap. The first event we will add is the `pointerover` event. We will be changing the texture of the button to our `sprBtnPlayHover.png` image when the pointer moves over the button. Add the following after we set our button as interactive:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="js" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">this.btnPlay.on("pointerover", function() {
+{{<highlight js>}}
+this.btnPlay.on("pointerover", function() {
   this.btnPlay.setTexture("sprBtnPlayHover"); // set the button texture to sprBtnPlayHover
   this.sfx.btnOver.play(); // play the button over sound
-}, this);</pre>
+}, this);
+{{</highlight>}}
 
 If we run the game and move the mouse over the button we should see:<figure class="wp-block-image">
 
@@ -172,24 +196,30 @@ If we run the game and move the mouse over the button we should see:<figure clas
 
 Now we can add the `pointerout` event. In this event we will reset the texture back to the normal play button image. Add the following under where we define the `pointerover` event:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="js" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">this.btnPlay.on("pointerout", function() {
+{{<highlight js>}}
+this.btnPlay.on("pointerout", function() {
   this.setTexture("sprBtnPlay");
-});</pre>
+});
+{{</highlight>}}
 
 If we run the game again and move the mouse over the button, then off, we should see the button texture reset to the default image.
 
 Next, we can add the `pointerdown` event. This is where we will change the texture of the play button to `sprBtnPlayDown.png`.
 
-<pre class="EnlighterJSRAW" data-enlighter-language="js" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">this.btnPlay.on("pointerdown", function() {
+{{<highlight js>}}
+this.btnPlay.on("pointerdown", function() {
   this.btnPlay.setTexture("sprBtnPlayDown");
   this.sfx.btnDown.play();
-}, this);</pre>
+}, this);
+{{</highlight>}}
 
 If we run the game, we should see the button texture change to `sprBtnPlayDown.png` when we move the mouse over the button and click. We can then add the `pointerup` event to reset the button texture after we click.
 
-<pre class="EnlighterJSRAW" data-enlighter-language="js" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">this.btnPlay.on("pointerup", function() {
+{{<highlight js>}}
+this.btnPlay.on("pointerup", function() {
   this.setTexture("sprBtnPlay");
-}, this);</pre>
+}, this);
+{{</highlight>}}
 
 <div class="wp-block-image">
   <figure class="aligncenter"><img loading="lazy" width="714" height="914" src="https://learn.yorkcs.com/wp-content/uploads/2019/02/p3ss_play_button.gif" alt="" class="wp-image-547" /></figure>
@@ -197,10 +227,12 @@ If we run the game, we should see the button texture change to `sprBtnPlayDown.p
 
 We can a line one more line inside our `pointerup` event to start `SceneMain`. The final `pointerup` event should look like:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="js" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">this.btnPlay.on("pointerup", function() {
+{{<highlight js>}}
+this.btnPlay.on("pointerup", function() {
   this.btnPlay.setTexture("sprBtnPlay");
   this.scene.start("SceneMain");
-}, this);</pre>
+}, this);
+{{</highlight>}}
 
 When we run the game and click the play button, it should now start `SceneMain`!
 
@@ -210,33 +242,41 @@ When we run the game and click the play button, it should now start `SceneMain`!
 
 There are now just a couple things we can do to finish up our main menu. The first is adding a title. To add our title, we can create text. Add the following under the `pointerup` event
 
-<pre class="EnlighterJSRAW" data-enlighter-language="js" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">this.title = this.add.text(this.game.config.width * 0.5, 128, "SPACE SHOOTER", {
+{{<highlight js>}}
+this.title = this.add.text(this.game.config.width * 0.5, 128, "SPACE SHOOTER", {
   fontFamily: 'monospace',
   fontSize: 48,
   fontStyle: 'bold',
   color: '#ffffff',
   align: 'center'
-});</pre>
+});
+{{</highlight>}}
 
 To center the title, we can set the origin of the text to half the width, and half the height. We can do this by writing the following under our title definition:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="js" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">this.title.setOrigin(0.5);</pre>
+{{<highlight js>}}
+this.title.setOrigin(0.5);
+{{</highlight>}}
 
 The last thing we will do for our main menu is add our scrolling background in. We can copy the code from the create function of `SceneMain` to `SceneMainMenu`, but the code is available below as well.
 
-<pre class="EnlighterJSRAW" data-enlighter-language="js" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">this.backgrounds = [];
-for (var i = 0; i &lt; 5; i++) {
+{{<highlight js>}}
+this.backgrounds = [];
+for (var i = 0; i < 5; i++) {
   var keys = ["sprBg0", "sprBg1"];
   var key = keys[Phaser.Math.Between(0, keys.length - 1)];
   var bg = new ScrollingBackground(this, key, i * 10);
   this.backgrounds.push(bg);
-}</pre>
+}
+{{</highlight>}}
 
 We can also create the `update` function as well. In the `update` function we will update our background layers. Add the following to the `update` function to update our scrolling backgrounds.
 
-<pre class="EnlighterJSRAW" data-enlighter-language="js" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">for (var i = 0; i &lt; this.backgrounds.length; i++) {
+{{<highlight js>}}
+for (var i = 0; i < this.backgrounds.length; i++) {
   this.backgrounds[i].update();
-}</pre>
+}
+{{</highlight>}}
 
 Try running the game now. You may notice some green squares in the top-left corner of the screen.<figure class="wp-block-image">
 
@@ -244,7 +284,8 @@ Try running the game now. You may notice some green squares in the top-left corn
 
 The reason why we are not seeing our backgrounds, is because they haven&#8217;t been loaded yet. They have been loaded in `SceneMain`, but if we look at our scene array in `game.js`, `SceneMain` is after `SceneMainMenu` so we are not able to access loaded content from `SceneMain`. To fix this, we will have to move the lines loading `sprBg0.png` and `sprBg1.png` to the `preload` function of `SceneMainMenu`. The `preload` function of `SceneMainMenu` should look similar to:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="js" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">this.load.image("sprBg0", "content/sprBg0.png");
+{{<highlight js>}}
+this.load.image("sprBg0", "content/sprBg0.png");
 this.load.image("sprBg1", "content/sprBg1.png");
 this.load.image("sprBtnPlay", "content/sprBtnPlay.png");
 this.load.image("sprBtnPlayHover", "content/sprBtnPlayHover.png");
@@ -254,7 +295,8 @@ this.load.image("sprBtnRestartHover", "content/sprBtnRestartHover.png");
 this.load.image("sprBtnRestartDown", "content/sprBtnRestartDown.png");
 
 this.load.audio("sndBtnOver", "content/sndBtnOver.wav");
-this.load.audio("sndBtnDown", "content/sndBtnDown.wav");</pre>
+this.load.audio("sndBtnDown", "content/sndBtnDown.wav");
+{{</highlight>}}
 
 When we now run the game, we should see background looking how it should.<figure class="wp-block-image">
 
@@ -264,25 +306,30 @@ The final part of this course will be fleshing out `SceneGameOver` and adding th
 
 We can copy over the title code from `SceneMainMenu` to `SceneGameOver`. In the `create` function of `SceneGameOver`, we can add the following code to create our title. This title code is essentially identical to the code we used previously. The only change we make is changing the string to draw from `"SPACE SHOOTER"` to `"GAME OVER"`.
 
-<pre class="EnlighterJSRAW" data-enlighter-language="js" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">this.title = this.add.text(this.game.config.width * 0.5, 128, "GAME OVER", {
+{{<highlight js>}}
+this.title = this.add.text(this.game.config.width * 0.5, 128, "GAME OVER", {
   fontFamily: 'monospace',
   fontSize: 48,
   fontStyle: 'bold',
   color: '#ffffff',
   align: 'center'
 });
-this.title.setOrigin(0.5);</pre>
+this.title.setOrigin(0.5);
+{{</highlight>}}
 
 Next we can add our sound effect object, as we did with both `SceneMainMenu` and `SceneMain`.
 
-<pre class="EnlighterJSRAW" data-enlighter-language="js" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">this.sfx = {
+{{<highlight js>}}
+this.sfx = {
   btnOver: this.sound.add("sndBtnOver"),
   btnDown: this.sound.add("sndBtnDown")
-};</pre>
+};
+{{</highlight>}}
 
 Once we have added the game over title and sound effect object, we can add in the restart button. The code is pretty much identical to that which we used with the play button. Add the following to the `create` function of `SceneGameOver`:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="js" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">this.btnRestart = this.add.sprite(
+{{<highlight js>}}
+this.btnRestart = this.add.sprite(
       this.game.config.width * 0.5,
       this.game.config.height * 0.5,
       "sprBtnRestart"
@@ -307,34 +354,41 @@ Once we have added the game over title and sound effect object, we can add in th
     this.btnRestart.on("pointerup", function() {
       this.btnRestart.setTexture("sprBtnRestart");
       this.scene.start("SceneMain");
-    }, this);</pre>
+    }, this);
+{{</highlight>}}
 
 After our button code, we can create our background layers. As we have before, we can add the following code to the `create` function:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="js" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">this.backgrounds = [];
-for (var i = 0; i &lt; 5; i++) {
+{{<highlight js>}}
+this.backgrounds = [];
+for (var i = 0; i < 5; i++) {
   var keys = ["sprBg0", "sprBg1"];
   var key = keys[Phaser.Math.Between(0, keys.length - 1)];
   var bg = new ScrollingBackground(this, key, i * 10);
   this.backgrounds.push(bg);
-}</pre>
+}
+{{</highlight>}}
 
 Then add our update code to update the backgrounds in the `update` function:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="js" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">for (var i = 0; i &lt; this.backgrounds.length; i++) {
+{{<highlight js>}}
+for (var i = 0; i < this.backgrounds.length; i++) {
   this.backgrounds[i].update();
-}</pre>
+}
+{{</highlight>}}
 
 We finished adding the game over title, restart button, and scrolling background layers. That&#8217;s great, except we can&#8217;t see our changes yet because we haven&#8217;t started `SceneGameOver` anywhere yet. To change this, we can go to our `Entities.js` file and create an `onDestroy` function for our player. The plan is, we will want to create an event that will start `SceneGameOver` after a slight delay. Inside our new `onDestroy` function, we can add the following code:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="js" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">this.scene.time.addEvent({ // go to game over scene
+{{<highlight js>}}
+this.scene.time.addEvent({ // go to game over scene
   delay: 1000,
   callback: function() {
     this.scene.scene.start("SceneGameOver");
   },
   callbackScope: this,
   loop: false
-});</pre>
+});
+{{</highlight>}}
 
 In order to finish with our `onDestroy` function, we will need to go back to `SceneMain.js` and look in the `create` function. Specifically we will have to call the player&#8217;s `onDestroy` function in every collider that involves the player. Just after we call `player.explode(false);`, we can insert: `player.onDestroy();`
 

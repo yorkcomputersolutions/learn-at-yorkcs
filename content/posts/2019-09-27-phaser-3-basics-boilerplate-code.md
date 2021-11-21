@@ -30,24 +30,27 @@ In this part we will be adding the boilerplate code for our Phaser game. There a
 
 In order to be able to play our game, we will need to add some basic code to our index.html file, if you haven&#8217;t already. Add the following code to index.html:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="html" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">&lt;!DOCTYPE html>
-&lt;html>
-    &lt;head>
-        &lt;meta charset="utf-8">
-        &lt;meta lang="en-us">
-        &lt;title>Phaser 3 Tinkering&lt;/title>
-    &lt;/head>
-    &lt;body>
-        &lt;script src="phaser.js">&lt;/script>
-        &lt;script src="game.js">&lt;/script>
-    &lt;/body>
-&lt;/html></pre>
+{{<highlight html>}}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta lang="en-us">
+        <title>Phaser 3 Tinkering</title>
+    </head>
+    <body>
+        <script src="phaser.js"></script>
+        <script src="game.js"></script>
+    </body>
+</html>
+{{</highlight>}}
 
 ## Boot Scene
 
 Phaser uses what are known as &#8220;Scenes,&#8221; to define different states within a game. For example, the main menu, the game world, and the game over screen would all be known as a scene in the Phaser framework. Once you load assets in a scene, all scenes listed after it will be able to access the assets you&#8217;ve loaded. We can take advantage of this mechanic by creating a boot scene. We can load our images and sounds in the scene for use by a main menu, play state, etc.
 
-<pre class="EnlighterJSRAW" data-enlighter-language="js" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">class SceneBoot extends Phaser.Scene {
+{{<highlight js>}}
+class SceneBoot extends Phaser.Scene {
     constructor() {
         super({ key: "SceneBoot" });
     }
@@ -59,13 +62,15 @@ Phaser uses what are known as &#8220;Scenes,&#8221; to define different states w
     create() {
        this.scene.start("SceneMain");
     }
-}</pre>
+}
+{{</highlight>}}
 
 ## Main Scene
 
 The last scene we will add in this part is the main scene. This scene will contain the gameplay, which is fine for a basic game.
 
-<pre class="EnlighterJSRAW" data-enlighter-language="js" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">class SceneMain extends Phaser.Scene {
+{{<highlight js>}}
+class SceneMain extends Phaser.Scene {
     constructor() {
         super({ key: "SceneMain" });
     }
@@ -77,7 +82,8 @@ The last scene we will add in this part is the main scene. This scene will conta
     update() {
 
     }
-}</pre>
+}
+{{</highlight>}}
 
 ## Game Configuration
 
@@ -85,7 +91,8 @@ The game configuration is what we use to define important properties of our game
 
 Add the following code to our game.js file:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="js" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">var config = {
+{{<highlight js>}}
+var config = {
     type: Phaser.WEBGL,
     width: 640,
     height: 640,
@@ -102,13 +109,16 @@ Add the following code to our game.js file:
     ],
     pixelArt: true,
     roundPixels: true
-};</pre>
+};
+{{</highlight>}}
 
 ## Creating a Game Instance
 
 Now we&#8217;re at the easy part, defining the game instance. All we will be doing is assigning an instance of _Phaser.Game_ to a variable called _game_. We can pass in our game configuration object we made earlier so the properties we defined get applied. After the code for our game configuration, add:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="js" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">var game = new Phaser.Game(config);</pre>
+{{<highlight js>}}
+var game = new Phaser.Game(config);
+{{</highlight>}}
 
 ## Concluding Thoughts
 

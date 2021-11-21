@@ -29,7 +29,7 @@ minify:
 params:
   env: production # to enable google analytics, opengraph, twitter-cards and schema.
   description: ""
-  author: York Computer Solutions LLC
+  author: Jared York
   # author: ["Me", "You"] # multiple authors
   ShowPostNavLinks: true
   defaultTheme: auto
@@ -46,14 +46,14 @@ params:
     enabled: true
     title: Learn @ York Computer Solutions LLC # optional default will be site title
     subtitle: "Providing free to the end user IT tutorials, in addition to premium IT courses."
-    homeInfo: "Please get in touch to access downloads from old website at *learn@yorkcs.com*."
+    homeInfo: "Please get in touch to access downloads from the old website at *learn@yorkcs.com*."
     imageUrl: "/index/logo-one-color-512.webp" # optional
     imageTitle: "York Computer Solutions' profile picture" # optional
     imageWidth: 320 # custom size
     imageHeight: 69 # custom size
 
     buttons:
-      - { name: Tutorials, url: "/posts" }
+      - { name: Latest Tutorials, url: "/posts" }
 
 taxonomies:
   category: categories
@@ -69,7 +69,7 @@ menu:
     - identifier: blog
       name: Blog
       url: /posts
-      weight: 7
+      weight: 10
     - indentifier: series
       name: Series
       url: /series/
@@ -77,4 +77,8 @@ menu:
     - identifier: categories
       name: Categories
       url: /categories/
-      weight: 10
+      weight: 30
+    - identifier: company
+      name: Company
+      url: https://yorkcs.com
+      weight: 40

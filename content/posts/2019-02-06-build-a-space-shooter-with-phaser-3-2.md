@@ -4,7 +4,7 @@ author: Jared
 type: post
 date: 2019-02-06T13:54:57+00:00
 url: /2019/02/06/build-a-space-shooter-with-phaser-3-2/
-featured_image: /wp-content/uploads/2019/02/thumbnail_wp_part2.jpg
+cover.image: /wp-content/uploads/2019/02/thumbnail_wp_part2.jpg
 rank_math_seo_score:
   - 70
 rank_math_facebook_enable_image_overlay:
@@ -67,34 +67,39 @@ In the last part of this course, we finished creating the files and folders we n
 
 To start, open your `index.html` file and type the following:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="html" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">&lt;!DOCTYPE html>
-&lt;html>
-  &lt;head>
-    &lt;meta charset="utf-8">
-    &lt;meta lang="en-us">
-    &lt;title>Space Shooter&lt;/title>
-    &lt;script src="js/phaser.js">&lt;/script> &lt;!-- the file name should be the same as the Phaser script you added. -->
-  &lt;/head>
+{{<highlight html>}}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta lang="en-us">
+    <title>Space Shooter</title>
+    <script src="js/phaser.js"></script> <!-- the file name should be the same as the Phaser script you added. -->
+  </head>
 
-  &lt;body>
-    &lt;script src="js/SceneMainMenu.js">&lt;/script>
-    &lt;script src="js/SceneMain.js">&lt;/script>
-    &lt;script src="js/SceneGameOver.js">&lt;/script>
-    &lt;script src="js/game.js">&lt;/script>
-  &lt;/body>
-&lt;/html></pre>
+  <body>
+    <script src="js/SceneMainMenu.js"></script>
+    <script src="js/SceneMain.js"></script>
+    <script src="js/SceneGameOver.js"></script>
+    <script src="js/game.js"></script>
+  </body>
+</html>
+{{</highlight>}}
 
 In this last snippet, we declare the file to be an HTML file (hence the .html file extension), and declare the scripts we will use. Note the order we declare the scripts that contain &#8220;Scene&#8221; in them in comparison to the `game.js` script. The order is very important because JavaScript is interpreted from top to bottom. We will be referencing code from our three scene scripts in `game.js`.
 
 Next, we will need to initialize our Phaser game inside game.js. Take a moment and open up game.js if you haven&#8217;t already and create a JavaScript object like the following:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="js" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="1" data-enlighter-title="" data-enlighter-group="">var config = {
+{{<highlight js>}}
+var config = {
 
-};</pre>
+};
+{{</highlight>}}
 
 This JavaScript object will contain the configuration properties that we will feed our upcoming Phaser game instance. Inside our config object add:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="js" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="2" data-enlighter-title="" data-enlighter-group="">type: Phaser.WEBGL,
+{{<highlight js>}}
+type: Phaser.WEBGL,
   width: 480,
   height: 640,
   backgroundColor: "black",
@@ -106,27 +111,33 @@ This JavaScript object will contain the configuration properties that we will fe
   },
   scene: [],
   pixelArt: true,
-  roundPixels: true</pre>
+  roundPixels: true
+{{</highlight>}}
 
 So far inside our configuration object we are telling Phaser that we want to ensure our game is being rendered via WebGL instead of using ordinary Canvas rendering tech. The next part of the config includes `width` and `height` which define the size of our game on the page. The property `backgroundColor` defines the background color that will be shown behind our game. The next property, `physics` defines the default physics engine that we will be using, which is `arcade`. Arcade physics work well when we want basic collision detection without many bells and whistles. Inside the `physics` property, we also set default gravity of our physics world. The next property, `scene` is set to an array which we will add to in a bit. Finally we want Phaser to ensure pixels are crisp just like the great nostalgic video games we&#8217;ve come to know and love.
 
 The scene array that we have defined inside our config object is needed in order to declare the order of our scenes in our game. A scene is effectively like any sort of &#8220;screen&#8221; you see in a video game. For example, the main menu, the play state, and the game over screen are what I call separate &#8220;screens&#8221;. Well, a scene is pretty much the same as a screen. We will define our scenes as a JavaScript class (a class is still an object, the syntax is just different and helps us organize our code better.) Now we will define our scene classes inside the array of the scene property we just wrote:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="js" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="11" data-enlighter-title="" data-enlighter-group="">},
+{{<highlight js>}}
+},
   scene: [
     SceneMainMenu,
     SceneMain,
     SceneGameOver
   ],
-  pixelArt: true,</pre>
+  pixelArt: true,
+{{</highlight>}}
 
 We are now finished with our configuration object! We will not need to touch it for the duration of this course. The final line of code we need (and arguably most important) after the last curly brace of our config object is:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="js" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="21" data-enlighter-title="" data-enlighter-group="">var game = new Phaser.Game(config);</pre>
+{{<highlight js>}}
+var game = new Phaser.Game(config);
+{{</highlight>}}
 
 And there we have it! Our `game.js` file is complete. Now we need to define a class for each of our scene scripts. Lets open `SceneMainMenu.js` first and add the following:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="js" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">class SceneMainMenu extends Phaser.Scene {
+{{<highlight js>}}
+class SceneMainMenu extends Phaser.Scene {
   constructor() {
     super({ key: "SceneMainMenu" });
   }
@@ -134,25 +145,33 @@ And there we have it! Our `game.js` file is complete. Now we need to define a cl
   create() {
     this.scene.start("SceneMain");
   }
-}</pre>
+}
+{{</highlight>}}
 
 Here we are declaring a class with `class SceneMainMenu`. On the same line we added `extends Phaser.Scene {`. Extending `Phaser.Scene` means to build on top of Phaser&#8217;s Scene class (`Phaser.Scene` means a class named `Scene` which is a property of the object `Phaser`.) Inside the class we have just declared, there are two functions: `constructor` and `create`. The `constructor` function is called immediately when instantiating (creating an instance) the class. Within the constructor we have:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="js" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="3" data-enlighter-title="" data-enlighter-group="">super({ key: "SceneMainMenu" });</pre>
+{{<highlight js>}}
+super({ key: "SceneMainMenu" });
+{{</highlight>}}
 
 which is effectively the same (technically speaking) as:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="js" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="false" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">var someScene = new Phaser.Scene({ key: "SceneMainMenu" });</pre>
+{{<highlight js>}}
+var someScene = new Phaser.Scene({ key: "SceneMainMenu" });
+{{</highlight>}}
 
 Instead of creating an instance of `Phaser.Scene` and assigning it to a variable, we are instead defining our scene as a class that we can assign a custom `preload`, `create`, and eventually an `update` function. This is what I mean when I say build on top of the existing `Phaser.Scene` class. The `create` function within our `SceneMainMenu` class will be called as soon as the scene is started. Inside our `create` function we included:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="js" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="7" data-enlighter-title="" data-enlighter-group="">this.scene.start("SceneMain");</pre>
+{{<highlight js>}}
+this.scene.start("SceneMain");
+{{</highlight>}}
 
 The plan is to redirect the player to the main play scene, where all the action is. I think it would be better to start on the game play and work backwards to the main menu. Who wants to work on those boring buttons and interface elements anyway? Especially when we can instead code something much more exciting&#8230; <del>for now&#8230;</del> right? 🙂
 
 We can finish up by the code we just typed for `SceneMainMenu` into `SceneMain.js` and `SceneGameOver.js`. Below is what you should end up with for all three scripts:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="js" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="SceneMainMenu.js" data-enlighter-group="">class SceneMainMenu extends Phaser.Scene {
+{{<highlight js>}}
+class SceneMainMenu extends Phaser.Scene {
   constructor() {
     super({ key: "SceneMainMenu" });
   }
@@ -160,9 +179,11 @@ We can finish up by the code we just typed for `SceneMainMenu` into `SceneMain.j
   create() {
     this.scene.start("SceneMain");
   }
-}</pre>
+}
+{{</highlight>}}
 
-<pre class="EnlighterJSRAW" data-enlighter-language="js" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="SceneMain.js" data-enlighter-group="">class SceneMain extends Phaser.Scene {
+{{<highlight js>}}
+class SceneMain extends Phaser.Scene {
   constructor() {
     super({ key: "SceneMain" });
   }
@@ -170,9 +191,11 @@ We can finish up by the code we just typed for `SceneMainMenu` into `SceneMain.j
   create() {
     
   }
-}</pre>
+}
+{{</highlight>}}
 
-<pre class="EnlighterJSRAW" data-enlighter-language="js" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="SceneGameOver.js" data-enlighter-group="">class SceneGameOver extends Phaser.Scene {
+{{<highlight js>}}
+class SceneGameOver extends Phaser.Scene {
   constructor() {
     super({ key: "SceneGameOver" });
   }
@@ -181,6 +204,7 @@ We can finish up by the code we just typed for `SceneMainMenu` into `SceneMain.j
     
   }
 }</pre>
+{{</highlight>}}
 
 If you have questions or suggestions, feel free to leave a comment below and I&#8217;ll be happy to help you out! If you would like to receive updates on new courses I release via email, feel free to fill out the [form][1].
 

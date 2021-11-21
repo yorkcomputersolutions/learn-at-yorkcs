@@ -53,8 +53,7 @@ rank_math_schema_Article:
 rank_math_analytic_object_id:
   - 53
 categories:
-  - Uncategorized
-  - Web Design
+  - Website Design
 tags:
   - web development
   - webdesign
@@ -72,45 +71,51 @@ Let&#8217;s dive right into the code. Create a folder somewhere on your computer
 
 Once our folders and files are set up, we can open a text editor or code editor of our choice and open our newly created _index.html_ file. The first thing we need to do is define our basic HTML document:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="html" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">&lt;!DOCTYPE html>
-&lt;html>
-  &lt;head>
-    &lt;meta charset="utf-8">
-    &lt;meta lang="en-us">
-    &lt;title>Buttons Examples Vol. 1&lt;/title>
+{{<highlight html>}}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta lang="en-us">
+    <title>Buttons Examples Vol. 1</title>
 
-    &lt;link rel="stylesheet" type="text/css" href="css/styles.css">
-  &lt;/head>
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+  </head>
 
-  &lt;body>
+  <body>
 
-  &lt;/body>
-&lt;/html></pre>
+  </body>
+</html>
+{{</highlight>}}
 
 In the _<body>_ element, we are going to need a bunch of buttons to spice up, so add the following:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="java" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">&lt;div class="wrapper">
-  &lt;h2>Buttons Vol. 1&lt;/h2>
-  &lt;br />
+{{<highlight html>}}
+<div class="wrapper">
+  <h2>Buttons Vol. 1</h2>
+  <br />
 
-  &lt;a class="btn-type-1" href="#">Download&lt;/a>
-  &lt;br />&lt;br />
-  &lt;a class="btn-type-2" href="#">Download&lt;/a>
-  &lt;br />&lt;br />
-  &lt;a class="btn-type-3" href="#">Download&lt;/a>
-  &lt;br />&lt;br />
-  &lt;a class="btn-type-4" href="#">Download&lt;/a>
-  &lt;br />&lt;br />
-  &lt;a class="btn-type-5" href="#">Download&lt;/a>
-  &lt;br />&lt;br />
-  &lt;a class="btn-type-6" href="#">Download&lt;/a>
-&lt;/div></pre>
+  <a class="btn-type-1" href="#">Download</a>
+  <br /><br />
+  <a class="btn-type-2" href="#">Download</a>
+  <br /><br />
+  <a class="btn-type-3" href="#">Download</a>
+  <br /><br />
+  <a class="btn-type-4" href="#">Download</a>
+  <br /><br />
+  <a class="btn-type-5" href="#">Download</a>
+  <br /><br />
+  <a class="btn-type-6" href="#">Download</a>
+</div>
+{{</highlight>}}
 
 Let&#8217;s head over to our _styles.css_ file. Since we&#8217;re not going to make an actual website, it&#8217;s fine if we give the wrapper _<div>_ a huge amount of padding. Let&#8217;s add a style rule to add a bunch:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="css" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">.wrapper {
+{{<highlight css>}}
+.wrapper {
   padding: 64px;
-}</pre>
+}
+{{</highlight>}}
 
 #### The First Button<figure class="wp-block-image">
 
@@ -118,7 +123,8 @@ Let&#8217;s head over to our _styles.css_ file. Since we&#8217;re not going to m
 
 Now, we can start adding style rules for our buttons, starting with the first. Let&#8217;s add the first style rule:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="css" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">.btn-type-1 {
+{{<highlight css>}}
+.btn-type-1 {
   display: inline-block;
   padding: 16px 32px 16px 32px;
   border-radius: 3px;
@@ -127,21 +133,26 @@ Now, we can start adding style rules for our buttons, starting with the first. L
   text-decoration: none;
   color: white;
   background: #1E88E5;
-}</pre>
+}
+{{</highlight>}}
 
 By setting the _display_ property to _inline-block_, we can kind of get the &#8220;best of both worlds&#8221;, by being able to manipulate the button with properties that affect _display: block_ elements, as well as still allowing the button to be displayed inline. The next property we&#8217;ve added, _padding_, is the shorthand version for defining padding. The first unit represents the top padding, the second stands for the right padding, the third stands for the bottom padding, and the fourth defines the padding on the left. The next property, _border-radius_, is fairly self explanatory. The border radius just means how rounded do you want the corners of the element. For all of these buttons, we will be using Arial as our font, then default to a default Sans Serif font, if Arial is somehow not installed. This is what the _font-family_ property enables us to do. We can set the text in the button to use a bold font face. To do this, we can utilize the _font-weight_ property. Since all of our buttons are anchor tags, they will appear as normal links until we style them. Because the buttons will display like normal links by default, they will display underlines under them. We don&#8217;t want this for our buttons, so we use the _text-decoration_ property, and set the value to _none_. This will remove the underline from the button. The text color for all of our buttons will be white so it shows up well on the backgrounds. To set the text color, we can utilize the _color_ property. To set the background color of the button, we will use the shorthand _background_ property. When defining colors with CSS, we can either define them with hexadecimal color values, or using the color keywords provided in CSS. We can change the appearance of the button when you move the mouse over it via the following:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="css" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">.btn-type-1:hover {
+{{<highlight css>}}
+.btn-type-1:hover {
   background: #1565C0;
-}</pre>
+}
+{{</highlight>}}
 
 We can append the _:hover_ selector to our _.btn-type-1_ selector. This will cause the specified styles to take effect when hovered over.
 
 If we want the button to change appearance when you click/press down it, we can use the _:active_ selector.
 
-<pre class="EnlighterJSRAW" data-enlighter-language="css" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">.btn-type-1:active {
+{{<highlight css>}}
+.btn-type-1:active {
   background: #0D47A1;
-}</pre>
+}
+{{</highlight>}}
 
 #### The Second Button<figure class="wp-block-image">
 
@@ -149,7 +160,8 @@ If we want the button to change appearance when you click/press down it, we can 
 
 The second button will not need a button color, however we will be adding a border. We will also be adding a transition animation between button states. So, if you were to move your mouse over the button, it will transition from the current color to a new color over a period of time. Let&#8217;s add the code!
 
-<pre class="EnlighterJSRAW" data-enlighter-language="css" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">.btn-type-2 {
+{{<highlight css>}}
+.btn-type-2 {
   display: inline-block;
   padding: 16px 32px 16px 32px;
   font-family: arial, sans-serif;
@@ -159,14 +171,17 @@ The second button will not need a button color, however we will be adding a bord
   border-radius: 32px;
   color: #2E7D32;
   transition: 0.2s ease-in-out;
-}</pre>
+}
+{{</highlight>}}
 
 When the user hovers over the button, we want to change the text color as well as the border color. 
 
-<pre class="EnlighterJSRAW" data-enlighter-language="css" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">.btn-type-2:hover {
+{{<highlight css>}}
+.btn-type-2:hover {
   border: 2px solid #555;
   color: #555;
-}</pre>
+}
+{{</highlight>}}
 
 Feel free to add another set of styles for the _:active_ selector.
 
@@ -176,7 +191,8 @@ Feel free to add another set of styles for the _:active_ selector.
 
 Now, we will be taking a look at buttons with gradients. Specifically, we will make use of linear gradients. We can combine a border with a linear gradient. Let&#8217;s put this into practice:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="css" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">.btn-type-3 {
+{{<highlight css>}}
+.btn-type-3 {
   display: inline-block;
   padding: 16px 32px 16px 32px;
   font-family: arial, sans-serif;
@@ -187,18 +203,23 @@ Now, we will be taking a look at buttons with gradients. Specifically, we will m
   color: white;
   background-image: linear-gradient(#EF5350, #E53935);
 }</pre>
+{{</highlight>}}
 
 The first argument for the _linear-gradient_ function is the background color on the top of the button, and the second is the background color displayed on the bottom of the button. We can also change the colors of the gradient via the _:hover_ and _:active_ selectors as well. Let&#8217;s add some style properties for the _:hover_ selector:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="css" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">.btn-type-3:hover {
+{{<highlight css>}}
+.btn-type-3:hover {
   background-image: linear-gradient(#F44336, #E53935);
-}</pre>
+}
+{{</highlight>}}
 
 We can provide a different color variation for the _:active_ selector too!
 
-<pre class="EnlighterJSRAW" data-enlighter-language="css" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">.btn-type-3:active {
+{{<highlight css>}}
+.btn-type-3:active {
   background-image: linear-gradient(#E53935, #EF5350);
-}</pre>
+}
+{{</highlight>}}
 
 #### The Fourth Button<figure class="wp-block-image">
 
@@ -206,7 +227,8 @@ We can provide a different color variation for the _:active_ selector too!
 
 This next button has a more modern look to it, while maintaining a slightly less serious tone. We can add some depth to the bottom of the button by using the _border-bottom_ property.
 
-<pre class="EnlighterJSRAW" data-enlighter-language="css" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">.btn-type-4 {
+{{<highlight css>}}
+.btn-type-4 {
   display: inline-block;
   padding: 16px 32px 16px 32px;
   font-family: arial, sans-serif;
@@ -216,23 +238,28 @@ This next button has a more modern look to it, while maintaining a slightly less
   border-radius: 6px;
   color: white;
   background: #388E3C;
-}</pre>
+}
+{{</highlight>}}
 
 Then, we can add a set of properties for the _:hover_ selector:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="css" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">.btn-type-4:hover {
+{{<highlight css>}}
+.btn-type-4:hover {
   background: #43A047;
-}</pre>
+}
+{{</highlight>}}
 
 After that, we want to move the button down 4 pixels, but also offset that with a margin of four pixels so the buttons don&#8217;t push other elements down when the user presses the button. All of this will take place using the _:active_ selector:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="css" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">.btn-type-4:active {
+{{<highlight css>}}
+.btn-type-4:active {
   position: relative;
   top: 4px;
   border-bottom: 0;
   margin-bottom: 4px;
   background: #2E7D32;
-}</pre>
+}
+{{</highlight>}}
 
 #### The Fifth Button<figure class="wp-block-image">
 
@@ -240,7 +267,8 @@ After that, we want to move the button down 4 pixels, but also offset that with 
 
 This button is similar to the previous one, however this one has a shadow around the base. This further gives the perception of depth to the button. We can accomplish this via the _box-shadow_ property. Let&#8217;s add the code affecting the class _btn-type-5_:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="css" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">.btn-type-5 {
+{{<highlight css>}}
+.btn-type-5 {
   display: inline-block;
   padding: 16px 32px 16px 32px;
   font-family: arial, sans-serif;
@@ -251,24 +279,29 @@ This button is similar to the previous one, however this one has a shadow around
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.85);
   color: white;
   background: #AB47BC;
-}</pre>
+}
+{{</highlight>}}
 
 Let&#8217;s take a look at our use of the _box-shadow_ property. The first unit defines the horizontal offset of the shadow. The second unit represents the vertical offset of the shadow. The third unit represents how far the shadow should spread. Finally, the fourth is the color of the shadow. We can define a semi-transparent color using the _rgba_ function notation. In this case, we want to use a black color with 85% transparency. Next, we can add our usual _:hover_ selector properties:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="css" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">.btn-type-5:hover {
+{{<highlight css>}}
+.btn-type-5:hover {
   background: #BA68C8;
-}</pre>
+}
+{{</highlight>}}
 
 Finally, we can add a set of styles for the _:active_ selector. This time, we will decrease the spread of the _box-shadow_ to make it smaller. When we add this, the &#8220;depth&#8221; of the button will appear like it&#8217;s actually pressed down.
 
-<pre class="EnlighterJSRAW" data-enlighter-language="css" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">.btn-type-5:active {
+{{<highlight css>}}
+.btn-type-5:active {
   position: relative;
   top: 8px;
   border-bottom: 0;
   margin-bottom: 8px;
   background: #9C27B0;
   box-shadow: 0px 1px 2px rgba(0, 0, 0, 1);
-}</pre>
+}
+{{</highlight>}}
 
 #### The Sixth Button<figure class="wp-block-image">
 
@@ -276,7 +309,8 @@ Finally, we can add a set of styles for the _:active_ selector. This time, we wi
 
 This final button has a glassy look to it. It almost looks like it came from the Windows 7 Aero era. It looks pretty cool and nostalgic! This type of button also looks great with any color. The styles for the default state of this button is quite similar to the gradient buttons above. The main difference is the addition of the _:after_ selector. Let&#8217;s first start by adding the styles for the _.btn-type-6_ selector:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="css" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">.btn-type-6 {
+{{<highlight css>}}
+.btn-type-6 {
   display: inline-block;
   position: relative;
   padding: 16px 32px 16px 32px;
@@ -288,11 +322,13 @@ This final button has a glassy look to it. It almost looks like it came from the
   text-shadow: 0px -1px #333;
   color: white;
   background: linear-gradient(#E65100, #EF6C00);
-}</pre>
+}
+{{</highlight>}}
 
 We can add the shine effect from the top of the button using this selector:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="css" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">.btn-type-6:after {
+{{<highlight css>}}
+.btn-type-6:after {
   content: '';
   position: absolute;
   top: 2px;
@@ -300,17 +336,20 @@ We can add the shine effect from the top of the button using this selector:
   width: calc(100% - 4px);
   height: 50%;
   background: linear-gradient(rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.2));
-}</pre>
+}
+{{</highlight>}}
 
 We can finish up by adding the _:hover_ and _:active_ selectors.
 
-<pre class="EnlighterJSRAW" data-enlighter-language="css" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">.btn-type-6:hover {
+{{<highlight css>}}
+.btn-type-6:hover {
   background: linear-gradient(#E65100, #EF6C00);
 }
 
 .btn-type-6:active {
   background: linear-gradient(#EF6C00, #E65100);
-}</pre>
+}
+{{</highlight>}}
 
 With that, let&#8217;s take a look at the result in our browser. Open the _index.html_ file and we should see the following:<figure class="wp-block-image">
 

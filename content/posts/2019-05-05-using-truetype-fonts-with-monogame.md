@@ -55,7 +55,6 @@ rank_math_analytic_object_id:
   - 56
 categories:
   - MonoGame
-  - Uncategorized
 
 ---
 Today I was reading up on how to load TrueType fonts into MonoGame (version 3.7.1), but couldn&#8217;t get the TTF file to build with the MonoGame Pipeline Tool. In this tutorial, I will be covering my slight workaround in order to load TTF fonts into MonoGame.
@@ -66,17 +65,23 @@ First, create a new MonoGame project if you haven&#8217;t already. I chose the &
 
 Click the &#8220;Add Existing&#8221; button on the top toolbar, then opened the TTF file I wanted to use. Once I clicked &#8220;Open,&#8221; another prompt appeared asking if I wanted to copy the file or link it. Make sure you choose copy the file, the click &#8220;OK&#8221;. Select the TTF file under the project pane, and change the build action from Build to Copy in the Properties pane. This is what allowed me to work around this build issues I was having. After that, you will want to right click the Content project under the project list (found in the pane on the left of the window). On the drop-down menu, go to Add > New Item&#8230; and click on that option. A new prompt will appear where you can type the name you want the SpriteFont to have. It does not need to be the same name as the TTF file. Ensure that &#8220;SpriteFont Description (.spritefont)&#8221; is chosen. Once you&#8217;re ready, click the &#8220;Create&#8221; button. The spritefont file should now be added to our project&#8217;s content pipeline. Now, we will have to right click our newly created spritefont file and choose &#8220;Open With&#8221;. Select a text or code editor of your choice and open the file. Between the _<FontName>_ tags in the spritefont file, add the file name of the TTF file you added including the .ttf extension. Feel free to adjust any other properties you need while you&#8217;re still in the spritefont file. Once you&#8217;re done, close out of your editor and head back to Visual Studio. At the top of your main game file, _Game1.cs_, under the declaration of the SpriteBatch, add the following line:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="csharp" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">SpriteFont myFont; // Feel free to name "myFont" to anything else.</pre>
+{{<highlight cs>}}
+SpriteFont myFont; // Feel free to name "myFont" to anything else.
+{{</highlight>}}
 
 Once we&#8217;ve declared the SpriteFont, we will need to add it to our _LoadContent_ method. After the comment, &#8220;TODO: use this.Content to load your game content here,&#8221; add the following line:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="csharp" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">myFont = Content.Load&lt;SpriteFont>("myFont");</pre>
+{{<highlight cs>}}
+myFont = Content.Load<SpriteFont>("myFont");
+{{</highlight>}}
 
 Now, let&#8217;s try drawing a string with our font! In the _Draw_ method, add the following code:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="csharp" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">spriteBatch.Begin();
+{{<highlight cs>}}
+spriteBatch.Begin();
 spriteBatch.DrawString(myFont, "Hello world!", new Vector2(32, 32), Color.White);
-spriteBatch.End();</pre>
+spriteBatch.End();
+{{</highlight>}}
 
 Note, if you have already added calls to _spriteBatch.Begin_ and _spriteBatch.End_, you don&#8217;t need to add them from the code above. When we go to run our game, we should now see something like the following:<figure class="wp-block-image">
 

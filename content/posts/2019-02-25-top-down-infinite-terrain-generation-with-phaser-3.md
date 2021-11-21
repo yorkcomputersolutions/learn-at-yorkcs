@@ -115,28 +115,29 @@ Now it’s time for the last step before we start programming. &nbsp;For this tu
 
 Now we can finally jump right in to the code! &nbsp;The first file we will add to is index.html. Let’s define the markup for our HTML file, where we will define our scripts.  
 
+{{<highlight html>}}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset=”utf-8”>
+        <meta lang=”en-us”>
+        <title>Infinite Terrain</title>
+    </head>
 
-<pre class="EnlighterJSRAW" data-enlighter-language="js" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">&lt;!DOCTYPE html>
-&lt;html>
-    &lt;head>
-        &lt;meta charset=”utf-8”>
-        &lt;meta lang=”en-us”>
-        &lt;title>Infinite Terrain&lt;/title>
-    &lt;/head>
-
-    &lt;body>
-        &lt;script src=”js/phaser.js”>&lt;/script>
-        &lt;script src=”js/noisejs-master/perlin.js”>&lt;/script>
-        &lt;script src=”js/Entities.js”>&lt;/script>
-        &lt;script src=”js/SceneMain.js”>&lt;/script>
-        &lt;script src=”js/game.js”>&lt;/script>
-    &lt;/body>
-&lt;/html></pre>
+    <body>
+        <script src=”js/phaser.js”></script>
+        <script src=”js/noisejs-master/perlin.js”></script>
+        <script src=”js/Entities.js”></script>
+        <script src=”js/SceneMain.js”></script>
+        <script src=”js/game.js”></script>
+    </body>
+</html>
+{{</highlight>}}
 
 Next, we can head over to game.js, and define the configuration we want Phaser to create a game with. &nbsp;In the game.js file, let’s add the following:  
 
-
-<pre class="EnlighterJSRAW" data-enlighter-language="js" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">var config = {
+{{<highlight js>}}
+var config = {
     type: Phaser.WEBGL,
     width: 640,
     height: 640,
@@ -155,63 +156,70 @@ Next, we can head over to game.js, and define the configuration we want Phaser t
 };
 
 var game = new Phaser.Game(config);
-</pre>
+{{</highlight>}}
 
 Next, let’s go to the Entities.js file. &nbsp;When we generate infinite terrain, we will not be storing an array of all the tiles in the map. &nbsp;Storing each tile individually would not be scalable, it would crash the browser after moving over enough terrain, and it would be impossible to store it in the browser. &nbsp;Instead, we will be using a chunk system. If you’ve ever played Minecraft, you will probably know that chunks of blocks are loaded around the player. When the player moves out of the range of a loaded chunk, the chunk is the unloaded. &nbsp;We will be building a very similar system in this tutorial. To start, we can create an object that represents a chunk. To do this, we will be using the ES6 class syntax, which is essentially syntactic sugar of a normal JavaScript object. &nbsp;Classes are useful for organizing the structure of an object, and provides an easy way of adding functions.  
 
 
 Let’s start by adding the chunk class and also give it a constructor. The constructor should take in three parameters: scene, x, and y:  
 
-
-<pre class="EnlighterJSRAW" data-enlighter-language="js" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">class Chunk {
+{{<highlight js>}}
+class Chunk {
     constructor(scene, x, y) {
         
     }
-}</pre>
+}
+{{</highlight>}}
 
 By default, scene, x, and y will not be stored in an instance of this class. &nbsp;To store it, we can simply assign the parameters to the instance of the class by using the this keyword. &nbsp;The this keyword means the current instance that’s having it’s code interpreted. Inside the constructor, add the following:  
 
-
-<pre class="EnlighterJSRAW" data-enlighter-language="js" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">this.scene = scene;
+{{<highlight js>}}
+this.scene = scene;
 this.x = x;
-this.y = y;</pre>
+this.y = y;
+{{</highlight>}}
 
 Each chunk will contain a Phaser group, which will store all of the tiles for that specific chunk. &nbsp;We will also want to add a boolean property which will determine whether the chunk is loaded or not. &nbsp;Let’s add a couple more lines to our constructor:  
 
-
-<pre class="EnlighterJSRAW" data-enlighter-language="js" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">this.tiles = this.scene.add.group();
-this.isLoaded = false;</pre>
+{{<highlight js>}}
+this.tiles = this.scene.add.group();
+this.isLoaded = false;
+{{</highlight>}}
 
 There are two more functions we want to define in our Chunk class: unload, and load. &nbsp;We will start with unload. After the constructor, but still within the Chunk class, add the following:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="js" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">unload() {
+{{<highlight js>}}
+unload() {
     if (this.isLoaded) {
         this.tiles.clear(true, true);
 
         this.isLoaded = false;
     }
-}</pre>
+}
+{{</highlight>}}
 
 When unload is called, the chunk will check if it is loaded, if so, remove all the tiles from the group and set the state of isLoaded to false for that chunk.  
 
 
 The next function we need to create is load. &nbsp;This function will create the tiles for the chunk, if the chunk is not loaded already. &nbsp;When creating the tiles, we will also be generating the Perlin noise value for the X and Y position of that specific tile. &nbsp;We can then check if the value is between various ranges and we generate different terrain tiles accordingly. First we’ll start by creating the load function, and creating the condition which checks if the chunk is not loaded:  
 
-
-<pre class="EnlighterJSRAW" data-enlighter-language="js" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">load() {
+{{<highlight js>}}
+load() {
     if (!this.isLoaded) {
         
     }
-}</pre>
+}
+{{</highlight>}}
 
 Next we will want to iterate through each X and Y tile position in the chunk. &nbsp;We will set a property in SceneMain which will determine the chunk size and tile size but for now, add the following inside the if statement:  
 
-
-<pre class="EnlighterJSRAW" data-enlighter-language="js" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">for (var x = 0; x &lt; this.scene.chunkSize; x++) {
-    for (var y = 0; y &lt; this.scene.chunkSize; y++) {
+{{<highlight js>}}
+for (var x = 0; x < this.scene.chunkSize; x++) {
+    for (var y = 0; y < this.scene.chunkSize; y++) {
         
     }
-}</pre>
+}
+{{</highlight>}}
 
 Basically, once each tile in the current column is created, then it moves on to the next column and create all the tiles in that column, etc. &nbsp;Here’s a very crude diagram to help visualize this:  
 <figure class="wp-block-image">
@@ -220,82 +228,91 @@ Basically, once each tile in the current column is created, then it moves on to 
 
 The next step to create our tiles, is to define two variables which will hold the X position, and Y position of the tile, respectively. &nbsp;Add the following inside the second for loop:  
 
-
-<pre class="EnlighterJSRAW" data-enlighter-language="js" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">var tileX = (this.x * (this.scene.chunkSize * this.scene.tileSize)) + (x * this.scene.tileSize);
-var tileY = (this.y * (this.scene.chunkSize * this.scene.tileSize)) + (y * this.scene.tileSize);</pre>
+{{<highlight js>}}
+var tileX = (this.x * (this.scene.chunkSize * this.scene.tileSize)) + (x * this.scene.tileSize);
+var tileY = (this.y * (this.scene.chunkSize * this.scene.tileSize)) + (y * this.scene.tileSize);
+{{</highlight>}}
 
 Now is the (most?) fun part. &nbsp;It’s time to generate our perlin noise value. &nbsp;Add the following code after the above two variables we declared:  
 
-
-<pre class="EnlighterJSRAW" data-enlighter-language="js" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">var perlinValue = noise.perlin2(tileX / 100, tileY / 100);</pre>
+{{<highlight js>}}
+var perlinValue = noise.perlin2(tileX / 100, tileY / 100);
+{{</highlight>}}
 
 Feel free to change the value we divide by, in this case I used 100, but you can try 50, or 1000, or anything. &nbsp;Pretty much all that value does is determine how zoomed-in the Perlin noise is.  
 
 
 Underneath that, add a local variable for determining the image key, as well as one for setting the optional animation key:  
 
-
-<pre class="EnlighterJSRAW" data-enlighter-language="js" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">var key = “”;
-var animationKey = “”;</pre>
+{{<highlight js>}}
+var key = “”;
+var animationKey = “”;
+{{</highlight>}}
 
 Now that we’ve generate a perlin noise value, we can check decimal ranges to determine what tile we want to create. &nbsp;Add this next code block under our previous line:  
 
-
-<pre class="EnlighterJSRAW" data-enlighter-language="js" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">if (perlinValue &lt; 0.2) {
+{{<highlight js>}}
+if (perlinValue < 0.2) {
     key = “sprWater”;
     animationKey = “sprWater”;
 }
-else if (perlinValue >= 0.2 && perlinValue &lt; 0.3) {
+else if (perlinValue >= 0.2 && perlinValue < 0.3) {
     key = “sprSand”;
 }
 else if (perlinValue >= 0.3) {
     key = “sprGrass”;
-}</pre>
+}
+{{</highlight>}}
 
 Now we can finally create the instance of the tile and add it to the tiles group. &nbsp;If an animation key is set, also play the animation specified by the animation key. &nbsp;Add the following under the last bit of code:  
 
-
-<pre class="EnlighterJSRAW" data-enlighter-language="js" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">var tile = new Tile(this.scene, tileX, tileY, key);
+{{<highlight js>}}
+var tile = new Tile(this.scene, tileX, tileY, key);
 
 if (animationKey !== “”) {
     tile.play(animationKey);
 }
 
-this.tiles.add(tile);</pre>
+this.tiles.add(tile);
+{{</highlight>}}
 
 To finish up, let’s set our chunk to be loaded just after both for loops, but still within the not loaded condition:  
 
-
-<pre class="EnlighterJSRAW" data-enlighter-language="js" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">this.isLoaded = true;</pre>
+{{<highlight js>}}
+this.isLoaded = true;
+{{</highlight>}}
 
 When loading is completed for a chunk, we want to set it’s isLoaded value to true.  
 
 
 We can now move on to the Tile class. &nbsp;The Tile class will just extend a Phaser sprite for now, but it could be handy for adding interaction, or special properties to your tiles in the future. &nbsp;Let’s add our tile class:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="js" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">class Tile extends Phaser.GameObjects.Sprite {
+{{<highlight js>}}
+class Tile extends Phaser.GameObjects.Sprite {
     constructor(scene, x, y, key) {
         super(scene, x, y, key);
         this.scene = scene;
         this.scene.add.existing(this);
         this.setOrigin(0);
     }
-}</pre>
+}
+{{</highlight>}}
 
 Inside the constructor, we ensure that a tile instance will be added to the display list of the current Scene. &nbsp;We also set the origin to the top left corner. The cool thing about the setOrigin method is we only have to type the first parameter if we want a value to apply to both the X and Y axis &nbsp;Great! We are now finished with the Entities.js file.  
 
 
 Let’s hop on over to SceneMain.js. &nbsp;The first thing we want to do in this file is declare our class, SceneMain, which should extend Phaser.Scene:  
 
+{{<highlight js>}}
+class SceneMain extends Phaser.Scene {
 
-<pre class="EnlighterJSRAW" data-enlighter-language="js" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">class SceneMain extends Phaser.Scene {
-
-}</pre>
+}
+{{</highlight>}}
 
 The next thing we want to do is add our constructor as well as four functions we will be using:  
 
-
-<pre class="EnlighterJSRAW" data-enlighter-language="js" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">constructor() {
+{{<highlight js>}}
+constructor() {
     super({ key: “SceneMain” });
 }
 
@@ -313,22 +330,24 @@ getChunk(x, y) {
 
 update() {
 
-}</pre>
+}
+{{</highlight>}}
 
 Starting with the preload function, let’s add the loading code for our three image files:  
 
-
-<pre class="EnlighterJSRAW" data-enlighter-language="js" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">this.load.spritesheet(“sprWater”, “content/sprWater.png”, {
+{{<highlight js>}}
+this.load.spritesheet(“sprWater”, “content/sprWater.png”, {
     frameWidth: 16,
     frameHeight: 16
 });
 this.load.image(“sprSand”, “content/sprSand.png”);
-this.load.image(“sprGrass”, “content/sprGrass.png”);</pre>
+this.load.image(“sprGrass”, “content/sprGrass.png”);
+{{</highlight>}}
 
 We are now finished loading our project’s content! &nbsp;The next step is to fill in the create function. Inside the create function, add the following:  
 
-
-<pre class="EnlighterJSRAW" data-enlighter-language="js" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">this.anims.create({
+{{<highlight js>}}
+this.anims.create({
     key: “sprWater”,
     frames: this.anims.generateFrameNumbers(“sprWater”),
     frameRate: 5,
@@ -351,21 +370,23 @@ this.chunks = [];
 this.keyW = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.W);
 this.keyS = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.S);
 this.keyA = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.A);
-this.keyD = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.D);</pre>
+this.keyD = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.D);
+{{</highlight>}}
 
 The first thing we do in the code above is create the animation for our water tile. &nbsp;We are also creating three properties. The property, chunkSize, defines the size of a chunk by the amount of tiles for both the width and height of the chunk. &nbsp;Since chunkSize is currently set to 16, the chunk would be 16 tiles in width, and 16 tiles in height. The next thing we do in the create function is set the zoom level of the camera. &nbsp;I have set the zoom to 2X the default. I also created a two-dimensional vector (it’s a useful object for defining X and Y positions in graphical programming). This 2D vector contains the X and Y values for what I call the “follow point”. &nbsp;The follow point will be used as the point in which the camera will be centered on. In a normal game, you could center the camera on the player sprite instead. However, since in this project we’re strictly covering just the mechanics of an infinite procedural terrain generator, I will leave adding the player as an exercise for the reader. 🙂 &nbsp;We are also adding four properties which will soon be used for checking if the corresponding key is down. The four properties are for the W key, S key, A key, and D key.  
 
 
 We can now take a look at the getChunk function. &nbsp;The getChunk function will be extremely useful for getting the chunk at a certain chunk position. &nbsp;Inside the getChunk function, add the following to retrieve the chunk at a specific X, Y, position:  
 
-
-<pre class="EnlighterJSRAW" data-enlighter-language="js" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">var chunk = null;
-for (var i = 0; i &lt; this.chunks.length; i++) {
+{{<highlight js>}}
+var chunk = null;
+for (var i = 0; i < this.chunks.length; i++) {
     if (this.chunks[i].x == x && this.chunks[i].y == y) {
         chunk = this.chunks[i];
     }
 }
-return chunk;</pre>
+return chunk;
+{{</highlight>}}
 
 Great! &nbsp;Now we can now fill in the update function. &nbsp;Before proceeding, the update function will contain quite a bit of code. &nbsp;The sequence of instructions the update function will execute each frame is the following:
 
@@ -377,18 +398,19 @@ Great! &nbsp;Now we can now fill in the update function. &nbsp;Before proceeding
 
 We’ll first start with getting the chunk position the follow point is in. &nbsp;Knowing the chunk position that the follow point is in is critical because our chunk creation and chunk loading all happens relative to the chunk the follow point is in. &nbsp;We will essentially be snapping the position of the follow point to a grid, with each cell being the size of the chunk as a world position. We then divide that number down by the chunk size and tile size so we get our proper chunk position. &nbsp;Add the following code to the update function:  
 
-
-<pre class="EnlighterJSRAW" data-enlighter-language="js" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">var snappedChunkX = (this.chunkSize * this.tileSize) * Math.round(this.followPoint.x / (this.chunkSize * this.tileSize));
+{{<highlight js>}}
+var snappedChunkX = (this.chunkSize * this.tileSize) * Math.round(this.followPoint.x / (this.chunkSize * this.tileSize));
 var snappedChunkY = (this.chunkSize * this.tileSize) * Math.round(this.followPoint.y / (this.chunkSize * this.tileSize));
 
 snappedChunkX = snappedChunkX / this.chunkSize / this.tileSize;
-snappedChunkY = snappedChunkY / this.chunkSize / this.tileSize;</pre>
+snappedChunkY = snappedChunkY / this.chunkSize / this.tileSize;
+{{</highlight>}}
 
 This code retrieves the chunk position that the follow point is in. &nbsp;The next portion of code will create chunks around this chunk position if they do not exist yet. &nbsp;Add the following block of code:  
 
-
-<pre class="EnlighterJSRAW" data-enlighter-language="js" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">for (var x = snappedChunkX - 2; x &lt; snappedChunkX + 2; x++) {
-    for (var y = snappedChunkY - 2; y &lt; snappedChunkY + 2; y++) {
+{{<highlight js>}}
+for (var x = snappedChunkX - 2; x < snappedChunkX + 2; x++) {
+    for (var y = snappedChunkY - 2; y < snappedChunkY + 2; y++) {
         var existingChunk = this.getChunk(x, y);
 
         if (existingChunk == null) {
@@ -396,12 +418,13 @@ This code retrieves the chunk position that the follow point is in. &nbsp;The ne
             this.chunks.push(newChunk);
         }
     }
-}</pre>
+}
+{{</highlight>}}
 
 The above code creates chunks in a radius of two chunks around the follow point. &nbsp;The next step is to add in the chunk loading and unloading logic. Add the following block under the previous:  
 
-
-<pre class="EnlighterJSRAW" data-enlighter-language="js" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">for (var i = 0; i &lt; this.chunks.length; i++) {
+{{<highlight js>}}
+for (var i = 0; i < this.chunks.length; i++) {
     var chunk = this.chunks[i];
 
     if (Phaser.Math.Distance.Between(
@@ -409,7 +432,7 @@ The above code creates chunks in a radius of two chunks around the follow point.
         snappedChunkY,
         chunk.x,
         chunk.y
-    ) &lt; 3) {
+    ) < 3) {
         if (chunk !== null) {
             chunk.load();
         }
@@ -419,12 +442,13 @@ The above code creates chunks in a radius of two chunks around the follow point.
             chunk.unload();
         }
     }
-}</pre>
+}
+{{</highlight>}}
 
 The last part to this infinite terrain generation tutorial is adding in the camera movement and centering the camera on the follow point. &nbsp;Let’s add the following code to add camera movement.  
 
-
-<pre class="EnlighterJSRAW" data-enlighter-language="js" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">if (this.keyW.isDown) {
+{{<highlight js>}}
+if (this.keyW.isDown) {
     this.followPoint.y -= this.cameraSpeed;
 }
 if (this.keyS.isDown) {
@@ -435,12 +459,14 @@ if (this.keyA.isDown) {
 }
 if (this.keyD.isDown) {
     this.followPoint.x += this.cameraSpeed;
-}</pre>
+}
+{{</highlight>}}
 
 To center the camera, it’s an easy one-liner:  
 
-
-<pre class="EnlighterJSRAW" data-enlighter-language="js" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">this.cameras.main.centerOn(this.followPoint.x, this.followPoint.y);</pre>
+{{<highlight js>}}
+this.cameras.main.centerOn(this.followPoint.x, this.followPoint.y);
+{{</highlight>}}
 
 There we have it! &nbsp;If we navigate to our page in the browser, we should something like the this:<figure class="wp-block-image">
 

@@ -52,13 +52,13 @@ rank_math_schema_Article:
 rank_math_analytic_object_id:
   - 60
 categories:
-  - Web Design
+  - Website Design
 tags:
   - css
   - frontend
   - nav
   - navbar
-  - web design
+  - website design
   - web dev
   - webdesign
 
@@ -73,34 +73,38 @@ We will start by editing the _index.html_ file. Open that file with any old text
 
 Inside the _index.html_ file, add the following to define our HTML file:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="html" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">&lt;!DOCTYPE html>
-&lt;html>
-    &lt;head>
-        &lt;meta charset="utf-8">
-        &lt;meta lang="en-us">
-        &lt;title>Simple Nav Bar&lt;/title>
+{{<highlight html>}}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta lang="en-us">
+        <title>Simple Nav Bar</title>
 
-        &lt;link rel="stylesheet" type="text/css" href="css/styles.css">
-    &lt;/head>
+        <link rel="stylesheet" type="text/css" href="css/styles.css">
+    </head>
 
-    &lt;body>
+    <body>
         
-    &lt;/body>
-&lt;/html></pre>
+    </body>
+</html>
+{{</highlight>}}
 
 Inside the body element, let&#8217;s the code for our navigation bar:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="html" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">&lt;header class="site-header">
-    &lt;nav class="nav-main" role="navigation">
-        &lt;ul class="navbar">
-            &lt;li>&lt;a href="#">Home&lt;/a>&lt;/li>
-            &lt;li>&lt;a href="#">Products&lt;/a>&lt;/li>
-            &lt;li>&lt;a href="#">Services&lt;/a>&lt;/li>
-            &lt;li>&lt;a href="#">About&lt;/a>&lt;/li>
-            &lt;li>&lt;a href="#">Contact&lt;/a>&lt;/li>
-        &lt;/ul>
-    &lt;/nav>
-&lt;/header></pre>
+{{<highlight html>}}
+<header class="site-header">
+    <nav class="nav-main" role="navigation">
+        <ul class="navbar">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Products</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+{{</highlight>}}
 
 If we open _index.html_ in our browser, we should now see:<figure class="wp-block-image">
 
@@ -108,46 +112,56 @@ If we open _index.html_ in our browser, we should now see:<figure class="wp-bloc
 
 Now in our _styles.css_ file, let&#8217;s add the style rule to help make our HTML document appear somewhat more consistent across browsers:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="css" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">html, body {
+{{<highlight css>}}
+html, body {
   margin: 0;
   padding: 0;
-}</pre>
+}
+{{</highlight>}}
 
 Next, let&#8217;s add a style rule for our main _<nav>_ element:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="css" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">.nav-main {
+{{<highlight css>}}
+.nav-main {
   position: absolute;
   display: inline-block;
   background: rgba(0, 0, 0, 0.5);
   width: 100%;
   z-index: 10;
-}</pre>
+}
+{{</highlight>}}
 
 The first two properties, _position_, and _display_, will allow the navigation bar to overlay any background wrapper. This isn&#8217;t really required, if you don&#8217;t want to make your navigation bar semi-transparent. We&#8217;re using the shorthand property for specifying a background, which is _background_. You can specify a background image, a background color, etc. via this shorthand property. We also want the background color of the navigation bar to span the width of the screen. Finally, we set the _z-index_ (which pretty much means depth), to a higher number like 10. Higher numbers allow the element to be displayed above others with a lower _z-index_.
 
 Next, let&#8217;s add a style rule for the class _navbar_, which is a _<ul>_ (unordered list) element. Essentially, we don&#8217;t want the unordered list to have a bullet point and extra padding, since we&#8217;re displaying them inline. Add the following code to add this rule:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="css" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">.navbar {
+{{<highlight css>}}
+.navbar {
     list-style-type: none;
     margin: 0;
     padding: 0;
-}</pre>
+}
+{{</highlight>}}
 
 We will want the list items (_<li>_) elements of the unordered list to be displayed inline. Let&#8217;s add some more code:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="css" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">.navbar li {
+{{<highlight css>}}
+.navbar li {
     display: inline;
-}</pre>
+}
+{{</highlight>}}
 
 Finally, we can style the links (_<a>_ elements) themselves, which are within the list items:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="css" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">.navbar a {
+{{<highlight css>}}
+.navbar a {
     color: white;
     display: inline-block;
     padding: 16px;
     font-family: 'Lato', sans-serif;
     text-decoration: none;
-}</pre>
+}
+{{</highlight>}}
 
 If you have a full screen landing page, you should see something like:<figure class="wp-block-image">
 

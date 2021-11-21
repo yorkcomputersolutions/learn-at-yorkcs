@@ -28,8 +28,10 @@ tags:
 ---
 In this guide, we will be creating the PyGame game window. If you don&#8217;t have a [PyGame][1] project setup yet, you can learn how to set one up [here][2]. In your main game file, you can add the following two lines to create our game window:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="python" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">display = pygame.display.set_mode((800, 600))
-pygame.display.set_caption('My Window Title')</pre>
+{{<highlight py3>}}
+display = pygame.display.set_mode((800, 600))
+pygame.display.set_caption('My Window Title')
+{{</highlight>}}
 
 When you run the game, you should see a window appear for a couple seconds, then disappear. Take a look at [this part][3] of the series, where we add the game loop. After adding the game loop, your game window will no longer disappear.
 

@@ -19,7 +19,7 @@ categories:
   - WordPress
 tags:
   - plugins
-  - web design
+  - website design
   - web dev
   - WordPress
   - wordpress dev
@@ -53,10 +53,12 @@ This is the general convention for plugin directory names. Open this folder, the
 
 Open this file up in your favorite text editor and add the following:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="php" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">&lt;?php
+{{<highlight php>}}
+<?php
 /*
  * Plugin Name: My Cool Plugin
- */</pre>
+ */
+{{</highlight>}}
 
 You can also add more information to this header comment. Here is a list of some other options you can add.
 
@@ -70,17 +72,19 @@ This text can ask users to share the post with their friends if they found it va
 
 In our plugin file, add the following code under the multi-line comment:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="php" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">class My_Cool_Plugin {
+{{<highlight php>}}
+class My_Cool_Plugin {
     public function __construct() {
         add_action( 'the_content', array( $this, 'share_text' ) );
     }
-
+    
     public function share_text( $content ) {
-        return $content .= 'If you found this post valuable, please consider sharing it on your favorite social media platform.&lt;/p>';
+        return $content .= '<p>If you found this post valuable, please consider sharing it on your favorite social media platform.</p>';
     }
 }
 
-new My_Cool_Plugin();</pre>
+new My_Cool_Plugin();
+{{</highlight>}}
 
 This code helps with building a simple plugin, though understanding actions and filters will go a long way. The [&#8220;Plugin Basics&#8221;][4] guide on WordPress.org explains the basics in an easy to understand way. The long and short of it is, actions allow you to add or change functionality within a site, and filters allow you to modify the output of the web page sent to users.<figure class="wp-block-image">
 

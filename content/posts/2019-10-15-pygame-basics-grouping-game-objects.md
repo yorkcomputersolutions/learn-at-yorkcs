@@ -32,26 +32,36 @@ If you&#8217;ve been programming with Python for any length of time, you probabl
 
 Let&#8217;s say you have a list defined in the constructor of your game class.
 
-<pre class="EnlighterJSRAW" data-enlighter-language="python" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">self.enemies = []</pre>
+{{<highlight py3>}}
+self.enemies = []
+{{</highlight>}}
 
 Now what if you wanted to add an enemy to this list? Assuming you are creating an instance of the enemy within your game class, you could write the following:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="python" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">new_enemy = MyEnemy((128, 128), enemy_image)</pre>
+{{<highlight py3>}}
+new_enemy = MyEnemy((128, 128), enemy_image)
+{{</highlight>}}
 
 Then to add it to the list, you can type:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="python" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">self.enemies.append(new_enemy)</pre>
+{{<highlight py3>}}
+self.enemies.append(new_enemy)
+{{</highlight>}}
 
 To update the enemies, you could write a for loop, iterating through the _enemies_ list.
 
-<pre class="EnlighterJSRAW" data-enlighter-language="python" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">for enemy in self.enemies:
-    enemy.update()</pre>
+{{<highlight py3>}}
+for enemy in self.enemies:
+    enemy.update()
+{{</highlight>}}
 
 To remove enemies, you could have a boolean defined in the enemy class that determines whether the enemy should be removed or not. You can then test if it should be removed within the above for loop. The resulting for loop would look something like so:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="python" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">for enemy in self.enemies:
+{{<highlight py3>}}
+for enemy in self.enemies:
     if enemy.can_remove:
-        self.enemies.remove(enemy)</pre>
+        self.enemies.remove(enemy)
+{{</highlight>}}
 
 The remove method takes in a reference to the instance you wish to remove from the array.
 

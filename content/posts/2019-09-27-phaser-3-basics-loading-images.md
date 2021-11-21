@@ -33,17 +33,23 @@ this.load.image(<key>, <path with extension>);
 
 Actual code could look like so:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="js" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">this.load.image("myimage", "my-path/to-image/myimage.png");</pre>
+{{<highlight js>}}
+this.load.image("myimage", "my-path/to-image/myimage.png");
+{{</highlight>}}
 
 In our method call, _key_ is the name you want to reference your image with in your code. The second argument should be the path to locate the image, and it should include the file extension.
 
 Try loading an image. If you have a _create_ method in your scene, you can add an image referencing the key you defined. For example, to draw an image at x: 0 and y: 0, which is the corner of the screen, you can write:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="js" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">this.add.image(0, 0, "myimage");</pre>
+{{<highlight js>}}
+this.add.image(0, 0, "myimage");
+{{</highlight>}}
 
 Of course, you can assign the return value of the method call to a variable or property like this:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="js" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">this.myImage = this.add.image(0, 0, "myimage");</pre>
+{{<highlight js>}}
+this.myImage = this.add.image(0, 0, "myimage");
+{{</highlight>}}
 
 With that, you now know how to load and draw a basic image with Phaser 3! If you found this guide helpful, you can find other tutorials in this series [here][2]. The goal of these articles is to provide you with basic information on learning Phaser without having to follow the steps in any specific order. If you like the series so far, and would like to receive news on my future tutorials and courses, please fill out the [form][3]. Sharing this guide on social media would also be much appreciated if you found this guide valuable.
 

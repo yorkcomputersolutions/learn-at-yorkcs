@@ -31,7 +31,9 @@ In this guide, we will be taking a look at how to utilize mouse input with [PyGa
 
 To retrieve the position of the mouse, you can use the following line:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="generic" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">mousex, mousey = pygame.mouse.get_pos()</pre>
+{{<highlight py3>}}
+mousex, mousey = pygame.mouse.get_pos()
+{{</highlight>}}
 
 Of course, with the above line, you can access the x position of the mouse with _mousex_, and the y position of the mouse with _mousey_. Ensure this line is executed within the game loop, either in a dedicated update function, or directly within the loop.
 
@@ -39,9 +41,11 @@ Of course, with the above line, you can access the x position of the mouse with 
 
 Mouse clicks can be listened to by capturing the _pygame.MOUSEBUTTONUP_ event. Let&#8217;s try this. In your update function/game loop, add the following code:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="generic" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">for event in pygame.event.get():
+{{<highlight py3>}}
+for event in pygame.event.get():
     if event.type == pygame.MOUSEBUTTONUP:
-        print("Mouse click detected.")</pre>
+        print("Mouse click detected.")
+{{</highlight>}}
 
 However, what if you want to distinguish which mouse button you clicked? You can use the _event.button_ property to determine which mouse button was clicked. Here is a list of possible integers _event.button_ can be:
 
@@ -109,19 +113,25 @@ However, what if you want to distinguish which mouse button you clicked? You can
 
 For example, to detect mouse right clicks, you could add the following inside your _pygame.MOUSEBUTTONUP_ if statement:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="generic" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">if event.button == 3:
-    print("Right mouse button clicked")</pre>
+{{<highlight py3>}}
+if event.button == 3:
+    print("Right mouse button clicked")
+{{</highlight>}}
 
 If you wanted to check if the user is scrolling up, you can add the following code:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="generic" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">if event.type == pygame.MOUSEBUTTONDOWN:
+{{<highlight py3>}}
+if event.type == pygame.MOUSEBUTTONDOWN:
     if event.button == 4:
-        print("Scrolling up")</pre>
+        print("Scrolling up")
+{{</highlight>}}
 
 To scroll up, you can check if _event.button_ is equal to five.
 
-<pre class="EnlighterJSRAW" data-enlighter-language="generic" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">if event.button == 5:
-    print("Scrolling down")</pre>
+{{<highlight py3>}}
+if event.button == 5:
+    print("Scrolling down")
+{{</highlight>}}
 
 ## Concluding Thoughts
 
