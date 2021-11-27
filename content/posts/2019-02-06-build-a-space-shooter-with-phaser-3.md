@@ -123,7 +123,7 @@ Once you downloaded the assets (or made your own), we will move those files into
 
 Finally, we need to download the latest Phaser script. One method of acquiring this (there are multiple), is to head over to GitHub (specifically <a rel="noreferrer noopener" aria-label="here (opens in a new tab)" href="https://github.com/photonstorm/phaser/tree/master/dist" target="_blank">here</a>). You will want either `phaser.js` or `phaser.min.js`. The file `phaser.js` contains the source code for Phaser in a readable form, which is useful if you wanted to contribute to Phaser, or to understand how something is implemented under-the-hood. The other file, `phaser.min.js` is meant for distribution, and is compressed to reduce file size. For our purposes, it won&#8217;t really matter which one we download, so decide which and click the appropriate link. You will then be greeted by a page that displays a &#8220;View raw&#8221; button near the center of the page and roughly halfway down. Next, click the &#8220;View raw&#8221; link, right click anywhere on the page that appears, then click &#8220;Save Page As&#8221;. A save dialog will appear where you should save the Phaser file in the JavaScript directory we created earlier.
 
-With that, we will wrap up the first part of our free course, &#8220;Build a Space Shooter with Phaser 3&#8221;. I hope you have found this helpful thus far, and please feel free to comment below if you have any questions or suggestions! I would love to hear from you, and I&#8217;m more than happy to help anyone out.
+With that, we will wrap up the first part of our free course, &#8220;Build a Space Shooter with Phaser 3&#8221;.
 
 If you would like to receive updates on new courses I release via email, feel free to fill out the [form][3].
 

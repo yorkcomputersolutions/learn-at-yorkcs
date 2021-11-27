@@ -153,8 +153,6 @@ Last, we need to add one last style rule for expanding our dropdown. To do this,
 
 If we take a look at our page, we should now see our dropdown!<figure class="wp-block-video"><video controls src="https://learn.yorkcs.com/wp-content/uploads/2019/06/simpledropdown-1.mp4"></video></figure> 
 
-Hopefully this tutorial can helps a lot of you out! If it has, consider filling out the form to receive news about future tutorials and courses we publish. If you have any questions, comments, or feedback, feel free to email me at <jared.york@yorkcs.com> or tweet me [@jaredyork_][2]. You can also find me on [Minds][3] as well!
+Hopefully this tutorial can helps a lot of you out! If it has, consider filling out the form to receive news about future tutorials and courses we publish.
 
  [1]: https://developer.mozilla.org/en-US/docs/Web/CSS/General_sibling_combinator
- [2]: https://twitter.com/jaredyork_
- [3]: https://www.minds.com/jaredyork

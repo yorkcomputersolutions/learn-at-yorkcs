@@ -380,6 +380,6 @@ If we run our code now, the player should be able to move via the W, S, A, D key
   
 
 
-And that concludes the third part of &#8220;Build a Space Shooter in Phaser 3&#8221;. As always, I welcome your suggestions, comments, and feedback! Do not hesitate to ask if you need help, I would be more than willing to answer any questions. If you would like to receive updates on new courses I release via email, feel free to fill out the [form][1].
+And that concludes the third part of &#8220;Build a Space Shooter in Phaser 3&#8221;. If you would like to receive updates on new courses I release via email, feel free to fill out the [form][1].
 
  [1]: https://docs.google.com/forms/d/e/1FAIpQLSfSAg6xMDrk44pbmIlVUqLwjm9FHaKPdy_WcbHUmLWWyXMQag/viewform

@@ -206,6 +206,6 @@ class SceneGameOver extends Phaser.Scene {
 }</pre>
 {{</highlight>}}
 
-If you have questions or suggestions, feel free to leave a comment below and I&#8217;ll be happy to help you out! If you would like to receive updates on new courses I release via email, feel free to fill out the [form][1].
+If you would like to receive updates on new courses I release via email, feel free to fill out the [form][1].
 
  [1]: https://docs.google.com/forms/d/e/1FAIpQLSfSAg6xMDrk44pbmIlVUqLwjm9FHaKPdy_WcbHUmLWWyXMQag/viewform

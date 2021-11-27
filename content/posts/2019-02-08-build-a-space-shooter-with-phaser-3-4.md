@@ -542,6 +542,6 @@ if (!this.player.getData("isDead")) {
 }
 {{</highlight>}}
 
-We have accomplished the &#8220;meat and potatoes&#8221; of this course in this part. We have added enemies, player lasers, enemy lasers, frustum culling, and collisions. In the next part I will be covering how to add a scrolling background, create the main menu, and the game over screen. I hope you have found this course fruitful so far as much as I have. Please don&#8217;t hesitate to ask questions, I&#8217;m glad to help! If you would like to receive updates on future courses I release, please feel free to fill out the [form][1].
+We have accomplished the &#8220;meat and potatoes&#8221; of this course in this part. We have added enemies, player lasers, enemy lasers, frustum culling, and collisions. In the next part I will be covering how to add a scrolling background, create the main menu, and the game over screen. I hope you have found this course fruitful so far as much as I have. If you would like to receive updates on future courses I release, please feel free to fill out the [form][1].
 
  [1]: https://docs.google.com/forms/d/e/1FAIpQLSfSAg6xMDrk44pbmIlVUqLwjm9FHaKPdy_WcbHUmLWWyXMQag/viewform

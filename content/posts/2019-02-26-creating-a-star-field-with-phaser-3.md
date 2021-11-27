@@ -227,7 +227,7 @@ If we navigate to the project in our browser, we should see finished result:<fig
 
 <img loading="lazy" width="640" height="640" src="https://learn.yorkcs.com/wp-content/uploads/2019/02/starfield_edgetoedge.gif" alt="" class="wp-image-828" /> <figcaption>Got it? Fantastic!</figcaption></figure> 
 
-The fun part now is to tweak the various numbers. Some interesting results can be achieved! I look forward to seeing what you can create with this! If you have any questions, suggestions, or feedback, feel free to tweet at me, my handle is [@jaredyork][2]. You can also reach me via my email at [jared.york@yorkcs.com][3]. I&#8217;m more than happy to help anyone out. Hopefully this will be useful for some of you. 🙂
+The fun part now is to tweak the various numbers. Some interesting results can be achieved! I look forward to seeing what you can create with this! Hopefully this will be useful for some of you. 🙂
 
 You can find the full source code for this tutorial on [GitHub][4].
 
