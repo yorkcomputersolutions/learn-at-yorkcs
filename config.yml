@@ -46,7 +46,7 @@ params:
     enabled: true
     title: Learn @ York Computer Solutions LLC # optional default will be site title
     subtitle: "Providing free to the end user IT tutorials, in addition to premium IT courses."
-    homeInfo: "Please get in touch to access downloads from the old website at *learn@yorkcs.com*."
+    homeInfo: "Please get in touch to access downloads from the old website at *jared.york@yorkcs.com*."
     imageUrl: "/index/logo-one-color-512.webp" # optional
     imageTitle: "York Computer Solutions' profile picture" # optional
     imageWidth: 320 # custom size
