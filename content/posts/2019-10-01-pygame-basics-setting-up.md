@@ -39,9 +39,9 @@ Once you have Python installed, we can setup [PyGame][2]. Open your command prom
 
 <pre class="wp-block-preformatted"><em>pip3 install pygame</em></pre>
 
-This command should install everything we need to get started with PyGame. If you&#8217;re having issues with the installation, I would recommend taking a look at the [Getting Started][3] guide on the PyGame website.<figure class="wp-block-image">
+This command should install everything we need to get started with PyGame. If you&#8217;re having issues with the installation, I would recommend taking a look at the [Getting Started][3] guide on the PyGame website.
 
-<img src="https://learn.yorkcs.com/wp-content/uploads/2019/10/Screenshot_20191001_115409-700x311.png" alt="" class="wp-image-7840" /> </figure> 
+![](https://learn.yorkcs.com/wp-content/uploads/2019/10/Screenshot_20191001_115409.png)
 
 ## Creating a Project Directory and File
 

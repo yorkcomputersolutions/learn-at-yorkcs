@@ -86,9 +86,9 @@ class My_Cool_Plugin {
 new My_Cool_Plugin();
 {{</highlight>}}
 
-This code helps with building a simple plugin, though understanding actions and filters will go a long way. The [&#8220;Plugin Basics&#8221;][4] guide on WordPress.org explains the basics in an easy to understand way. The long and short of it is, actions allow you to add or change functionality within a site, and filters allow you to modify the output of the web page sent to users.<figure class="wp-block-image">
+This code helps with building a simple plugin, though understanding actions and filters will go a long way. The [&#8220;Plugin Basics&#8221;][4] guide on WordPress.org explains the basics in an easy to understand way. The long and short of it is, actions allow you to add or change functionality within a site, and filters allow you to modify the output of the web page sent to users.
 
-<img src="https://learn.yorkcs.com/wp-content/uploads/2019/09/wordpress-plugin-result-700x625.png" alt="" class="wp-image-6796" /> </figure> 
+![](https://learn.yorkcs.com/wp-content/uploads/2019/09/wordpress-plugin-result.png)
 
 If you make a post, you should see the share message from our plugin at the bottom of the post!
 

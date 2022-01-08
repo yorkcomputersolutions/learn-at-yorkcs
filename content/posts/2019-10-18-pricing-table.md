@@ -72,9 +72,9 @@ Open up your _index.html_ file, and add the following HTML boilerplate code:
 </html>
 {{</highlight>}}
 
-Navigating to our newly created _index.html_ file in the browser, we should see:<figure class="wp-block-image">
+Navigating to our newly created _index.html_ file in the browser, we should see:
 
-<img src="https://learn.yorkcs.com/wp-content/uploads/2019/10/pricing-table-step-1-4-700x429.png" alt="" class="wp-image-8984" /> <figcaption>Pretty empty, huh? We&#8217;ll spruce it up in a sec.</figcaption></figure> 
+![](https://learn.yorkcs.com/wp-content/uploads/2019/10/pricing-table-step-1-4.png "Pretty empty, huh? We'll spruce it up in a sec.")
 
 If you&#8217;re not sure what&#8217;s going on with the boilerplate code, I would recommend you check out my [HTML Beginner Blocks][1] course and [CSS Beginner Blocks][2] course. So far, we wrote out the basic code for our HTML file. All we&#8217;re doing is setting the character set, title, and setting up some basic style rules between our _<style>_ tags.<span style="text-decoration: underline;"></span>
 
@@ -155,9 +155,9 @@ We will step through the code that will go inside each of these elements, one at
 <p class="pricing-plan-info">Learn more about this plan.</p>
 {{</highlight>}}
 
-By default HTML is rendered from top to bottom. This is why we define a heading with the name of our plan first. Then, we add the price of our plan. After that we add a small description for our plan. Make sure you added the above code to each of the boxes we&#8217;ve created. I named my payment plans: Basic, Pro, and Platinum. Then I assigned prices to each. So far we should be seeing:<figure class="wp-block-image">
+By default HTML is rendered from top to bottom. This is why we define a heading with the name of our plan first. Then, we add the price of our plan. After that we add a small description for our plan. Make sure you added the above code to each of the boxes we&#8217;ve created. I named my payment plans: Basic, Pro, and Platinum. Then I assigned prices to each. So far we should be seeing:
 
-<img src="https://learn.yorkcs.com/wp-content/uploads/2019/10/pricing-table-step-2-1-700x319.png" alt="" class="wp-image-8985" /> </figure> 
+![](https://learn.yorkcs.com/wp-content/uploads/2019/10/pricing-table-step-2-1.png)
 
 Let&#8217;s add style rules for the _<h2>_ element and both paragraph elements. Starting with the heading, add the following rule to our styles:
 
@@ -168,9 +168,7 @@ Let&#8217;s add style rules for the _<h2>_ element and both paragraph elements. 
 }
 {{</highlight>}}
 
-<figure class="wp-block-image">
-
-<img src="https://learn.yorkcs.com/wp-content/uploads/2019/10/pricing-table-step-3-1-700x324.png" alt="" class="wp-image-8987" /> </figure> 
+![](https://learn.yorkcs.com/wp-content/uploads/2019/10/pricing-table-step-3-1.png)
 
 Next, we will want to define the font, as well as adjust the font size of the price of each plan.
 
@@ -181,9 +179,7 @@ Next, we will want to define the font, as well as adjust the font size of the pr
 }
 {{</highlight>}}
 
-<figure class="wp-block-image">
-
-<img src="https://learn.yorkcs.com/wp-content/uploads/2019/10/pricing-table-step-4-700x318.png" alt="" class="wp-image-8988" /> </figure> 
+![](https://learn.yorkcs.com/wp-content/uploads/2019/10/pricing-table-step-4.png)
 
 For the summary of each plan, we can add a style affecting the class, _.pricing-plan-info_.
 
@@ -193,9 +189,7 @@ For the summary of each plan, we can add a style affecting the class, _.pricing-
 }
 {{</highlight>}}
 
-<figure class="wp-block-image">
-
-<img src="https://learn.yorkcs.com/wp-content/uploads/2019/10/pricing-table-step-5-700x341.png" alt="" class="wp-image-8989" /> </figure> 
+![](https://learn.yorkcs.com/wp-content/uploads/2019/10/pricing-table-step-5.png)
 
 ## Feature List
 
@@ -218,9 +212,9 @@ Now we will need to add styles for the elements we added above. After our _.pric
 }
 {{</highlight>}}
 
-At this point, we should see something like this.<figure class="wp-block-image">
+At this point, we should see something like this.
 
-<img src="https://learn.yorkcs.com/wp-content/uploads/2019/10/pricing-table-step-6-700x351.png" alt="" class="wp-image-8992" /> </figure> 
+![](https://learn.yorkcs.com/wp-content/uploads/2019/10/pricing-table-step-6.png)
 
 For the feature list of each box, we can add the following to our style rules:
 
@@ -257,9 +251,9 @@ But we can add a line that trivially handles these values for us without adding 
   * The third argument represents _padding-bottom_.
   * The fourth argument represents _padding-left_.
 
-We can also shade every other item of our feature list. We accomplished this by appending _:nth-child(2n)_ to the end of our _.pricing-plan-features li_ rule. That&#8217;s where we used the _background_ property to define a background color.<figure class="wp-block-image">
+We can also shade every other item of our feature list. We accomplished this by appending _:nth-child(2n)_ to the end of our _.pricing-plan-features li_ rule. That&#8217;s where we used the _background_ property to define a background color.
 
-<img src="https://learn.yorkcs.com/wp-content/uploads/2019/10/pricing-table-step-7-700x346.png" alt="" class="wp-image-8996" /> </figure> 
+![](https://learn.yorkcs.com/wp-content/uploads/2019/10/pricing-table-step-7.png)
 
 ## Adding Call-to-Action Button
 
@@ -268,10 +262,6 @@ Next, we will add the button to each of our plan boxes. Inside the last div with
 {{<highlight html>}}
 <a class="btn-plan" href="#">Choose Plan</a>
 {{</highlight>}}
-
-<figure class="wp-block-image">
-
-<img loading="lazy" width="700" height="344" src="https://learn.yorkcs.com/wp-content/uploads/2019/10/pricing-table-step-8-700x344.png" /> </figure> 
 
 Perfect! We now have our &#8220;Choose Plan&#8221; buttons, now we just need to make them look fantastic.
 
@@ -287,17 +277,15 @@ Under our last style rule, add the following:
 }
 {{</highlight>}}
 
-<figure class="wp-block-image">
-
-<img src="https://learn.yorkcs.com/wp-content/uploads/2019/10/pricing-table-step-9-700x339.png" alt="" class="wp-image-8999" /> </figure> 
+![](https://learn.yorkcs.com/wp-content/uploads/2019/10/pricing-table-step-9.png)
 
 There we have it! It looks great on desktops and laptops, but what about mobile devices?
 
 ## Mobile Optimization
 
-Let&#8217;s take a look at what we have with the Reponsive Design Mode of Firefox.<figure class="wp-block-image">
+Let&#8217;s take a look at what we have with the Reponsive Design Mode of Firefox.
 
-<img loading="lazy" width="481" height="725" src="https://learn.yorkcs.com/wp-content/uploads/2019/10/pricing-table-mobile-unoptimized.png" alt="" class="wp-image-9000" /> </figure> 
+![](https://learn.yorkcs.com/wp-content/uploads/2019/10/pricing-table-mobile-unoptimized.png)
 
 Oof! It doesn&#8217;t look great, does it? We can fix this up on mobile devices with the use of CSS media queries! Media queries are the bread and butter of mobile optimization on the web. This is the last CSS we have to add between our _<style>_ tags:
 
@@ -317,9 +305,9 @@ Oof! It doesn&#8217;t look great, does it? We can fix this up on mobile devices 
 
 Media queries allow us to define styles that are applied when a condition is true. Above, we are applying some styles only to the screen (not to be printed, etc.), and activate when the screen size is less than 640 pixels.
 
-If we take a look at our page again with Responsive Design Mode or Chrome Web Tools, we should see something similar to this. Congratulations, you build a pricing table and made it mobile optimized!<figure class="wp-block-image">
+If we take a look at our page again with Responsive Design Mode or Chrome Web Tools, we should see something similar to this. Congratulations, you build a pricing table and made it mobile optimized!
 
-<img loading="lazy" width="482" height="701" src="https://learn.yorkcs.com/wp-content/uploads/2019/10/pricing-table-mobile-optimized.gif" alt="" class="wp-image-9002" /> </figure> 
+![](https://learn.yorkcs.com/wp-content/uploads/2019/10/pricing-table-mobile-optimized.gif)
 
 Hopefully this guide has been helpful for you. The HTML file for this tutorial can be downloaded [here][3]. You may be interested in taking a look at our other [website design tutorials][4]. To receive news regarding new tutorials and courses we release, be sure to fill out the [form][5]. If you found this tutorial valuable, sharing it on your favorite social media platform would be highly appreciated.
 

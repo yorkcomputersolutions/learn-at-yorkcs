@@ -64,9 +64,8 @@ tags:
 ---
 In this tutorial we will show you how to create feature boxes with HTML and CSS. Feature boxes are common on many websites and help summarize services or products a business offers, etc.
 
-The final result will look like the following:<figure class="wp-block-image">
-
-<img src="https://learn.yorkcs.com/wp-content/uploads/2019/04/webdesign-featurebox-preview-1024x576.png" alt="" class="wp-image-1158" /> </figure> 
+The final result will look like the following:
+![](https://learn.yorkcs.com/wp-content/uploads/2019/04/webdesign-featurebox-preview.png)
 
 Before jumping into the code, it will be useful for you to download the _images_ folder containing the icons shown above for our feature boxes. You can download the ZIP file with the _images_ folder and associated icons [here][1].
 
@@ -201,7 +200,7 @@ Let&#8217;s now add the code to style feature boxes themselves. We will want the
   padding: 48px 32px 48px 32px;
   text-align: center;
 }
-{</highlight>}
+{{</highlight>}}
 
 The next two style rules we&#8217;ll add affect the heading and summary text. We&#8217;ll utilize the font _Lato_ for each feature box heading, and _Open Sans_ for the summary in each box. If either (or both) Google Web Fonts fail to load, for example, if the user was offline, then it will fallback to the device&#8217;s default sans-serif font.
 
@@ -225,9 +224,9 @@ The last style rule we need to add is for the feature icons. We want the height 
 }
 {{</highlight>}}
 
-If we open our _index.html_ file with the browser, we should see our final result!<figure class="wp-block-image">
+If we open our _index.html_ file with the browser, we should see our final result!
 
-<img loading="lazy" width="1024" height="576" src="https://learn.yorkcs.com/wp-content/uploads/2019/04/webdesign-featurebox-preview-1-1024x576.png" alt="" class="wp-image-1168" srcset="https://learn.yorkcs.com/wp-content/uploads/2019/04/webdesign-featurebox-preview-1-1024x576.png 1024w, https://learn.yorkcs.com/wp-content/uploads/2019/04/webdesign-featurebox-preview-1-600x338.png 600w, https://learn.yorkcs.com/wp-content/uploads/2019/04/webdesign-featurebox-preview-1-300x169.png 300w, https://learn.yorkcs.com/wp-content/uploads/2019/04/webdesign-featurebox-preview-1-768x432.png 768w, https://learn.yorkcs.com/wp-content/uploads/2019/04/webdesign-featurebox-preview-1-1536x864.png 1536w, https://learn.yorkcs.com/wp-content/uploads/2019/04/webdesign-featurebox-preview-1-1080x608.png 1080w, https://learn.yorkcs.com/wp-content/uploads/2019/04/webdesign-featurebox-preview-1-1280x720.png 1280w, https://learn.yorkcs.com/wp-content/uploads/2019/04/webdesign-featurebox-preview-1-980x551.png 980w, https://learn.yorkcs.com/wp-content/uploads/2019/04/webdesign-featurebox-preview-1-480x270.png 480w, https://learn.yorkcs.com/wp-content/uploads/2019/04/webdesign-featurebox-preview-1-107x60.png 107w, https://learn.yorkcs.com/wp-content/uploads/2019/04/webdesign-featurebox-preview-1-160x90.png 160w, https://learn.yorkcs.com/wp-content/uploads/2019/04/webdesign-featurebox-preview-1.png 1600w" sizes="(max-width: 1024px) 100vw, 1024px" /> </figure> 
+![](https://learn.yorkcs.com/wp-content/uploads/2019/04/webdesign-featurebox-preview-1.png)
 
 With that, this concludes the tutorial! If you have found it useful, please fill out the [form][3] if you would like to receive news about future tutorials and courses we release. If you have any questions, comments, or just general feedback, don&#8217;t hesitate to contact me via [email][4], our contact form, or tweet at me @[jaredyork_][5]. It would also be much appreciated if you took a moment and shared this tutorial on your social media platform of choice with our new buttons below if you liked it.
 

@@ -216,9 +216,8 @@ public static float randFloat(float minNumber, float maxNumber)
 
 
 The next thing we will do is define our other classes. &nbsp;We will start by creating a new class named _AnimatedSprite.cs_. &nbsp;We can add a new class by going to the Solution Explorer, right click our project directory, move the mouse over the add option, then click “New Item…”  
-<figure class="wp-block-image">
 
-<img src="https://learn.yorkcs.com/wp-content/uploads/2019/05/solution_explorer_add_class-2-1024x789.png" alt="" class="wp-image-1664" /> </figure> 
+![](https://learn.yorkcs.com/wp-content/uploads/2019/05/solution_explorer_add_class-2.png)
 
 A new prompt will appear allowing us to choose the file template we want, as well as name the file. &nbsp;By default, Visual Studio should have the class template selected, so we can just enter the name we want. &nbsp;Like I said before, we will be naming this class, _AnimatedSprite.cs_. &nbsp;Once you’re done with that, click the add button, and our new class should be added to our project. &nbsp;Let’s get started diving deep into these classes!  
 

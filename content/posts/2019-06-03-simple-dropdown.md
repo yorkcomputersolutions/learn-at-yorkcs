@@ -79,7 +79,9 @@ tags:
   - webdesign
 
 ---
-Hello everyone! Let&#8217;s dive right into creating our own very simple dropdown menu (or any container.) We won&#8217;t be doing anything fancy with this, other than what is shown in the following preview:<figure class="wp-block-video"><video controls src="https://learn.yorkcs.com/wp-content/uploads/2019/06/simpledropdown.mp4"></video></figure> 
+Hello everyone! Let&#8217;s dive right into creating our own very simple dropdown menu (or any container.) We won&#8217;t be doing anything fancy with this, other than what is shown in the following preview:
+
+{{< video src="https://learn.yorkcs.com/wp-content/uploads/2019/06/simpledropdown.mp4" type="video/mp4" preload="auto" >}}
 
 To create this dropdown menu, create an HTML file somewhere and name it however you like. Inside this HTML file, let&#8217;s add some basic code:
 
@@ -151,7 +153,9 @@ Last, we need to add one last style rule for expanding our dropdown. To do this,
             }
 {{</highlight>}}
 
-If we take a look at our page, we should now see our dropdown!<figure class="wp-block-video"><video controls src="https://learn.yorkcs.com/wp-content/uploads/2019/06/simpledropdown-1.mp4"></video></figure> 
+If we take a look at our page, we should now see our dropdown!
+
+{{< video src="https://learn.yorkcs.com/wp-content/uploads/2019/06/simpledropdown-1.mp4" type="video/mp4" preload="auto" >}}
 
 Hopefully this tutorial can helps a lot of you out! If it has, consider filling out the form to receive news about future tutorials and courses we publish.
 

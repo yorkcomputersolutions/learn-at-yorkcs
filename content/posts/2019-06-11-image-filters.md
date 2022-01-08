@@ -99,9 +99,9 @@ Between the _<body>_ tags, add the following markup for adding our image:
 <img id="photo" src="<the URL of the image>">
 {{</highlight>}}
 
-Of course, you will need to add the URL of the image between the quotes of the _src_ attribute. <figure class="wp-block-image">
+Of course, you will need to add the URL of the image between the quotes of the _src_ attribute.
 
-<img src="https://learn.yorkcs.com/wp-content/uploads/2019/06/tut-filters-default-1024x576.png" alt="" class="wp-image-2194" /> </figure> 
+![](https://learn.yorkcs.com/wp-content/uploads/2019/06/tut-filters-default.png)
 
 Next, between the _<style>_ tags in the _<head>_ element, add the following style rule:
 
@@ -118,9 +118,9 @@ Let&#8217;s start by experimenting with the _blur_ filter. Before I get ahead of
 filter: blur(5px);
 {{</highlight>}}
 
-We should now see the following result:<figure class="wp-block-image">
+We should now see the following result:
 
-<img src="https://learn.yorkcs.com/wp-content/uploads/2019/06/tut-filters-blur-1024x576.png" alt="" class="wp-image-2193" /> </figure> 
+![](https://learn.yorkcs.com/wp-content/uploads/2019/06/tut-filters-blur.png)
 
 Another commonly used filter is the _brightness_ filter. You can set a percentage below 100%, for darkening an image, or you can set a value above 100% to brighten a picture. Below, I brighten the photo using the line:
 
@@ -128,9 +128,7 @@ Another commonly used filter is the _brightness_ filter. You can set a percentag
 filter: brightness(200%);
 {{</highlight>}}
 
-<figure class="wp-block-image">
-
-<img src="https://learn.yorkcs.com/wp-content/uploads/2019/06/tut-filters-brightness-1024x576.png" alt="" class="wp-image-2197" /> </figure> 
+![](https://learn.yorkcs.com/wp-content/uploads/2019/06/tut-filters-brightness.png)
 
 What if we wanted to adjust the contrast of an image? This is pretty trivial too! You can change the line with our _filter_ property to the following:
 
@@ -138,9 +136,7 @@ What if we wanted to adjust the contrast of an image? This is pretty trivial too
 filter: constrast(200%);
 {{</highlight>}}
 
-<figure class="wp-block-image">
-
-<img src="https://learn.yorkcs.com/wp-content/uploads/2019/06/tut-filters-contrast-1024x576.png" alt="" class="wp-image-2198" /> </figure> 
+![](https://learn.yorkcs.com/wp-content/uploads/2019/06/tut-filters-contrast.png)
 
 Another filter that we can use on our websites is the _saturate_ filter. This filter, well&#8230; simply saturates the image. Pretty nifty! We can change the line with our _filter_ property to the following:
 
@@ -148,9 +144,7 @@ Another filter that we can use on our websites is the _saturate_ filter. This fi
 filter: saturate(200%);
 {{</highlight>}}
 
-<figure class="wp-block-image">
-
-<img src="https://learn.yorkcs.com/wp-content/uploads/2019/06/tut-filters-saturate-1024x576.png" alt="" class="wp-image-2202" /> </figure> 
+![](https://learn.yorkcs.com/wp-content/uploads/2019/06/tut-filters-saturate.png)
 
 You might find the need to color your image with a sepia tone. No problem! We can accomplish this by using the _sepia_ function as follows:
 
@@ -158,9 +152,7 @@ You might find the need to color your image with a sepia tone. No problem! We ca
 filter: sepia(200%);
 {{</highlight>}}
 
-<figure class="wp-block-image">
-
-<img src="https://learn.yorkcs.com/wp-content/uploads/2019/06/tut-filters-sepia-1024x576.png" alt="" class="wp-image-2201" /> </figure> 
+![](https://learn.yorkcs.com/wp-content/uploads/2019/06/tut-filters-sepia.png)
 
 Before we wrap up, I want to mention that you can also combine filters like so:
 
@@ -168,9 +160,9 @@ Before we wrap up, I want to mention that you can also combine filters like so:
 filter: brightness(180%) contrast(110%) saturate(160%);
 {{</highlight>}}
 
-At we can achieve the following result:<figure class="wp-block-image">
+At we can achieve the following result:
 
-<img src="https://learn.yorkcs.com/wp-content/uploads/2019/06/tut-filters-combo-1024x576.png" alt="" class="wp-image-2203" /> </figure> 
+![](https://learn.yorkcs.com/wp-content/uploads/2019/06/tut-filters-combo.png)
 
 With that, you now know a handful of the commonly used CSS filters! These filters can really help spruce up your website, so experiment and try them out. If you found this tutorial useful, and would like to receive news on future tutorials and courses we make, be sure to fill out the [form][1]. Sharing this tutorial is also very helpful and much appreciated.
 

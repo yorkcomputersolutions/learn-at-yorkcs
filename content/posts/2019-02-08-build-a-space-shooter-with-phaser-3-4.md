@@ -163,13 +163,8 @@ if (this.shootTimer !== undefined) {
   }
 {{</highlight>}}
 
-When you run the game you should see: 
-
-<div class="wp-block-image">
-  <figure class="aligncenter"><img loading="lazy" width="463" height="638" src="https://learn.yorkcs.com/wp-content/uploads/2019/02/p3ss_enemybullets0.png" alt="" class="wp-image-289" /><figcaption>You should now see something like this if you run the game. That&#8217;s a lot of enemies!</figcaption></figure>
-</div>
-
-  
+When you run the game you should see:
+![](https://learn.yorkcs.com/wp-content/uploads/2019/02/p3ss_enemybullets0.png "You should now see something like this if you run the game. That's a lot of enemies!")
 
 
 When we run the game, you should see the army of gun ship enemies coming down from the top of the screen. All of the enemies should also be shooting lasers as well. Now that we see everything is working, we can cut back the amount of gun ships are being spawned at once. To do this, navigate to our `SceneMain.js` file and change the delay of the timer we made. 
@@ -190,9 +185,7 @@ this.time.addEvent({
     });
 {{</highlight>}}
 
-<div class="wp-block-image">
-  <figure class="aligncenter"><img loading="lazy" width="454" height="629" src="https://learn.yorkcs.com/wp-content/uploads/2019/02/Screenshot-from-2019-02-07-20-02-20.jpeg" alt="" class="wp-image-295" /><figcaption>That&#8217;s better!</figcaption></figure>
-</div>
+![](https://learn.yorkcs.com/wp-content/uploads/2019/02/Screenshot-from-2019-02-07-20-02-20.jpeg "That's better!")
 
 Back in `Entities.js`, we will need to add a little bit of code to the constructor of the `ChaserShip` class:
 
@@ -373,13 +366,11 @@ else {
 }
 {{</highlight>}}
 
-<div class="wp-block-image">
-  <figure class="aligncenter"><img loading="lazy" width="471" height="635" src="https://learn.yorkcs.com/wp-content/uploads/2019/02/cca62dfd-31ef-42c5-98b9-82e8d2836850.jpeg" alt="" class="wp-image-325" /><figcaption>Nice! We can shoot lasers and there&#8217;s a slight delay when shooting as well.</figcaption></figure>
-</div>
+![](https://learn.yorkcs.com/wp-content/uploads/2019/02/cca62dfd-31ef-42c5-98b9-82e8d2836850.jpeg "Nice! We can shoot lasers and there's a slight delay when shooting as well.")
 
-We are finished with adding the ability to shoot lasers for both the player and enemies! Before we move on to collisions, it will be a good idea to add what is called frustum culling. Frustum culling will allow us to remove everything that moves off screen, which frees up processing power and memory. Without frustum culling, if we let our game run for a while, it will look like this:<figure class="wp-block-image">
+We are finished with adding the ability to shoot lasers for both the player and enemies! Before we move on to collisions, it will be a good idea to add what is called frustum culling. Frustum culling will allow us to remove everything that moves off screen, which frees up processing power and memory. Without frustum culling, if we let our game run for a while, it will look like this:
 
-<img loading="lazy" width="714" height="914" src="https://learn.yorkcs.com/wp-content/uploads/2019/02/p3ss_lag.gif" alt="" class="wp-image-333" /> <figcaption>Yeah&#8230; it&#8217;s lagging pretty badly.</figcaption></figure> 
+![](https://learn.yorkcs.com/wp-content/uploads/2019/02/p3ss_lag.gif "Yeah, it's lagging pretty badly.")
 
 In order to add frustum culling, we will have to move to the `update` function of `SceneMain`. Currently, we should have a `for` loop where we update enemies. Inside the `for` after the ending curly brace where we update the enemy, add the following code:
 

@@ -50,9 +50,9 @@ display.fill((0, 0, 0))
 display.blit(myimage, myimage.get_rect())
 {{</highlight>}}
 
-The first line fills the screen in black. It&#8217;s good practice to call this before our drawing code. Normally we only need to call this once. The _blit_ method is what actually copies our image to our surface, _display_, to be drawn. In this method, we are passing two arguments. The first argument we pass in is the image we want to draw. The second argument we&#8217;re passing is the source rectangle of the image. The source rectangle x and y positions are 0, 0 (top-left corner of image), the width and height is the width and height of the image. When we run our project, we should see the image we loaded display in the top-left corner of our game canvas.<figure class="wp-block-image">
+The first line fills the screen in black. It&#8217;s good practice to call this before our drawing code. Normally we only need to call this once. The _blit_ method is what actually copies our image to our surface, _display_, to be drawn. In this method, we are passing two arguments. The first argument we pass in is the image we want to draw. The second argument we&#8217;re passing is the source rectangle of the image. The source rectangle x and y positions are 0, 0 (top-left corner of image), the width and height is the width and height of the image. When we run our project, we should see the image we loaded display in the top-left corner of our game canvas.
 
-<img src="https://learn.yorkcs.com/wp-content/uploads/2019/10/Screenshot_20191001_140604-700x547.png" alt="" class="wp-image-7927" /> </figure> 
+![](https://learn.yorkcs.com/wp-content/uploads/2019/10/Screenshot_20191001_140604.png)
 
 Alternatively, we can pass in x and y positions instead of a destination rectangle. To do so, adjust our blit call to:
 
@@ -60,9 +60,9 @@ Alternatively, we can pass in x and y positions instead of a destination rectang
 display.blit(myimage, (480, 128))
 {{</highlight>}}
 
-When we run our game now we should see:<figure class="wp-block-image">
+When we run our game now we should see:
 
-<img src="https://learn.yorkcs.com/wp-content/uploads/2019/10/Screenshot_20191002_133121-700x552.png" alt="" class="wp-image-7928" /> </figure> 
+![](https://learn.yorkcs.com/wp-content/uploads/2019/10/Screenshot_20191002_133121.png)
 
 Now you know how to draw images with [PyGame][1]! It&#8217;s not too bad once you practice adding more. Have questions? Please leave your questions and comments down below, and I will do my best to get back to you. If you found this guide useful, you may want to consider taking a look at the rest of our [Python Basics][2] tutorial series. To receive updates and news regarding our future tutorials and courses, you can subscribe to our [newsletter][3]. Sharing this guide on your favorite social media platform is also much appreciated, of course, only if you found this tutorial valuable.
 

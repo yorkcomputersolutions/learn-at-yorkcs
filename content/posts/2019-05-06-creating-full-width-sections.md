@@ -68,7 +68,9 @@ tags:
   - website design
 
 ---
-In this tutorial, you will learn how to create sections on a website than span the width of the screen. The cool thing about it is the margins are maintained. It is recommended you have solid knowledge of HTML and CSS before continuing. We Here is an example of what we should see by the end of this tutorial:<figure class="wp-block-video"><video controls src="https://learn.yorkcs.com/wp-content/uploads/2019/05/2019-05-05-21-09-10.flv"></video></figure> 
+In this tutorial, you will learn how to create sections on a website than span the width of the screen. The cool thing about it is the margins are maintained. It is recommended you have solid knowledge of HTML and CSS before continuing. We Here is an example of what we should see by the end of this tutorial:
+
+{{< video src="https://learn.yorkcs.com/wp-content/uploads/2019/05/2019-05-05-21-09-10.mp4" type="video/mp4" preload="auto" >}}
 
 Without further ado, let&#8217;s jump into the code! Find a home for this tutorial, and create a folder in that location. This folder will serve as our project&#8217;s directory. In that folder, create two folders: css and images. In addition, create a file named _index.html_ and keep that in the project directory. In the css folder, add a file called _styles.css_. You can also find four images on the internet and put them in the images folder. Once you have done that, open _index.html_ with a text editor or code editor of your choice. 
 
@@ -91,7 +93,8 @@ In the _index.html_ file, we will be defining the basis for our web page such as
   <body>
 
   </body>
-</html></pre>
+</html>
+{{</highlight>}}
 
 The next step we&#8217;ll do is to add the site wrapper div, which we can add CSS to if we want to affect the entire page with properties. Let&#8217;s add this _<div>_ element to the _<body>_ element:
 

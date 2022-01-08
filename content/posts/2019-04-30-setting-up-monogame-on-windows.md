@@ -73,9 +73,8 @@ Before installing MonoGame, we will need to install Visual Studio 2017. &nbsp;Cu
 Their website, [www.monogame.net][2] is extremely easy to use and navigate through. For our purposes, we can go to their downloads [page][3], and click on the latest release. Once the installer has downloaded, execute the installer.  
 
 
-Stop once you see the following part of the installation:<figure class="wp-block-image">
-
-<img loading="lazy" width="628" height="491" src="https://learn.yorkcs.com/wp-content/uploads/2019/04/monogame_installer_templates.png" alt="" class="wp-image-1183" /> </figure> 
+Stop once you see the following part of the installation:
+![](https://learn.yorkcs.com/wp-content/uploads/2019/04/monogame_installer_templates.png)
 
 Make sure Visual Studio 2017 is selected, the click install. Once the setup is complete, you’re ready to start programming your first game with MonoGame!
 

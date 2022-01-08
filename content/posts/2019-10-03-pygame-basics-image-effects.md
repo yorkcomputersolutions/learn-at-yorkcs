@@ -46,9 +46,9 @@ You can scale images with PyGame using the _pygame.transform.scale_ method. This
 scaled_myimage = pygame.transform.scale(myimage, (128, 480))
 {{</highlight>}}
 
-With the _pygame.transform.scale_ method, the first argument is the image, and the second argument is a tuple representing the new size of the image.<figure class="wp-block-image">
+With the _pygame.transform.scale_ method, the first argument is the image, and the second argument is a tuple representing the new size of the image.
 
-<img src="https://learn.yorkcs.com/wp-content/uploads/2019/10/Screenshot_20191002_140310-700x551.png" alt="" class="wp-image-7934" /> </figure> 
+![](https://learn.yorkcs.com/wp-content/uploads/2019/10/Screenshot_20191002_140310.png)
 
 ## Flipping Images
 
@@ -60,9 +60,7 @@ To flip an image horizontally, we could use the following line:
 flipped_myimage = pygame.transform.flip(myimage, True, False)
 {{</highlight>}}
 
-<figure class="wp-block-image">
-
-<img src="https://learn.yorkcs.com/wp-content/uploads/2019/10/Screenshot_20191002_141153-700x551.png" alt="" class="wp-image-7937" /> </figure> 
+![](https://learn.yorkcs.com/wp-content/uploads/2019/10/Screenshot_20191002_141153.png)
 
 Likewise, to flip an image vertically, we can write this line:
 
@@ -70,9 +68,7 @@ Likewise, to flip an image vertically, we can write this line:
 flipped_myimage = pygame.transform.flip(myimage, False, True)
 {{</highlight>}}
 
-<figure class="wp-block-image">
-
-<img src="https://learn.yorkcs.com/wp-content/uploads/2019/10/Screenshot_20191002_141646-700x551.png" alt="" class="wp-image-7941" /> </figure> 
+![](https://learn.yorkcs.com/wp-content/uploads/2019/10/Screenshot_20191002_141646.png)
 
 Of course, to flip an image horizontally and vertically, you can set the second and third arguments to true.
 
@@ -80,9 +76,7 @@ Of course, to flip an image horizontally and vertically, you can set the second 
 flipped_myimage = pygame.transform.flip(myimage, True, True)
 {{</highlight>}}
 
-<figure class="wp-block-image">
-
-<img src="https://learn.yorkcs.com/wp-content/uploads/2019/10/Screenshot_20191002_141531-700x552.png" alt="" class="wp-image-7940" /> </figure> 
+![](https://learn.yorkcs.com/wp-content/uploads/2019/10/Screenshot_20191002_141531.png)
 
 ## Rotating Images
 
@@ -92,9 +86,7 @@ To rotate images, we can use the _pygame.transform.rotate_ method.
 rotated_myimage = pygame.transform.rotate(myimage, 45)
 {{</highlight>}}
 
-<figure class="wp-block-image">
-
-<img src="https://learn.yorkcs.com/wp-content/uploads/2019/10/Screenshot_20191002_143126-700x554.png" alt="" class="wp-image-7946" /> </figure> 
+![](https://learn.yorkcs.com/wp-content/uploads/2019/10/Screenshot_20191002_143126.png)
 
 Now, if you were to update the angle every tick, you will notice the origin is not centered. To center the origin of the image, you can add the following function. This function was originally taken from the [PyGame Wiki][3].
 
@@ -117,7 +109,9 @@ rotated_image = rot_center(myimage, angle)
 display.blit(image, image.get_rect())
 {{</highlight>}}
 
-<figure class="wp-block-video"><video autoplay loop muted src="https://learn.yorkcs.com/wp-content/uploads/2019/10/image-effects.mp4"></video><figcaption>Now the image is rotating around the center! Fantastic.</figcaption></figure> 
+{{< video src="https://learn.yorkcs.com/wp-content/uploads/2019/10/image-effects.mp4" type="video/mp4" preload="auto" >}}
+Now the image is rotating around the center! Fantastic.
+
 
 ## Rotating and Scaling Images
 
@@ -135,9 +129,9 @@ If I wanted to rotate an image 45 degrees, and scale it 50% smaller, you could w
 image = pygame.transform.rotozoom(myimage, 45, 2)
 {{</highlight>}}
 
-Then I would end up with the final result:<figure class="wp-block-image">
+Then I would end up with the final result:
 
-<img src="https://learn.yorkcs.com/wp-content/uploads/2019/10/Screenshot_20191003_134236-700x551.png" alt="" class="wp-image-8001" /> </figure> 
+![](https://learn.yorkcs.com/wp-content/uploads/2019/10/Screenshot_20191003_134236.png)
 
 ## Double the Scale of an Image
 
@@ -147,9 +141,9 @@ Another interesting image effect we can use is the _pygame.transform.scale2x_ me
 image = pygame.transform.scale2x(myimage)
 {{</highlight>}}
 
-Obviously, we can blit this new surface.<figure class="wp-block-image">
+Obviously, we can blit this new surface.
 
-<img src="https://learn.yorkcs.com/wp-content/uploads/2019/10/Screenshot_20191003_135025-700x549.png" alt="" class="wp-image-8003" /> </figure> 
+![](https://learn.yorkcs.com/wp-content/uploads/2019/10/Screenshot_20191003_135025.png)
 
 ## Concluding Thoughts
 

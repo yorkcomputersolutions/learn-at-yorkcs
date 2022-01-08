@@ -73,23 +73,23 @@ tags:
 ---
 Hey there! In this guide, we will be taking a look at how to install and remove packages via the terminal!
 
-To begin, let&#8217;s start by opening the terminal. I have covered how to open the terminal in the last couple parts of this series. If you haven&#8217;t read them, I would recommend checking out [part one][1] and [two][2].<figure class="wp-block-image">
+To begin, let&#8217;s start by opening the terminal. I have covered how to open the terminal in the last couple parts of this series. If you haven&#8217;t read them, I would recommend checking out [part one][1] and [two][2].
 
-<img loading="lazy" width="880" height="664" src="https://learn.yorkcs.com/wp-content/uploads/2019/07/terminal-1.png" alt="" class="wp-image-3523" /> </figure> 
+![](https://learn.yorkcs.com/wp-content/uploads/2019/07/terminal-1.png)
 
 Once you&#8217;ve opened your terminal, let&#8217;s try installing an application. Applications are made up of what are known as _packages_ in Linux. Let&#8217;s just say we wanted to install VLC player. Not a problem! Type the following:
 
-_sudo apt-get install vlc_<figure class="wp-block-image">
+_sudo apt-get install vlc_
 
-<img loading="lazy" width="892" height="646" src="https://learn.yorkcs.com/wp-content/uploads/2019/07/terminal-install-vlc.png" alt="" class="wp-image-3527" /> </figure> 
+![](https://learn.yorkcs.com/wp-content/uploads/2019/07/terminal-install-vlc.png)
 
-We can&#8217;t install packages by default as a normal user. This is why we need to run the command as a _super user_. We can specify this via adding _sudo_ before the command. Press &#8216;enter&#8217;, then type your password when it prompts you. If you don&#8217;t see your password as you type, that&#8217;s normal, don&#8217;t worry about it. Once you press &#8216;enter&#8217; again, there will be another prompt asking if you want to install the list of packages it found.<figure class="wp-block-image">
+We can&#8217;t install packages by default as a normal user. This is why we need to run the command as a _super user_. We can specify this via adding _sudo_ before the command. Press &#8216;enter&#8217;, then type your password when it prompts you. If you don&#8217;t see your password as you type, that&#8217;s normal, don&#8217;t worry about it. Once you press &#8216;enter&#8217; again, there will be another prompt asking if you want to install the list of packages it found.
 
-<img loading="lazy" width="892" height="646" src="https://learn.yorkcs.com/wp-content/uploads/2019/07/terminal-instasll-vlc-yesno.png" alt="" class="wp-image-3528" /> </figure> 
+![](https://learn.yorkcs.com/wp-content/uploads/2019/07/terminal-instasll-vlc-yesno.png)
 
-If we press &#8216;y&#8217;, then hit &#8216;enter&#8217;, we should see the installation proceed.<figure class="wp-block-image">
+If we press &#8216;y&#8217;, then hit &#8216;enter&#8217;, we should see the installation proceed.
 
-<img loading="lazy" width="892" height="646" src="https://learn.yorkcs.com/wp-content/uploads/2019/07/terminal-instasll-vlc-installed.png" alt="" class="wp-image-3529" /> </figure> 
+![](https://learn.yorkcs.com/wp-content/uploads/2019/07/terminal-instasll-vlc-installed.png)
 
 See the cursor? Fantastic! Now you can install and remove packages from the terminal! You are on your way to becoming a pro at this.
 

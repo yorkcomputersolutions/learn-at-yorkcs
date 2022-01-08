@@ -70,25 +70,23 @@ tags:
   - linux terminal
 
 ---
-In this guide, we will be taking a look at how to navigate the file system with the Linux terminal. I would say this is probably the next most important task for beginners to perform, as it will be quite useful. To begin, let&#8217;s open up a terminal. If you don&#8217;t know how to open a terminal, I would recommend referring to [part one][1] of this series and walk through that guide first.<figure class="wp-block-image">
+In this guide, we will be taking a look at how to navigate the file system with the Linux terminal. I would say this is probably the next most important task for beginners to perform, as it will be quite useful. To begin, let&#8217;s open up a terminal. If you don&#8217;t know how to open a terminal, I would recommend referring to [part one][1] of this series and walk through that guide first.
 
-<img loading="lazy" width="958" height="662" src="https://learn.yorkcs.com/wp-content/uploads/2019/07/terminal.png" alt="Linux Terminal Basics" class="wp-image-3088" /> </figure> 
+![Linux Terminal Basics](https://learn.yorkcs.com/wp-content/uploads/2019/07/terminal.png)
 
-By default, your terminal is running &#8220;inside&#8221; the logged-in user&#8217;s home directory. You can find where you are relative to the rest of the file system via the _pwd_ command.<figure class="wp-block-image">
+By default, your terminal is running &#8220;inside&#8221; the logged-in user&#8217;s home directory. You can find where you are relative to the rest of the file system via the _pwd_ command.
 
-<img loading="lazy" width="908" height="652" src="https://learn.yorkcs.com/wp-content/uploads/2019/07/terminal-pwd.png" alt="" class="wp-image-3094" /> </figure> 
+![](https://learn.yorkcs.com/wp-content/uploads/2019/07/terminal-pwd.png)
 
-We can also see the files and folders in the directory we&#8217;re currently in. To see the list of these files and folders, we can utilize the _ls_ command.<figure class="wp-block-image">
+We can also see the files and folders in the directory we&#8217;re currently in. To see the list of these files and folders, we can utilize the _ls_ command.
 
-<img loading="lazy" width="908" height="652" src="https://learn.yorkcs.com/wp-content/uploads/2019/07/terminal-ls.png" alt="" class="wp-image-3095" /> </figure> 
+![](https://learn.yorkcs.com/wp-content/uploads/2019/07/terminal-ls.png)
 
 If we want to move around the file system, the _cd_ command is what we&#8217;re looking for. Let&#8217;s say we want to move into the _Documents_ folder, which we can access since we&#8217;re in our home directory. We can move into the Documents folder by running the command:
 
 _cd Documents_
 
-<figure class="wp-block-image">
-
-<img loading="lazy" width="908" height="652" src="https://learn.yorkcs.com/wp-content/uploads/2019/07/terminal-cd-documents.png" alt="" class="wp-image-3097" /> </figure> 
+![](https://learn.yorkcs.com/wp-content/uploads/2019/07/terminal-cd-documents.png)
 
 You may notice that our current path (highlighted by the blue text on our current line) changed from _~_ to _~/Documents_. This means that we are now in the Documents folder! Fantastic.
 
@@ -114,13 +112,11 @@ Let&#8217;s put these commands into practice by visiting the root directory. Thi
 
 _cd ../../_
 
-<figure class="wp-block-image">
+![](https://learn.yorkcs.com/wp-content/uploads/2019/07/terminal-cd-to-root.png)
 
-<img loading="lazy" width="908" height="652" src="https://learn.yorkcs.com/wp-content/uploads/2019/07/terminal-cd-to-root.png" alt="" class="wp-image-3100" /> </figure> 
+Try running the command we covered earlier to list the files and folders, you should see the following list of files and directories:
 
-Try running the command we covered earlier to list the files and folders, you should see the following list of files and directories:<figure class="wp-block-image">
-
-<img loading="lazy" width="908" height="652" src="https://learn.yorkcs.com/wp-content/uploads/2019/07/terminal-root-ls.png" alt="" class="wp-image-3101" /> </figure> 
+![](https://learn.yorkcs.com/wp-content/uploads/2019/07/terminal-root-ls.png)
 
 With that, you now know how to move within your file system using the terminal! You&#8217;re on the way to becoming a pro at using the terminal!
 

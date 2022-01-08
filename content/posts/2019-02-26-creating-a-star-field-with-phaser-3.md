@@ -55,9 +55,9 @@ categories:
   - Phaser 3
 
 ---
-In this tutorial, we will be creating what I call, a &#8220;center to edge&#8221; starfield. The final result will look like the following:<figure class="wp-block-image">
+In this tutorial, we will be creating what I call, a &#8220;center to edge&#8221; starfield. The final result will look like the following:
 
-<img loading="lazy" width="640" height="640" src="https://learn.yorkcs.com/wp-content/uploads/2019/02/starfield_edgetoedge.gif" alt="" class="wp-image-828" /> </figure> 
+![](https://learn.yorkcs.com/wp-content/uploads/2019/02/starfield_edgetoedge.gif)
 
 #### Tutorial Requirements
 
@@ -223,9 +223,9 @@ this.stars.add(graphics);
 
 By setting the alpha, we can make stars in the distance much more faint, and have them become brighter as they near the &#8220;observer&#8221;.
 
-If we navigate to the project in our browser, we should see finished result:<figure class="wp-block-image">
+If we navigate to the project in our browser, we should see finished result:
 
-<img loading="lazy" width="640" height="640" src="https://learn.yorkcs.com/wp-content/uploads/2019/02/starfield_edgetoedge.gif" alt="" class="wp-image-828" /> <figcaption>Got it? Fantastic!</figcaption></figure> 
+![](https://learn.yorkcs.com/wp-content/uploads/2019/02/starfield_edgetoedge.gif "Got it? Fantastic!")
 
 The fun part now is to tweak the various numbers. Some interesting results can be achieved! I look forward to seeing what you can create with this! Hopefully this will be useful for some of you. 🙂
 

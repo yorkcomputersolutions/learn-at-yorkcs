@@ -63,9 +63,9 @@ tags:
   - website development
 
 ---
-In this tutorial, you will learn how to create buttons via styling them with CSS. If you don&#8217;t have a solid foundation with HTML and CSS, I would highly recommended checking out our free Beginners Blocks courses in our [store][1]. The buttons below are what I will help you learn how to create:<figure class="wp-block-image">
+In this tutorial, you will learn how to create buttons via styling them with CSS. If you don&#8217;t have a solid foundation with HTML and CSS, I would highly recommended checking out our free Beginners Blocks courses in our [store][1]. The buttons below are what I will help you learn how to create:
 
-<img loading="lazy" width="556" height="624" src="https://learn.yorkcs.com/wp-content/uploads/2019/05/buttons_vol1.png" alt="" class="wp-image-1272" /> </figure> 
+![](https://learn.yorkcs.com/wp-content/uploads/2019/05/buttons_vol1.png)
 
 Let&#8217;s dive right into the code. Create a folder somewhere on your computer and name it whatever you want. This folder will be the home of our project. In that folder, create a file named _index.html_ and create another folder called _css_. In the _css_ folder, add a new file and name it _styles.css_.
 
@@ -117,9 +117,9 @@ Let&#8217;s head over to our _styles.css_ file. Since we&#8217;re not going to m
 }
 {{</highlight>}}
 
-#### The First Button<figure class="wp-block-image">
+#### The First Button
 
-<img loading="lazy" width="600" height="262" src="https://learn.yorkcs.com/wp-content/uploads/2019/05/webdesign_button_1.png" alt="" class="wp-image-1275" /> </figure> 
+![](https://learn.yorkcs.com/wp-content/uploads/2019/05/webdesign_button_1.png)
 
 Now, we can start adding style rules for our buttons, starting with the first. Let&#8217;s add the first style rule:
 
@@ -154,9 +154,9 @@ If we want the button to change appearance when you click/press down it, we can 
 }
 {{</highlight>}}
 
-#### The Second Button<figure class="wp-block-image">
+#### The Second Button
 
-<img loading="lazy" width="600" height="262" src="https://learn.yorkcs.com/wp-content/uploads/2019/05/webdesign_button_2.png" alt="" class="wp-image-1550" /> </figure> 
+![](https://learn.yorkcs.com/wp-content/uploads/2019/05/webdesign_button_2.png)
 
 The second button will not need a button color, however we will be adding a border. We will also be adding a transition animation between button states. So, if you were to move your mouse over the button, it will transition from the current color to a new color over a period of time. Let&#8217;s add the code!
 
@@ -185,9 +185,9 @@ When the user hovers over the button, we want to change the text color as well a
 
 Feel free to add another set of styles for the _:active_ selector.
 
-#### The Third Button<figure class="wp-block-image">
+#### The Third Button
 
-<img loading="lazy" width="600" height="262" src="https://learn.yorkcs.com/wp-content/uploads/2019/05/webdesign_button_3.png" alt="" class="wp-image-1552" /> </figure> 
+![](https://learn.yorkcs.com/wp-content/uploads/2019/05/webdesign_button_3.png)
 
 Now, we will be taking a look at buttons with gradients. Specifically, we will make use of linear gradients. We can combine a border with a linear gradient. Let&#8217;s put this into practice:
 
@@ -221,9 +221,9 @@ We can provide a different color variation for the _:active_ selector too!
 }
 {{</highlight>}}
 
-#### The Fourth Button<figure class="wp-block-image">
+#### The Fourth Button
 
-<img loading="lazy" width="600" height="262" src="https://learn.yorkcs.com/wp-content/uploads/2019/05/webdesign_button_4.png" alt="" class="wp-image-1559" /> </figure> 
+![](https://learn.yorkcs.com/wp-content/uploads/2019/05/webdesign_button_4.png)
 
 This next button has a more modern look to it, while maintaining a slightly less serious tone. We can add some depth to the bottom of the button by using the _border-bottom_ property.
 
@@ -261,9 +261,9 @@ After that, we want to move the button down 4 pixels, but also offset that with 
 }
 {{</highlight>}}
 
-#### The Fifth Button<figure class="wp-block-image">
+#### The Fifth Button
 
-<img loading="lazy" width="600" height="262" src="https://learn.yorkcs.com/wp-content/uploads/2019/05/webdesign_button_5.png" alt="" class="wp-image-1563" /> </figure> 
+![](https://learn.yorkcs.com/wp-content/uploads/2019/05/webdesign_button_5.png)
 
 This button is similar to the previous one, however this one has a shadow around the base. This further gives the perception of depth to the button. We can accomplish this via the _box-shadow_ property. Let&#8217;s add the code affecting the class _btn-type-5_:
 
@@ -303,9 +303,9 @@ Finally, we can add a set of styles for the _:active_ selector. This time, we wi
 }
 {{</highlight>}}
 
-#### The Sixth Button<figure class="wp-block-image">
+#### The Sixth Button
 
-<img loading="lazy" width="600" height="262" src="https://learn.yorkcs.com/wp-content/uploads/2019/05/webdesign_button_6.png" alt="" class="wp-image-1568" /> </figure> 
+![](https://learn.yorkcs.com/wp-content/uploads/2019/05/webdesign_button_6.png)
 
 This final button has a glassy look to it. It almost looks like it came from the Windows 7 Aero era. It looks pretty cool and nostalgic! This type of button also looks great with any color. The styles for the default state of this button is quite similar to the gradient buttons above. The main difference is the addition of the _:after_ selector. Let&#8217;s first start by adding the styles for the _.btn-type-6_ selector:
 
@@ -351,9 +351,9 @@ We can finish up by adding the _:hover_ and _:active_ selectors.
 }
 {{</highlight>}}
 
-With that, let&#8217;s take a look at the result in our browser. Open the _index.html_ file and we should see the following:<figure class="wp-block-image">
+With that, let&#8217;s take a look at the result in our browser. Open the _index.html_ file and we should see the following:
 
-<img loading="lazy" width="556" height="624" src="https://learn.yorkcs.com/wp-content/uploads/2019/05/buttons_vol1.png" alt="" class="wp-image-1272" /> </figure> 
+![](https://learn.yorkcs.com/wp-content/uploads/2019/05/buttons_vol1.png)
 
 CSS allows developers and designers so many options to create beautiful, sleek websites. We hope this tutorial has been useful for you. If it has, and would like to receive updates on future tutorials and courses we release, be sure to fill out the [form][2]. Sharing this tutorial on social media platforms of your choice would be highly appreciated. We made this easy by adding share buttons to the bottom of each of our posts.
 

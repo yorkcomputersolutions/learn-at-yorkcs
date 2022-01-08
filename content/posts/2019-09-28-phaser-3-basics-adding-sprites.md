@@ -33,9 +33,9 @@ In the example above, the key is the image key you defined in the _preload_ meth
 this.add.sprite(128, 128, "myimage");
 {{</highlight>}}
 
-If we run our game in the browser, we should see something like the following with the image of your choice.<figure class="wp-block-image">
+If we run our game in the browser, we should see something like the following with the image of your choice.
 
-<img loading="lazy" width="647" height="638" src="https://learn.yorkcs.com/wp-content/uploads/2019/09/phaser-3-basics-sprite.png" alt="" class="wp-image-7662" /> </figure> 
+![](https://learn.yorkcs.com/wp-content/uploads/2019/09/phaser-3-basics-sprite.png)
 
 Hopefully this guide has been useful for you. If it has, you may be interested in checking out the rest of this [series][3]. If you would like to receive news of our latest tutorials and courses, be sure to fill out the [form][4]. Sharing this guide on your social media platform would also be much appreciated. Stay tuned for more parts to this series.
 

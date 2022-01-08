@@ -70,7 +70,9 @@ tags:
 ---
 Hello everyone! This will be the start of my web design tutorials. In this little tutorial, we will be creating a full screen landing page.
 
-Here&#8217;s a preview of what we&#8217;ll be making:<figure class="wp-block-video"><video controls src="https://learn.yorkcs.com/wp-content/uploads/2019/04/full-screen-landing-page.mp4"></video></figure> 
+Here&#8217;s a preview of what we&#8217;ll be making:
+
+{{< video src="https://learn.yorkcs.com/wp-content/uploads/2019/04/full-screen-landing-page.mp4" type="video/mp4" preload="auto" >}}
 
 To start, let&#8217;s head over to [Unsplash][1] so we can pick out a picture we want. I really like the sunset picture you see in the preview by Samuel Zeller (available [here][2]). When you find the picture you want to use, just click the large green &#8220;Download&#8221; button on the image preview. The image should then download. If you already have a nice big photo in mind that you wish to use, that will work just fine.
 
@@ -125,9 +127,9 @@ We will be using a specific method for horizontally and vertically aligning the 
 }
 {{</highlight>}}
 
-Basically, we&#8217;re going to make the browser display our outer wrapper similar to a table. Child elements of the outer wrapper (the inner wrapper), will be affected by this. We also want our outer wrapper to stretch across the screen, hence the 100% width, and we want it to be as tall as the user&#8217;s screen, hence the 100vh height. The unit _vh_ is the viewport height, and 1% vh represents 1% of the height of the screen.<figure class="wp-block-image">
+Basically, we&#8217;re going to make the browser display our outer wrapper similar to a table. Child elements of the outer wrapper (the inner wrapper), will be affected by this. We also want our outer wrapper to stretch across the screen, hence the 100% width, and we want it to be as tall as the user&#8217;s screen, hence the 100vh height. The unit _vh_ is the viewport height, and 1% vh represents 1% of the height of the screen.
 
-<img loading="lazy" width="936" height="768" src="https://learn.yorkcs.com/wp-content/uploads/2019/04/fullscreenlandingpage-notmuchcss.png" alt="" class="wp-image-1113" /> </figure> 
+![](https://learn.yorkcs.com/wp-content/uploads/2019/04/fullscreenlandingpage-notmuchcss.png)
 
 So far, if we open our index.html file in your browser of choice, you will notice the page looks pretty empty. The picture isn&#8217;t appearing in the background yet. No worries! Let&#8217;s add the following within our _.landing-outer-wrapper_ rule, after the _height_ property:
 
@@ -145,9 +147,9 @@ background-image: url(../images/samuel-zeller-19361-unsplash.jpg);
 
 Notice how I&#8217;ve included &#8220;../&#8221; before the path to the images folder, this allows us to go back a directory. We also added two other properties: _background-size_, and _background-repeat_. We want our background image to cover the div, but we don&#8217;t want it to repeat if the height of the image is shorter than the page when scaled.
 
-Now if we refresh our browser, we should now see our photo fully covering our page.<figure class="wp-block-image">
+Now if we refresh our browser, we should now see our photo fully covering our page.
 
-<img loading="lazy" width="948" height="767" src="https://learn.yorkcs.com/wp-content/uploads/2019/04/fullscreenlanding-bgimg-defined.png" alt="" class="wp-image-1110" /> </figure> 
+![](https://learn.yorkcs.com/wp-content/uploads/2019/04/fullscreenlanding-bgimg-defined.png)
 
 The next step is to specify we want elements with the class _landing-inner-wrapper_ to be displayed similar to a table cell. In this style rule we will also set the vertical alignment of the inner wrapper to be in the middle. Add the following code to create our style rule:
 
@@ -168,9 +170,9 @@ Inside this inner wrapper div we also added a div which contains our two heading
 }
 {{</highlight>}}
 
-We have to specify the width and height of the div we&#8217;re centering, in this case a div with the class _landing-centered_. We&#8217;re now finished with the meat and potatoes of centering the _landing-centered_ div.<figure class="wp-block-image">
+We have to specify the width and height of the div we&#8217;re centering, in this case a div with the class _landing-centered_. We&#8217;re now finished with the meat and potatoes of centering the _landing-centered_ div.
 
-<img src="https://learn.yorkcs.com/wp-content/uploads/2019/04/fullscreenlanding-centered-div-1024x576.png" alt="" class="wp-image-1120" /> </figure> 
+![](https://learn.yorkcs.com/wp-content/uploads/2019/04/fullscreenlanding-centered-div.png)
 
 Now we just need to modernize the appearance of our text! Add the following style rules to center align our headings, color them white, and add a slight text shadow:
 
@@ -193,9 +195,7 @@ Now we just need to modernize the appearance of our text! Add the following styl
 }
 {{</highlight>}}
 
-<figure class="wp-block-image">
-
-<img src="https://learn.yorkcs.com/wp-content/uploads/2019/04/fullscreenlanding-almost-finished-1024x576.png" alt="" class="wp-image-1121" /> </figure> 
+![](https://learn.yorkcs.com/wp-content/uploads/2019/04/fullscreenlanding-almost-finished.png)
 
 The last thing we&#8217;ll probably want to do is make our page mobile responsive. To do this, we will utilize CSS media queries. Pretty much, as the width of the window decreases below 960 pixels, we will want to decrease the font size and make adjustments to the width for some of our divs. Add the following code for our media query used for changing styles if the screen width is below 960 pixels:
 

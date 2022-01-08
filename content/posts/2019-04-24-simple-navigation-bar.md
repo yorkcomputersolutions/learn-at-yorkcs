@@ -106,9 +106,8 @@ Inside the body element, let&#8217;s the code for our navigation bar:
 </header>
 {{</highlight>}}
 
-If we open _index.html_ in our browser, we should now see:<figure class="wp-block-image">
-
-<img src="https://learn.yorkcs.com/wp-content/uploads/2019/04/webdesign-simple-navbar-1024x576.png" alt="" class="wp-image-1137" /> <figcaption>The links are now displayed, that&#8217;s progress!</figcaption></figure> 
+If we open _index.html_ in our browser, we should now see:
+![](https://learn.yorkcs.com/wp-content/uploads/2019/04/webdesign-simple-navbar.png)
 
 Now in our _styles.css_ file, let&#8217;s add the style rule to help make our HTML document appear somewhat more consistent across browsers:
 
@@ -163,13 +162,11 @@ Finally, we can style the links (_<a>_ elements) themselves, which are within th
 }
 {{</highlight>}}
 
-If you have a full screen landing page, you should see something like:<figure class="wp-block-image">
+If you have a full screen landing page, you should see something like:
+![](https://learn.yorkcs.com/wp-content/uploads/2019/04/navbar-preview-1.png)
 
-<img src="https://learn.yorkcs.com/wp-content/uploads/2019/04/navbar-preview-1-1024x576.png" alt="" class="wp-image-1149" /> </figure> 
-
-Otherwise, if you followed along from scratch, you should see something like:<figure class="wp-block-image">
-
-<img src="https://learn.yorkcs.com/wp-content/uploads/2019/04/webdesign-navbar-scratch-1024x576.png" alt="" class="wp-image-1151" /> </figure> 
+Otherwise, if you followed along from scratch, you should see something like:
+![](https://learn.yorkcs.com/wp-content/uploads/2019/04/webdesign-navbar-scratch.png)
 
 If you see a similar result, fantastic! However, if it didn&#8217;t quite turn out right, please don&#8217;t hesitate to email me at [jared.york@yorkcs.com][3] or tweet me at [@jaredyork_][4].
 

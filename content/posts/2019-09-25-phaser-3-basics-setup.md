@@ -35,13 +35,13 @@ Before we dive in, we need a web server of some sort in order to run our game. T
 
 Second, create a directory to house our project. The directory should be made in a location where the web server you installed can serve from. At this point, if you would like to use an NPM-based project template, you can jump skip this part of the tutorial and jump down to the heading, &#8220;Setting Up Phaser.&#8221; I go on to explain how to setup the template. You don&#8217;t need to create a folder here as you would be cloning a GitHub repository. Otherwise, we will proceed with creating a folder and our files manually.
 
-If I’m using XAMPP or MAMP, I would create a folder in the htdocs directory. Other web servers may have different locations for serving files.<figure class="wp-block-image size-large">
+If I’m using XAMPP or MAMP, I would create a folder in the htdocs directory. Other web servers may have different locations for serving files.
 
-<img loading="lazy" width="653" height="489" src="https://learn.yorkcs.com/wp-content/uploads/2019/11/phaser-3-basics-setup-created-base-dir.png" alt="" class="wp-image-11302" /> </figure> 
+![](https://learn.yorkcs.com/wp-content/uploads/2019/11/phaser-3-basics-setup-created-base-dir.png)
 
-Then, create two files in our project directory: index.html and game.js. The .html and .js extensions are very important. The .html extension denotes an HTML file and the .js extension represents a JavaScript file. Create a folder for images of be used. Name it anything you wish, I usually name my folder for images pretty simply — images. Last, create a folder for sounds to be used as well. Like the images folder, name the sounds folder anything you like.<figure class="wp-block-image size-large">
+Then, create two files in our project directory: index.html and game.js. The .html and .js extensions are very important. The .html extension denotes an HTML file and the .js extension represents a JavaScript file. Create a folder for images of be used. Name it anything you wish, I usually name my folder for images pretty simply — images. Last, create a folder for sounds to be used as well. Like the images folder, name the sounds folder anything you like.
 
-<img loading="lazy" width="653" height="488" src="https://learn.yorkcs.com/wp-content/uploads/2019/11/phaser-3-basics-setup-manual-contents.png" alt="" class="wp-image-11301" /> </figure> 
+![](https://learn.yorkcs.com/wp-content/uploads/2019/11/phaser-3-basics-setup-manual-contents.png)
 
 Once our files are created and are in the proper places, we can open our _index.html_ file. Feel free to use any text or code editor you wish. Personally, I enjoy using [Visual Studio Code][2] since it&#8217;s clean, lightweight, and fast.
 

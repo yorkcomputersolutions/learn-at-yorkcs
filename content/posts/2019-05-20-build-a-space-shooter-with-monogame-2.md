@@ -169,20 +169,17 @@ fontArial = Content.Load<SpriteFont>("arialHeading");
 {{</highlight>}}
 
 
-If we run the game now, we’ll see an error claiming ‘arialHeading’ does not exist. &nbsp;This is where sprite fonts come into play. Let’s open up the content pipeline for our project, and click the “New Item” button in the toolbar. &nbsp;  
-<figure class="wp-block-image">
+If we run the game now, we’ll see an error claiming ‘arialHeading’ does not exist. &nbsp;This is where sprite fonts come into play. Let’s open up the content pipeline for our project, and click the “New Item” button in the toolbar. &nbsp;
 
-<img src="https://learn.yorkcs.com/wp-content/uploads/2019/05/monogame_pipeline_add_new_item-1-1024x777.png" alt="" class="wp-image-1656" /> </figure> 
+![](https://learn.yorkcs.com/wp-content/uploads/2019/05/monogame_pipeline_add_new_item-1.png)
 
-A popup window should appear prompting you to name and select the type of file you wish to add. &nbsp;Choose “SpriteFont Description (.spritefont),” and name the file, “arialHeading”.  
-<figure class="wp-block-image">
+A popup window should appear prompting you to name and select the type of file you wish to add. &nbsp;Choose “SpriteFont Description (.spritefont),” and name the file, “arialHeading”.
 
-<img loading="lazy" width="993" height="740" src="https://learn.yorkcs.com/wp-content/uploads/2019/05/monogame_pipeline_spritefont_selected-2.png" alt="" class="wp-image-1657" /> </figure> 
+![](https://learn.yorkcs.com/wp-content/uploads/2019/05/monogame_pipeline_spritefont_selected-2.png)
 
-Once you’ve selected the SpriteFont option, and named the file “fontArial,” we can click the _Create_ button. &nbsp;Our new SpriteFont file will be added to our project list. &nbsp;We will want to increase the font size though, since this font will be utilized for our title. &nbsp;Right click “arialHeading.spritefont” in our pipeline project, then click “Open With”. Choose a text editor or code editor of your choice, anything works. &nbsp;Then click _OK_ or the equivalent on your operating system, and the file should open in the editor you chose. &nbsp;I myself has chosen to use Visual Studio Code, which is a fantastic, fast code editor. At this point we should be seeing the following text:  
-<figure class="wp-block-image">
+Once you’ve selected the SpriteFont option, and named the file “fontArial,” we can click the _Create_ button. &nbsp;Our new SpriteFont file will be added to our project list. &nbsp;We will want to increase the font size though, since this font will be utilized for our title. &nbsp;Right click “arialHeading.spritefont” in our pipeline project, then click “Open With”. Choose a text editor or code editor of your choice, anything works. &nbsp;Then click _OK_ or the equivalent on your operating system, and the file should open in the editor you chose. &nbsp;I myself has chosen to use Visual Studio Code, which is a fantastic, fast code editor. At this point we should be seeing the following text:
 
-<img src="https://learn.yorkcs.com/wp-content/uploads/2019/05/spritefont_def-1-769x1024.png" alt="" class="wp-image-1658" /> </figure> 
+![](https://learn.yorkcs.com/wp-content/uploads/2019/05/spritefont_def-1.png)
 
 Change the value between the _<Size>_ tags from _12_ to _32_. &nbsp;We can also change the value of the _<Style>_ element to _Bold_. &nbsp;Save this file, and exit out of the editor you were using and let’s go back to the pipeline tool. &nbsp;
 

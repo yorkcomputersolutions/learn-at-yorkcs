@@ -73,14 +73,12 @@ In this course, we will be creating a space shoot-em-up game with MonoGame! &nbs
 SETTING UP THE PROJECT
 
 The next thing we have to do is setup the project. &nbsp;In Visual Studio, select File > New > Project…  
-<figure class="wp-block-image">
 
-<img loading="lazy" width="1009" height="694" src="https://learn.yorkcs.com/wp-content/uploads/2019/05/new_project_menu-1.png" alt="" class="wp-image-1642" /> </figure> 
+![](https://learn.yorkcs.com/wp-content/uploads/2019/05/new_project_menu-1.png)
 
 A new window should pop up allowing you to choose a project template. &nbsp;What we want to do is expand the _Visual C#_ dropdown on the left sidebar, then select “MonoGame Cross Platform Desktop Project.” &nbsp;This project template will tell MonoGame to use OpenGL meaning we can run the game on not only Windows, but also Mac and Linux! &nbsp;Your screen should now look similar to:  
-<figure class="wp-block-image">
 
-<img src="https://learn.yorkcs.com/wp-content/uploads/2019/05/select_project_type-1-1024x736.png" alt="" class="wp-image-1643" /> </figure> 
+![](https://learn.yorkcs.com/wp-content/uploads/2019/05/select_project_type-1.png)
 
 The next step is to name the project. &nbsp;To do this, you can fill out the text box next to the “Name” field on the bottom of this window. &nbsp;Don’t worry about the “Solution name” field, Visual Studio will fill this in for you. Once you’re ready, click the _OK_ button.  
 
@@ -92,51 +90,42 @@ In order to add our content to the game, we will have to provide it to the MonoG
 
 
 At this point, you should see the following in the “Open With” dialog:  
-<figure class="wp-block-image">
 
-<img loading="lazy" width="864" height="778" src="https://learn.yorkcs.com/wp-content/uploads/2019/05/set_monogame_pipeline_as_default-1.png" alt="" class="wp-image-1644" /> </figure> 
+![](https://learn.yorkcs.com/wp-content/uploads/2019/05/set_monogame_pipeline_as_default-1.png)
 
 Once that’s all set, just click the _OK_ button, and you should be good to go! &nbsp;We can now add the content to our game. The first thing we’ll need to do now, is double click the “Content.mgcb” file in the Solution Explorer pane. &nbsp;Now the MonoGame Pipeline Tool should open since we’ve set it as the default application to open _.mgcb_ files.  
-<figure class="wp-block-image">
 
-<img src="https://learn.yorkcs.com/wp-content/uploads/2019/05/monogame_pipeline_empty-1-1024x803.png" alt="" class="wp-image-1645" /> </figure> 
+![](https://learn.yorkcs.com/wp-content/uploads/2019/05/monogame_pipeline_empty-1.png)
 
 You should see something like the above window once the pipeline tool has opened. 
 
 Unfortunately, we won’t be able to just select our content, and drag and drop it in. &nbsp;So, we will have to click “Add Existing Item.” This button should be on the row of buttons at the top of the window:  
-<figure class="wp-block-image">
 
-<img src="https://learn.yorkcs.com/wp-content/uploads/2019/05/monogame_pipeline_add_existing_item-1-1024x812.png" alt="" class="wp-image-1646" /> </figure> 
+![](https://learn.yorkcs.com/wp-content/uploads/2019/05/monogame_pipeline_add_existing_item-1.png)
 
 An open dialog should now be displayed. &nbsp;The next step is to find the ZIP file you downloaded containing the content and extract it. &nbsp;Then, click on the newly extracted folder and select all the files like so:  
-<figure class="wp-block-image">
 
-<img src="https://learn.yorkcs.com/wp-content/uploads/2019/05/select_content-1-1024x800.png" alt="" class="wp-image-1647" /> </figure> 
+![](https://learn.yorkcs.com/wp-content/uploads/2019/05/select_content-1.png)
 
-Once you’ve selected all of the content, click the _Open_ button. &nbsp;If all goes right, you should now see another prompt on your screen asking you what you want to do:  
-<figure class="wp-block-image">
+Once you’ve selected all of the content, click the _Open_ button. &nbsp;If all goes right, you should now see another prompt on your screen asking you what you want to do:
 
-<img loading="lazy" width="566" height="419" src="https://learn.yorkcs.com/wp-content/uploads/2019/05/monogame_pipeline_add_existing_what_to_do-1.png" alt="" class="wp-image-1648" srcset="https://learn.yorkcs.com/wp-content/uploads/2019/05/monogame_pipeline_add_existing_what_to_do-1.png 566w, https://learn.yorkcs.com/wp-content/uploads/2019/05/monogame_pipeline_add_existing_what_to_do-1-300x222.png 300w, https://learn.yorkcs.com/wp-content/uploads/2019/05/monogame_pipeline_add_existing_what_to_do-1-480x355.png 480w, https://learn.yorkcs.com/wp-content/uploads/2019/05/monogame_pipeline_add_existing_what_to_do-1-81x60.png 81w, https://learn.yorkcs.com/wp-content/uploads/2019/05/monogame_pipeline_add_existing_what_to_do-1-122x90.png 122w, https://learn.yorkcs.com/wp-content/uploads/2019/05/monogame_pipeline_add_existing_what_to_do-1-450x333.png 450w" sizes="(max-width: 566px) 100vw, 566px" /> </figure> 
+![](https://learn.yorkcs.com/wp-content/uploads/2019/05/monogame_pipeline_add_existing_what_to_do-1.png)
 
-Ensure the option, “Copy the file to the directory” is selected. &nbsp;I would also mark the checkbox labeled, “Use the same action for all the selected files.” &nbsp;After that, click _Add_ and the content should then be added to our project’s pipeline!  
-<figure class="wp-block-image">
+Ensure the option, “Copy the file to the directory” is selected. &nbsp;I would also mark the checkbox labeled, “Use the same action for all the selected files.” &nbsp;After that, click _Add_ and the content should then be added to our project’s pipeline!
 
-<img loading="lazy" width="996" height="738" src="https://learn.yorkcs.com/wp-content/uploads/2019/05/monogame_pipeline_files_added-1.png" alt="" class="wp-image-1649" /> </figure> 
+![](https://learn.yorkcs.com/wp-content/uploads/2019/05/monogame_pipeline_files_added-1.png)
 
-Of course, we still can’t use it in our game yet. &nbsp;Let’s click the _Build_ button on the top of the pipeline tool and wait for our content to build.  
-<figure class="wp-block-image">
+Of course, we still can’t use it in our game yet. &nbsp;Let’s click the _Build_ button on the top of the pipeline tool and wait for our content to build.
 
-<img src="https://learn.yorkcs.com/wp-content/uploads/2019/05/monogame_pipeline_content_built-1-1024x766.png" alt="" class="wp-image-1650" /> </figure> 
+![](https://learn.yorkcs.com/wp-content/uploads/2019/05/monogame_pipeline_content_built-1.png)
 
-At this point, we can close the pipeline (for now). &nbsp;We will be coming back to it once we add text to our game. &nbsp;Let’s have a go at running the game and see what we get. At the top of Visual Studio, you should see the _Start_ button.  
-<figure class="wp-block-image">
+At this point, we can close the pipeline (for now). &nbsp;We will be coming back to it once we add text to our game. &nbsp;Let’s have a go at running the game and see what we get. At the top of Visual Studio, you should see the _Start_ button.
 
-<img loading="lazy" width="617" height="255" src="https://learn.yorkcs.com/wp-content/uploads/2019/05/visual_studio_start_button-1.png" alt="" class="wp-image-1651" /> </figure> 
+![](https://learn.yorkcs.com/wp-content/uploads/2019/05/visual_studio_start_button-1.png)
 
-If we click the button, our game will compile and we should see the following:  
-<figure class="wp-block-image">
+If we click the button, our game will compile and we should see the following:
 
-<img src="https://learn.yorkcs.com/wp-content/uploads/2019/05/monogame_running_empty_game-1-1024x656.png" alt="" class="wp-image-1652" /> </figure> 
+![](https://learn.yorkcs.com/wp-content/uploads/2019/05/monogame_running_empty_game-1.png)
 
 This looks pretty eventful, huh? &nbsp;We’ll spruce it up, but we have to get some of the more boring work out of the way first. &nbsp;This includes loading our content.
 

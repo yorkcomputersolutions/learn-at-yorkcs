@@ -86,9 +86,9 @@ Take a second and open our _index.html_ file with a text/code editor of your cho
 </html>
 {{</highlight>}}
 
-If we take a look at our _index.html_ file in the browser, we will see a blank screen.<figure class="wp-block-image size-large">
+If we take a look at our _index.html_ file in the browser, we will see a blank screen.
 
-<img src="https://learn.yorkcs.com/wp-content/uploads/2019/12/nibble_html_step1-1024x634.png" alt="" class="wp-image-12165" /> </figure> 
+![](https://learn.yorkcs.com/wp-content/uploads/2019/12/nibble_html_step1.png)
 
 Before we continue, it&#8217;s important to point out that HTML is primarily comprised of what&#8217;s known as _tags_. A tag is simply a way that we can reference an HTML _element_. Elements define an object on our page. Some examples of elements include headings, paragraphs, images, headers, footers, etc. In the code above, we have added an opening _<html>_ tag and a closing tag. We can add tags in between to define children of our _<html>_ element. This works for all other tags as well.
 
@@ -103,9 +103,9 @@ Next, we need a way to specify some metadata for our web page. This is pretty tr
 </html>
 {{</highlight>}}
 
-You may notice when you look at the tabs in your browser, you see the titles for various websites that are in the tabs.<figure class="wp-block-image size-large">
+You may notice when you look at the tabs in your browser, you see the titles for various websites that are in the tabs.
 
-<img src="https://learn.yorkcs.com/wp-content/uploads/2019/12/firefox_tabs-1024x65.png" alt="" class="wp-image-12167" /> </figure> 
+![](https://learn.yorkcs.com/wp-content/uploads/2019/12/firefox_tabs.png)
 
 We can define a title for our page via the _<title>_ element. We can add this between the _<head>_ tags:
 
@@ -113,9 +113,7 @@ We can define a title for our page via the _<title>_ element. We can add this be
 <title>My Website</title>
 {{</highlight>}}
 
-<figure class="wp-block-image size-large">
-
-<img loading="lazy" width="490" height="205" src="https://learn.yorkcs.com/wp-content/uploads/2019/12/nibble_html_step2.png" alt="" class="wp-image-12168" /> <figcaption>Now we have our renamed tab!</figcaption></figure> 
+![](https://learn.yorkcs.com/wp-content/uploads/2019/12/nibble_html_step2.png "Now we have our renamed tab!")
 
 In order to add content to be displayed on our web page, we will need to add a pair of _<body>_ tags. Add an opening and closing tag after the closing tag of the _<head>_ element. We should now have the following:
 
@@ -138,9 +136,7 @@ Let&#8217;s try adding a heading to our page! Between the _<body>_ tags, add the
 <h1>Hello World!</h1>
 {{</highlight>}}
 
-<figure class="wp-block-image size-large">
-
-<img src="https://learn.yorkcs.com/wp-content/uploads/2019/12/nibble_html_step3-1024x616.png" alt="" class="wp-image-12169" /> </figure> 
+![](https://learn.yorkcs.com/wp-content/uploads/2019/12/nibble_html_step3.png)
 
 The _<h1>_ tag is the largest sized heading as specified in the specification. There are also smaller tags such as _<h2>_, _<h3>_, _<h4>_&#8230; all the way up to _<h6>_. Generally it&#8217;s good practice to only have one _<h1>_ heading per page. Under the line above, we can add some text. Please feel free to type anything you like. I&#8217;m just going to add some lorem ipsum filler text, which you can use for your own projects and can find [here][1]. We can add this text via the _<p>_ paragraph element.
 
@@ -150,9 +146,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum eu scelerisq
 </p>
 {{</highlight>}}
 
-<figure class="wp-block-image size-large">
-
-<img src="https://learn.yorkcs.com/wp-content/uploads/2019/12/nibble_html_step4-1024x671.png" alt="" class="wp-image-12170" /> </figure> 
+![](https://learn.yorkcs.com/wp-content/uploads/2019/12/nibble_html_step4.png)
 
 You will also find it useful to add lists to your pages at some point. There are two tags that allow us to add lists: _<ul>_ and _<ol>_. The _<ul>_ elements represents an unordered list. Pretty much, this means that by default, the list will have a bullet point next to each item. Let&#8217;s try adding one:
 
@@ -165,9 +159,7 @@ You will also find it useful to add lists to your pages at some point. There are
 </ul>
 {{</highlight>}}
 
-<figure class="wp-block-image size-large">
-
-<img src="https://learn.yorkcs.com/wp-content/uploads/2019/12/nibble_html_step5-1024x663.png" alt="" class="wp-image-12171" /> </figure> 
+![](https://learn.yorkcs.com/wp-content/uploads/2019/12/nibble_html_step5.png)
 
 The other type of list is the ordered list, defined by the _<ol>_ tag. By default, these types of lists will add a number next to each item in sequence. Let&#8217;s try making one!
 
@@ -180,9 +172,7 @@ The other type of list is the ordered list, defined by the _<ol>_ tag. By defaul
 </ol>
 {{</highlight>}}
 
-<figure class="wp-block-image size-large">
-
-<img src="https://learn.yorkcs.com/wp-content/uploads/2019/12/nibble_html_step6-1-1024x665.png" alt="" class="wp-image-12176" /> </figure> 
+![](https://learn.yorkcs.com/wp-content/uploads/2019/12/nibble_html_step6-1.png)
 
 The way each item is labeled in both lists can be changed via CSS.
 
@@ -192,9 +182,7 @@ The last element I&#8217;ll cover in this bite-sized guide is the anchor tag. Th
 <a>Click Me!</a>
 {{</highlight>}}
 
-<figure class="wp-block-image size-large">
-
-<img src="https://learn.yorkcs.com/wp-content/uploads/2019/12/nibble_html_step7-1024x697.png" alt="" class="wp-image-12177" /> </figure> 
+![](https://learn.yorkcs.com/wp-content/uploads/2019/12/nibble_html_step7.png)
 
 Now, by default this link won&#8217;t go anywhere because we haven&#8217;t specified the destination. We can add a destination by appending what&#8217;s known as an _attribute_ in HTML. Attributes are pretty much key value pairs that we can add to the opening tag of our _<a>_ tag. Let&#8217;s add a destination to our anchor tag via the _href_ attribute.
 
@@ -202,9 +190,9 @@ Now, by default this link won&#8217;t go anywhere because we haven&#8217;t speci
 <a href="https://learn.yorkcs.com">Click Me!</a>
 {{</highlight>}}
 
-If we open our _index.html_ file in the browser, we should now see something similar to the following:<figure class="wp-block-image size-large">
+If we open our _index.html_ file in the browser, we should now see something similar to the following:
 
-<img src="https://learn.yorkcs.com/wp-content/uploads/2019/12/nibble_html_step8-1024x690.png" alt="" class="wp-image-12178" /> </figure> 
+![](https://learn.yorkcs.com/wp-content/uploads/2019/12/nibble_html_step8.png)
 
 That about wraps up this nibble of HTML. Hopefully this guide has provided some understanding of the basics of HTML and how you can get started with it right away. If you would like to learn more about HTML, check out our in-depth beginners course available in our [shop][2]!
 

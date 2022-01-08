@@ -222,9 +222,8 @@ for (var x = 0; x < this.scene.chunkSize; x++) {
 {{</highlight>}}
 
 Basically, once each tile in the current column is created, then it moves on to the next column and create all the tiles in that column, etc. &nbsp;Here’s a very crude diagram to help visualize this:  
-<figure class="wp-block-image">
 
-<img src="https://learn.yorkcs.com/wp-content/uploads/2019/02/3CF9CDEA-C1EB-4101-B234-CE954089A142-1024x1024.jpeg" alt="" class="wp-image-810" /> </figure> 
+![](https://learn.yorkcs.com/wp-content/uploads/2019/02/3CF9CDEA-C1EB-4101-B234-CE954089A142.jpeg)
 
 The next step to create our tiles, is to define two variables which will hold the X position, and Y position of the tile, respectively. &nbsp;Add the following inside the second for loop:  
 
@@ -468,9 +467,9 @@ To center the camera, it’s an easy one-liner:
 this.cameras.main.centerOn(this.followPoint.x, this.followPoint.y);
 {{</highlight>}}
 
-There we have it! &nbsp;If we navigate to our page in the browser, we should something like the this:<figure class="wp-block-image">
+There we have it! &nbsp;If we navigate to our page in the browser, we should something like the this:
 
-<img loading="lazy" width="634" height="634" src="https://learn.yorkcs.com/wp-content/uploads/2019/02/infiniteterrain.gif" alt="" class="wp-image-814" /> <figcaption>It works!</figcaption></figure> 
+![](https://learn.yorkcs.com/wp-content/uploads/2019/02/infiniteterrain.gif "It works!")
 
 This concludes this tutorial on infinite procedural terrain generation! &nbsp;The final code for this tutorial can be found on [GitHub][6]. I’m looking forward to hearing your comments, suggestions, and feedback on this tutorial. &nbsp;Feel free to email me at <jared.york@yorkcs.com>. I would love to hear what you can do with this. &nbsp;I could see this code easily be adapted for an RPG game, or a game similar to Minicraft, etc. &nbsp;If you build something cool with this, tweet it at me! My Twitter handle is [@jaredyork_][7]. &nbsp;If you would like to hear about more of our tutorials and courses, be sure to fill out the [form][8].
 

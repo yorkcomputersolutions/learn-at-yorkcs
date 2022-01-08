@@ -67,13 +67,13 @@ series:
 ---
 This is the beginning of a series where I cover the basics of using the terminal in Debian/Ubuntu based distributions. Chances are, if you&#8217;re using another distribution that isn&#8217;t based of Debian (or Ubuntu), you already know these basic commands. The goal of this series of tutorials is to start you on your journey of utilizing the command line in Linux. Without further ado, let&#8217;s start by learning how to update and upgrade your computer via the terminal.
 
-If you&#8217;re using Ubuntu, you can open an instance of the terminal by pressing the super key (also known as the Windows key associated with that other nasty operating system, haha.) Next, you should see a search box at the top of your screen where you can search for an application. Start typing in &#8220;terminal.&#8221; As you type, you should see the terminal application appear like so:<figure class="wp-block-image">
+If you&#8217;re using Ubuntu, you can open an instance of the terminal by pressing the super key (also known as the Windows key associated with that other nasty operating system, haha.) Next, you should see a search box at the top of your screen where you can search for an application. Start typing in &#8220;terminal.&#8221; As you type, you should see the terminal application appear like so:
 
-<img loading="lazy" width="982" height="644" src="https://learn.yorkcs.com/wp-content/uploads/2019/07/ubuntu-search-terminal.jpg" alt="" class="wp-image-3025" /> </figure> 
+![](https://learn.yorkcs.com/wp-content/uploads/2019/07/ubuntu-search-terminal.jpg)
 
-Once the icon appears, feel free to click on it or simply press enter.<figure class="wp-block-image">
+Once the icon appears, feel free to click on it or simply press enter.
 
-<img loading="lazy" width="982" height="644" src="https://learn.yorkcs.com/wp-content/uploads/2019/07/terminal.jpg" alt="" class="wp-image-3026" /> <figcaption>The only part of Windows I like is the Bliss wallpaper from Windows XP, don&#8217;t judge me.</figcaption></figure> 
+![](https://learn.yorkcs.com/wp-content/uploads/2019/07/terminal.jpg "The only part of Windows I like is the Bliss wallpaper from Windows XP, don't judge me.")
 
 When I update and/or upgrade my system, a run a series of commands that perform the following steps:
 
@@ -91,41 +91,31 @@ Now that your terminal is open, type in:
 
 _sudo apt-get update_
 
-<figure class="wp-block-image">
-
-<img loading="lazy" width="982" height="644" src="https://learn.yorkcs.com/wp-content/uploads/2019/07/terminal-apt-update.jpg" alt="" class="wp-image-3027" /> </figure> 
+![](https://learn.yorkcs.com/wp-content/uploads/2019/07/terminal-apt-update.jpg)
 
 Now that we have a refreshed list of packages, next we can update our existing packages to the new versions that we&#8217;ve retrieved. We can update our packages by typing:
 
 _sudo apt-get upgrade_
 
-<figure class="wp-block-image">
-
-<img loading="lazy" width="982" height="644" src="https://learn.yorkcs.com/wp-content/uploads/2019/07/terminal-apt-upgrade.jpg" alt="" class="wp-image-3028" /> </figure> 
+![](https://learn.yorkcs.com/wp-content/uploads/2019/07/terminal-apt-upgrade.jpg)
 
 Occasionally, we will also want to update the Linux kernel. This is actually a very important step to do. Kernel updates provide fixes to loopholes, exploits, better hardware compatibility, increased speed, and other new features. It&#8217;s generally recommended that you use your terminal to upgrade your Linux kernel instead of manually downloading the latest and installing. If you try to install the absolute latest kernel, there&#8217;s a good chance your graphics drivers, and many of your other applications will break. This is why it&#8217;s good to upgrade to the kernel your distribution recommends via the command:
 
 _sudo apt-get dist-upgrade_
 
-<figure class="wp-block-image">
-
-<img loading="lazy" width="982" height="644" src="https://learn.yorkcs.com/wp-content/uploads/2019/07/terminal-apt-dist-upgrade.jpg" alt="" class="wp-image-3029" /> </figure> 
+![](https://learn.yorkcs.com/wp-content/uploads/2019/07/terminal-apt-dist-upgrade.jpg)
 
 After upgrading our packages, we will want to get rid of packages that are no longer needed by the newest releases of the software we have installed. We can run the following command to do so:
 
 _sudo apt-get autoremove_
 
-<figure class="wp-block-image">
-
-<img loading="lazy" width="982" height="644" src="https://learn.yorkcs.com/wp-content/uploads/2019/07/terminal-apt-autoremove.jpg" alt="" class="wp-image-3032" /> </figure> 
+![](https://learn.yorkcs.com/wp-content/uploads/2019/07/terminal-apt-autoremove.jpg)
 
 After you&#8217;ve been running the _sudo apt-get update_ command a bunch of times, you might want to clear out the old temporary package files. These files can build up as you install and upgrade packages. We can clean out the old package files with the command:
 
 _sudo apt-get clean_
 
-<figure class="wp-block-image">
-
-<img loading="lazy" width="982" height="644" src="https://learn.yorkcs.com/wp-content/uploads/2019/07/terminal-apt-clean-2.jpg" alt="" class="wp-image-3034" /> </figure> 
+![](https://learn.yorkcs.com/wp-content/uploads/2019/07/terminal-apt-clean-2.jpg)
 
 Now you know the main commands to update and upgrade your Linux system running a Debian or Ubuntu variant! In the next part of this series, we will take a look at another useful tool that you can use via the terminal. Until then, stay tuned! If you found this guide helpful, please be sure to share it on your social media platform of choice. You can also fill out the form [here][1], to receive news on our upcoming tutorials and courses!
 
