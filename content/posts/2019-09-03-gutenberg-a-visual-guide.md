@@ -91,7 +91,7 @@ The rise of the Gutenberg editor is in full swing, for better or worse. Gutenber
 
 ![](https://learn.yorkcs.com/wp-content/uploads/2019/08/A886B132-7415-4D3F-A153-6757EC226AEF.jpeg)
 
-The traditional WordPress editor can still be used via installing the Classic Editor plugin. This plugin will continue to be supported until December 31, 2021, or as long as the need is there. In this page on WordPress.org, Automattic addresses additional support with:
+The traditional WordPress editor can still be used via installing the Classic Editor plugin. This plugin will continue to be supported until December 31, 2021, or as long as the need is there. In [this page on WordPress.org](https://make.wordpress.org/core/2018/11/07/classic-editor-plugin-support-window/), Automattic addresses additional support with:
 
 > In 2021 we will evaluate continuing maintenance of the plugin, based on usage. We expect continued maintenance to be fairly trivial.
 >

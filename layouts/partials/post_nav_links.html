@@ -1,0 +1,54 @@
+{{ if isset .Params "series" }}
+  {{ $seriesTitle := index .Params.series 0 }}
+  {{ $currentLink := .Permalink }}
+  {{ $wholeSeries := (index .Site.Taxonomies.series ($seriesTitle | urlize)).Pages.ByWeight }}
+  
+  {{ range $index, $page := $wholeSeries }}
+    {{ if eq $currentLink $page.Permalink }}
+      {{ if gt $index 0 }}
+          {{ .Scratch.Set "prevInSeries" (index $wholeSeries (sub $index 1)) }}
+      {{ end }}
+      {{ if lt $index (sub (len $wholeSeries) 1) }}
+          {{ .Scratch.Set "nextInSeries" (index $wholeSeries (add $index 1)) }}
+      {{ end }}
+    {{ end }}
+  {{ end }}
+
+  <nav class="paginav">
+    {{ with index .Scratch.Values "prevInSeries" }}
+    <a class="prev" href="{{ .Permalink }}">
+      <span class="title">« {{ i18n "prev_page" }}</span>
+      <br>
+      <span>{{- .Title -}}</span>
+    </a>
+    {{ end }}
+    {{ with index .Scratch.Values "nextInSeries" }}
+    <a class="next" href="{{ .Permalink }}">
+      <span class="title">{{ i18n "next_page" }} »</span>
+      <br>
+      <span>{{- .Title -}}</span>
+    </a>
+    {{ end }}
+  </nav>
+{{- else }}
+  {{- $pages := where site.RegularPages "Type" "in" site.Params.mainSections }}
+
+  {{- if and (gt (len $pages) 1) (in $pages . ) }}
+  <nav class="paginav">
+    {{- with $pages.Next . }}
+    <a class="prev" href="{{ .Permalink }}">
+      <span class="title">« {{ i18n "prev_page" }}</span>
+      <br>
+      <span>{{- .Name -}}</span>
+    </a>
+    {{- end }}
+    {{- with $pages.Prev . }}
+    <a class="next" href="{{ .Permalink }}">
+      <span class="title">{{ i18n "next_page" }} »</span>
+      <br>
+      <span>{{- .Name -}}</span>
+    </a>
+    {{- end }}
+  </nav>
+  {{- end }}
+{{- end }}

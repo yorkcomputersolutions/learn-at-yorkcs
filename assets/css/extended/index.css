@@ -10,3 +10,38 @@
   max-width: 100%;
   height: auto;
 }
+
+/* Images */
+.width-75perc {
+  width: 100%;
+  max-width: 75%;
+}
+
+.width-60perc {
+  width: 100%;
+  max-width: 60%;
+}
+
+.width-50perc {
+  width: 100%;
+  max-width: 50%;
+}
+
+.width-33perc {
+  width: 100%;
+  max-width: 33%;
+}
+
+/* Consider donating (found at bottom of posts) */
+.consider-donating a {
+  text-decoration: underline;
+}
+
+@media all and (max-width: 640px) {
+  .width-75perc,
+  .width-60perc,
+  .width-50perc,
+  .width-33perc {
+    max-width: 100%;
+  }
+}

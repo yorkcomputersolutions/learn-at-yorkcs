@@ -82,3 +82,7 @@ menu:
       name: Company
       url: https://yorkcs.com
       weight: 40
+    - identifier: donate
+      name: Donate
+      url: /donate
+      weight: 50
